@@ -10,15 +10,15 @@ public class Evento {
     public static String BD_NOME = "evento_nome";
     public static String BD_DESCRICAO = "evento_descricao";
 
-    private String id;
+    private int id;
     private String nome;
     private String descricao;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
