@@ -10,6 +10,7 @@ public class Evento {
     public static String BD_NOME = "evento_nome";
     public static String BD_DESCRICAO = "evento_descricao";
     public static String BD_GENERO = "genero";
+    public static String BD_IMAGEM = "imagem";
 
     private int id;
     private String nome;
