@@ -23,7 +23,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + Evento.BD_TABELA + " ( "
                 + Evento.BD_ID + " integer primary key autoincrement, "
                 + Evento.BD_NOME + " text, "
-                + Evento.BD_DESCRICAO + " text "
+                + Evento.BD_DESCRICAO + " text, "
                 + Evento.BD_GENERO + " text "
                 + " ) ";
 
