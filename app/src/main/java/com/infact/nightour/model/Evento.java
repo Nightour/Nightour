@@ -1,5 +1,7 @@
 package com.infact.nightour.model;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Timóteo on 08/11/2015.
  */
@@ -16,6 +18,7 @@ public class Evento {
     private String nome;
     private String descricao;
     private String genero;
+    private Bitmap imagem;
 
     public int getId() {
         return id;
@@ -47,5 +50,13 @@ public class Evento {
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    public Bitmap getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(Bitmap imagem) {
+        this.imagem = imagem;
     }
 }
