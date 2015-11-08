@@ -80,4 +80,12 @@ public class EventosController {
         db.update(Evento.NOME_TABELA, valores, where, null);
         db.close();
     }
+
+    public void deletaEvento(int id) {
+        String where = Evento.BD_ID + " = " + id;
+
+        db = banco.getWritableDatabase();
+        db.delete(Evento.NOME_TABELA, where, null);
+        db.close();
+    }
 }
