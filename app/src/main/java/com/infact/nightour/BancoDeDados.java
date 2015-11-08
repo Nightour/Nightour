@@ -21,14 +21,6 @@ public class BancoDeDados extends SQLiteOpenHelper {
         public static String SENHA = "senha";
     }
 
-    public static class Eventos {
-        public static String TABELA = "eventos";
-
-        public static String ID = "_id";
-        public static String NOME = "nome";
-        public static String DESCRICAO = "descricao";
-    }
-
     public BancoDeDados(Context context) {
         super(context, NOME_BANCO, null, VERSAO);
     }
