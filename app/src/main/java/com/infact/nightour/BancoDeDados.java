@@ -20,7 +20,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE " + Evento.BD_TABELA + " ( "
+        String query = "CREATE TABLE " + Evento.NOME_TABELA + " ( "
                 + Evento.BD_ID + " integer primary key autoincrement, "
                 + Evento.BD_NOME + " text, "
                 + Evento.BD_DESCRICAO + " text, "
@@ -41,7 +41,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + Evento.BD_TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Evento.NOME_TABELA);
         db.execSQL("DROP TABLE IF EXISTS " + Usuario.BD_TABELA);
         onCreate(db);
     }
