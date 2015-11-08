@@ -9,10 +9,12 @@ public class Evento {
     public static String BD_ID = "_id";
     public static String BD_NOME = "evento_nome";
     public static String BD_DESCRICAO = "evento_descricao";
+    public static String BD_GENERO = "genero";
 
     private int id;
     private String nome;
     private String descricao;
+    private String genero;
 
     public int getId() {
         return id;
@@ -36,5 +38,13 @@ public class Evento {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 }

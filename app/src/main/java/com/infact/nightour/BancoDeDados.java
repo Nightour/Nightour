@@ -24,6 +24,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
                 + Evento.BD_ID + " integer primary key autoincrement, "
                 + Evento.BD_NOME + " text, "
                 + Evento.BD_DESCRICAO + " text "
+                + Evento.BD_GENERO + " text "
                 + " ) ";
 
         db.execSQL(query);
