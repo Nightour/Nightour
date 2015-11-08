@@ -27,7 +27,7 @@ public class EventosController {
         valores.put(Evento.BD_IMAGEM, evento.getImagemBytes());
 
         db = banco.getWritableDatabase();
-        long resultado = db.insert(Evento.TABELA_NOME, null, valores);
+        long resultado = db.insert(Evento.NOME_TABELA, null, valores);
         db.close();
 
         return resultado;
@@ -41,7 +41,7 @@ public class EventosController {
         String[] campos = camposTabelaEvento();
 
         db = banco.getReadableDatabase();
-        Cursor cursor = db.query(Evento.TABELA_NOME, campos, null, null, null, null, null, null);
+        Cursor cursor = db.query(Evento.NOME_TABELA, campos, null, null, null, null, null, null);
 
         if (cursor != null) {
             cursor.moveToFirst();
@@ -56,7 +56,7 @@ public class EventosController {
         String where = Evento.BD_ID + " = " + id;
 
         db = banco.getReadableDatabase();
-        Cursor cursor = db.query(Evento.TABELA_NOME, campos, where, null, null, null, null, null);
+        Cursor cursor = db.query(Evento.NOME_TABELA, campos, where, null, null, null, null, null);
 
         if (cursor != null) {
             cursor.moveToFirst();
@@ -77,7 +77,7 @@ public class EventosController {
         String where = Evento.BD_ID + " = " + evento.getId());
 
         db = banco.getWritableDatabase();
-        db.update(Evento.TABELA_NOME, valores, where, null);
+        db.update(Evento.NOME_TABELA, valores, where, null);
         db.close();
     }
 }

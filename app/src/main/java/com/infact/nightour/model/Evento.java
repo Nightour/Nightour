@@ -8,7 +8,7 @@ import java.io.ByteArrayOutputStream;
  * Created by Timóteo on 08/11/2015.
  */
 public class Evento {
-    public static String TABELA_NOME = "eventos";
+    public static String NOME_TABELA = "eventos";
 
     public static String BD_ID = "_id";
     public static String BD_NOME = "evento_nome";
