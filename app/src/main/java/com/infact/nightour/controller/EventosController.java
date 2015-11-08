@@ -2,6 +2,7 @@ package com.infact.nightour.controller;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.infact.nightour.BancoDeDados;
@@ -31,4 +32,20 @@ public class EventosController {
 
         return resultado;
     }
+
+    public Cursor carregaEventos() {
+        String[] campos = { Evento.BD_ID, Evento.BD_NOME, Evento.BD_DESCRICAO, Evento.BD_GENERO, Evento.BD_IMAGEM };
+
+        db = banco.getWritableDatabase();
+        Cursor cursor = db.query(Evento.BD_TABELA, campos, null, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        db.close();
+        return cursor;
+    }
+
+    
 }
