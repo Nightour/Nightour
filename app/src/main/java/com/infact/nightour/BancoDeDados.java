@@ -14,14 +14,6 @@ public class BancoDeDados extends SQLiteOpenHelper {
     public static String NOME_BANCO = "banco_nightour.db";
     public static int VERSAO = 1;
 
-    public static class Usuarios {
-        public static String TABELA = "usuarios";
-
-        public static String ID = "_id";
-        public static String EMAIL = "email";
-        public static String SENHA = "senha";
-    }
-
     public BancoDeDados(Context context) {
         super(context, NOME_BANCO, null, VERSAO);
     }
