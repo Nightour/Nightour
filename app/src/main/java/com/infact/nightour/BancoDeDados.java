@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.infact.nightour.model.Evento;
+import com.infact.nightour.model.Usuario;
 
 /**
  * Created by Timóteo on 08/11/2015.
@@ -35,10 +36,10 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
         db.execSQL(query);
 
-        query = "CREATE TABLE " + Usuarios.TABELA + " ( "
-                + Usuarios.ID + " integer primary key autoincrement, "
-                + Usuarios.EMAIL + " text, "
-                + Usuarios.SENHA + " text "
+        query = "CREATE TABLE " + Usuario.BD_TABELA + " ( "
+                + Usuario.BD_ID + " integer primary key autoincrement, "
+                + Usuario.BD_EMAIL + " text, "
+                + Usuario.BD_SENHA + " text "
                 + " ) ";
 
         db.execSQL(query);
@@ -47,7 +48,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + Evento.BD_TABELA);
-        db.execSQL("DROP TABLE IF EXISTS " + Usuarios.TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Usuario.BD_TABELA);
         onCreate(db);
     }
 }
