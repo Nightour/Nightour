@@ -40,7 +40,7 @@ public class EventosController {
     public Cursor carregaEventos() {
         String[] campos = camposTabelaEvento();
 
-        db = banco.getWritableDatabase();
+        db = banco.getReadableDatabase();
         Cursor cursor = db.query(Evento.TABELA_NOME, campos, null, null, null, null, null, null);
 
         if (cursor != null) {
