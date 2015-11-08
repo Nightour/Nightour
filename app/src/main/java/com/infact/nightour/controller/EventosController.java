@@ -33,8 +33,12 @@ public class EventosController {
         return resultado;
     }
 
+    private static String[] camposTabelaEvento() {
+        return new String[]{ Evento.BD_ID, Evento.BD_NOME, Evento.BD_DESCRICAO, Evento.BD_GENERO, Evento.BD_IMAGEM };
+    }
+
     public Cursor carregaEventos() {
-        String[] campos = { Evento.BD_ID, Evento.BD_NOME, Evento.BD_DESCRICAO, Evento.BD_GENERO, Evento.BD_IMAGEM };
+        String[] campos = camposTabelaEvento();
 
         db = banco.getWritableDatabase();
         Cursor cursor = db.query(Evento.TABELA_NOME, campos, null, null, null, null, null, null);
@@ -46,6 +50,4 @@ public class EventosController {
         db.close();
         return cursor;
     }
-
-
 }
