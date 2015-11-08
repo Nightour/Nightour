@@ -50,4 +50,19 @@ public class EventosController {
         db.close();
         return cursor;
     }
+
+    public Cursor carregaEventoById(int id) {
+        String[] campos = camposTabelaEvento();
+        String where = Evento.BD_ID + " = " + id;
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.query(Evento.TABELA_NOME, campos, where, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        db.close();
+        return cursor;
+    }
 }
