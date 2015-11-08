@@ -74,7 +74,7 @@ public class EventosController {
         valores.put(Evento.BD_GENERO, evento.getGenero());
         valores.put(Evento.BD_IMAGEM, evento.getImagemBytes());
 
-        String where = Evento.BD_ID + " = " + evento.getId());
+        String where = Evento.BD_ID + " = " + evento.getId();
 
         db = banco.getWritableDatabase();
         db.update(Evento.NOME_TABELA, valores, where, null);
