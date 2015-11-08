@@ -65,4 +65,19 @@ public class EventosController {
         db.close();
         return cursor;
     }
+
+    public void alteraEvento(Evento evento) {
+        ContentValues valores = new ContentValues();
+        valores.put(Evento.BD_ID, evento.getId());
+        valores.put(Evento.BD_NOME, evento.getNome());
+        valores.put(Evento.BD_DESCRICAO, evento.getDescricao());
+        valores.put(Evento.BD_GENERO, evento.getGenero());
+        valores.put(Evento.BD_IMAGEM, evento.getImagemBytes());
+
+        String where = Evento.BD_ID + " = " + evento.getId());
+
+        db = banco.getWritableDatabase();
+        db.update(Evento.TABELA_NOME, valores, where, null);
+        db.close();
+    }
 }
