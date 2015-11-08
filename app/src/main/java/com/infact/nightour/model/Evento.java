@@ -2,6 +2,8 @@ package com.infact.nightour.model;
 
 import android.graphics.Bitmap;
 
+import java.io.ByteArrayOutputStream;
+
 /**
  * Created by Timóteo on 08/11/2015.
  */
@@ -58,5 +60,11 @@ public class Evento {
 
     public void setImagem(Bitmap imagem) {
         this.imagem = imagem;
+    }
+
+    public byte[] getImagemBytes() {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        getImagem().compress(Bitmap.CompressFormat.PNG, 0, stream);
+        return stream.toByteArray();
     }
 }
