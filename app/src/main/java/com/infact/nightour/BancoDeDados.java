@@ -40,6 +40,14 @@ public class BancoDeDados extends SQLiteOpenHelper {
                 + " ) ";
 
         db.execSQL(query);
+
+        query = "CREATE TABLE " + Usuarios.TABELA + " ( "
+                + Usuarios.ID + " integer primary key autoincrement, "
+                + Usuarios.EMAIL + " text, "
+                + Usuarios.SENHA + " text "
+                + " ) ";
+
+        db.execSQL(query);
     }
 
     @Override
