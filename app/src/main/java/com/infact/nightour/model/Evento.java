@@ -14,6 +14,7 @@ public class Evento {
     private int id;
     private String nome;
     private String descricao;
+    private String genero;
 
     public int getId() {
         return id;
@@ -37,5 +38,13 @@ public class Evento {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 }
