@@ -7,7 +7,7 @@ public class StringsCampo {
     private String nomeCampo;
     private String tipoCampo;
 
-    StringsCampo(String nomeCampo, String tipoCampo) {
+    public StringsCampo(String nomeCampo, String tipoCampo) {
         this.nomeCampo = nomeCampo;
         this.tipoCampo = tipoCampo;
     }
