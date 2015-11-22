@@ -49,4 +49,19 @@ public class FotosController {
         db.close();
         return cursor;
     }
+
+    public Cursor carregaFotoById(int id) {
+        String[] campos = camposTabelaFoto();
+        String where = Foto.BD_ID + " = " + id;
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.query(Foto.NOME_TABELA, campos, where, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        db.close();
+        return cursor;
+    }
 }
