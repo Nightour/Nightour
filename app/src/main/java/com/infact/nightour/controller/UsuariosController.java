@@ -84,4 +84,12 @@ public class UsuariosController {
         db.update(usuario.NOME_TABELA, valores, where, null);
         db.close();
     }
+
+    public void deletaUsuario(int id) {
+        String where = Usuario.BD_ID + " = " + id;
+
+        db = banco.getWritableDatabase();
+        db.delete(Usuario.NOME_TABELA, where, null);
+        db.close();
+    }
 }
