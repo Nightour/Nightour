@@ -64,4 +64,17 @@ public class FotosController {
         db.close();
         return cursor;
     }
+
+    public void alteraFoto(Foto foto) {
+        ContentValues valores = new ContentValues();
+        valores.put(foto.BD_IMAGEM, foto.getImagemBytes());
+        valores.put(foto.BD_DESCRICAO, foto.getDescricao());
+        valores.put(foto.BD_TIMESTAMP, foto.getTimestampUnixTime());
+
+        String where = foto.BD_ID + " = " + foto.getId();
+
+        db = banco.getWritableDatabase();
+        db.update(foto.NOME_TABELA, valores, where, null);
+        db.close();
+    }
 }
