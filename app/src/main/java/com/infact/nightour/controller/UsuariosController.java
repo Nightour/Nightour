@@ -15,7 +15,7 @@ public class UsuariosController {
     private SQLiteDatabase db;
     private BancoDeDados banco;
 
-    public EventosController(Context context) {
+    public UsuariosController(Context context) {
         banco = new BancoDeDados(context);
     }
 
