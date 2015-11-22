@@ -2,6 +2,7 @@ package com.infact.nightour.controller;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.ContactsContract;
 
@@ -43,5 +44,19 @@ public class UsuariosController {
 
     private static String[] camposTabelaUsuario() {
         return new String[]{ Usuario.BD_ID, Usuario.BD_NOME, Usuario.BD_STATUS, Usuario.BD_INTERESSE, Usuario.BD_ANIVERSARIO, Usuario.BD_IMAGEM_PERFIL };
+    }
+
+    public Cursor carregaUsuarios() {
+        String[] campos = camposTabelaUsuario();
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.query(Usuario.NOME_TABELA, campos, null, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        db.close();
+        return cursor;
     }
 }
