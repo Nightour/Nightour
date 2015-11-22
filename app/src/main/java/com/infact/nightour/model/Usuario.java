@@ -8,7 +8,7 @@ import com.infact.nightour.helper.StringsCampo;
  * Created by Timóteo on 08/11/2015.
  */
 public class Usuario {
-    public static String BD_TABELA = "usuarios";
+    public static String NOME_TABELA = "usuarios";
 
     public static String BD_ID = "_id";
     public static String BD_ID_TIPO = "integer primary key autoincrement";
@@ -29,7 +29,7 @@ public class Usuario {
     public static String BD_IMAGEM_REFERENCIA = "PLACEHOLDER"; // Substituir por Foto.NOME_TABELA mais tarde
 
     public static String getCreateTableQuery() {
-        return MakeCreateTableQuery.makeString(BD_TABELA, new Object[] {
+        return MakeCreateTableQuery.makeString(NOME_TABELA, new Object[] {
                 new StringsCampo(BD_ID, BD_ID_TIPO),
                 new StringsCampo(BD_NOME, BD_NOME_TIPO),
                 new StringsCampo(BD_STATUS, BD_STATUS_TIPO),
