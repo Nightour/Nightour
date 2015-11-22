@@ -46,6 +46,7 @@ public class Usuario {
     private String status;
     private String interesse;
     private Date aniversario;
+    private int chaveImagemPerfil;
 
     public int getId() {
         return id;
@@ -90,5 +91,13 @@ public class Usuario {
     public long getAniversarioUnixTime() {
         long unixTime = getAniversario().getTime() / 1000L;
         return unixTime;
+    }
+
+    public int getChaveImagemPerfil() {
+        return chaveImagemPerfil;
+    }
+
+    public void setChaveImagemPerfil(int chaveImagemPerfil) {
+        this.chaveImagemPerfil = chaveImagemPerfil;
     }
 }
