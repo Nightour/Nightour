@@ -5,9 +5,11 @@ package com.infact.nightour.helper;
  */
 public class StringChaveEstrangeira {
     private String nomeChave;
+    private String tabelaReferenciada;
 
-    public StringChaveEstrangeira(String nomeChave) {
+    public StringChaveEstrangeira(String nomeChave, String tabelaReferenciada) {
         this.nomeChave = nomeChave;
+        this.setTabelaReferenciada(tabelaReferenciada);
     }
 
     public String getNomeChave() {
@@ -16,5 +18,13 @@ public class StringChaveEstrangeira {
 
     public void setNomeChave(String nomeChave) {
         this.nomeChave = nomeChave;
+    }
+
+    public String getTabelaReferenciada() {
+        return tabelaReferenciada;
+    }
+
+    public void setTabelaReferenciada(String tabelaReferenciada) {
+        this.tabelaReferenciada = tabelaReferenciada;
     }
 }
