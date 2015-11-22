@@ -27,4 +27,9 @@ public class StringChaveEstrangeira {
     public void setTabelaReferenciada(String tabelaReferenciada) {
         this.tabelaReferenciada = tabelaReferenciada;
     }
+
+    @Override
+    public String toString() {
+        return "FOREIGN KEY(" + getNomeChave() + ") REFERENCES artist(" + getTabelaReferenciada() + ")";
+    }
 }
