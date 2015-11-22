@@ -23,12 +23,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
         String query = Evento.getCreateTableQuery();
         db.execSQL(query);
 
-        query = "CREATE TABLE " + Usuario.BD_TABELA + " ( "
-                + Usuario.BD_ID + " " + Usuario.BD_ID_TIPO + ","
-                + Usuario.BD_EMAIL + " " + Usuario.BD_EMAIL_TIPO
-                + Usuario.BD_SENHA + " " + Usuario.BD_SENHA_TIPO
-                + " ) ";
-
+        query = Usuario.getCreateTableQuery();
         db.execSQL(query);
     }
 
