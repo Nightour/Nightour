@@ -28,4 +28,15 @@ public class UsuariosController {
 
         return valores;
     }
+
+
+    public long insereUsuario(Usuario usuario) {
+        ContentValues valores = makeContentValues(usuario);
+
+        db = banco.getWritableDatabase();
+        long resultado = db.insert(usuario.NOME_TABELA, null, valores);
+        db.close();
+
+        return resultado;
+    }
 }
