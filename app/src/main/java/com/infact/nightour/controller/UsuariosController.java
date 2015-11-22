@@ -59,4 +59,19 @@ public class UsuariosController {
         db.close();
         return cursor;
     }
+
+    public Cursor carregaUsuarioById(int id) {
+        String[] campos = camposTabelaUsuario();
+        String where = Usuario.BD_ID + " = " + id;
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.query(Usuario.NOME_TABELA, campos, where, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        db.close();
+        return cursor;
+    }
 }
