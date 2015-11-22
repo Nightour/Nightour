@@ -7,8 +7,13 @@ public class Usuario {
     public static String BD_TABELA = "usuarios";
 
     public static String BD_ID = "_id";
+    public static String BD_ID_TIPO = "integer primary key autoincrement";
+
     public static String BD_EMAIL = "email";
+    public static String BD_EMAIL_TIPO = "text";
+
     public static String BD_SENHA = "senha";
+    public static String BD_SENHA_TIPO = "text";
 
     private int id;
     private String email;

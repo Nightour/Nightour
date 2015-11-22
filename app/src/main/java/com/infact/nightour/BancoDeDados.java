@@ -21,19 +21,19 @@ public class BancoDeDados extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + Evento.NOME_TABELA + " ( "
-                + Evento.BD_ID + " integer primary key autoincrement, "
-                + Evento.BD_NOME + " text, "
-                + Evento.BD_DESCRICAO + " text, "
-                + Evento.BD_GENERO + " text, "
-                + Evento.BD_IMAGEM + " blob "
+                + Evento.BD_ID + " " + Evento.BD_ID_TIPO + ","
+                + Evento.BD_NOME + " " + Evento.BD_NOME_TIPO + ","
+                + Evento.BD_DESCRICAO + " " + Evento.BD_DESCRICAO_TIPO + ","
+                + Evento.BD_GENERO + " " + Evento.BD_GENERO_TIPO + ","
+                + Evento.BD_IMAGEM + " " + Evento.BD_IMAGEM_TIPO
                 + " ) ";
 
         db.execSQL(query);
 
         query = "CREATE TABLE " + Usuario.BD_TABELA + " ( "
-                + Usuario.BD_ID + " integer primary key autoincrement, "
-                + Usuario.BD_EMAIL + " text, "
-                + Usuario.BD_SENHA + " text "
+                + Usuario.BD_ID + " " + Usuario.BD_ID_TIPO + ","
+                + Usuario.BD_EMAIL + " " + Usuario.BD_EMAIL_TIPO
+                + Usuario.BD_SENHA + " " + Usuario.BD_SENHA_TIPO
                 + " ) ";
 
         db.execSQL(query);

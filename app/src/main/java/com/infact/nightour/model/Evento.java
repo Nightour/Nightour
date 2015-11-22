@@ -11,10 +11,19 @@ public class Evento {
     public static String NOME_TABELA = "eventos";
 
     public static String BD_ID = "_id";
+    public static String BD_ID_TIPO = "integer primary key autoincrement";
+
     public static String BD_NOME = "evento_nome";
+    public static String BD_NOME_TIPO = "text";
+
     public static String BD_DESCRICAO = "evento_descricao";
+    public static String BD_DESCRICAO_TIPO = "text";
+
     public static String BD_GENERO = "genero";
+    public static String BD_GENERO_TIPO = "text";
+
     public static String BD_IMAGEM = "imagem";
+    public static String BD_IMAGEM_TIPO = "blob";
 
     private int id;
     private String nome;
