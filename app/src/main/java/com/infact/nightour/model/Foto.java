@@ -70,6 +70,11 @@ public class Foto {
         this.timestamp = timestamp;
     }
 
+    public long getTimestampUnixTime() {
+        long unixTime = System.currentTimeMillis() / 1000L;
+        return unixTime;
+    }
+
     public String getDescricao() {
         return descricao;
     }
