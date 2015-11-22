@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.infact.nightour.BancoDeDados;
 import com.infact.nightour.model.Foto;
+import com.infact.nightour.model.Usuario;
 
 /**
  * Created by Timóteo on 22/11/2015.
@@ -63,6 +64,10 @@ public class FotosController {
 
         db.close();
         return cursor;
+    }
+
+    public Cursor carregaImagemPerfilByUsuario(Usuario usuario) {
+        return carregaFotoById(usuario.getChaveImagemPerfil());
     }
 
     public void alteraFoto(Foto foto) {
