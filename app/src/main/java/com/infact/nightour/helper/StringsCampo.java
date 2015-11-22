@@ -27,4 +27,9 @@ public class StringsCampo {
     public void setTipoCampo(String tipoCampo) {
         this.tipoCampo = tipoCampo;
     }
+
+    @Override
+    public String toString() {
+        return getNomeCampo() + " " + getTipoCampo();
+    }
 }
