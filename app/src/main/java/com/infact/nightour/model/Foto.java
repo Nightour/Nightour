@@ -20,4 +20,13 @@ public class Foto {
 
     public static String BD_DESCRICAO = "descricao";
     public static String BD_DESCRICAO_TIPO = "text";
+
+    public static String getCreateTableQuery() {
+        return MakeCreateTableQuery.makeString(NOME_TABELA, new Object[] {
+                new StringsCampo(BD_ID, BD_ID_TIPO),
+                new StringsCampo(BD_IMAGEM, BD_IMAGEM_TIPO),
+                new StringsCampo(BD_TIMESTAMP, BD_TIMESTAMP_TIPO),
+                new StringsCampo(BD_DESCRICAO, BD_DESCRICAO_TIPO)
+        });
+    }
 }
