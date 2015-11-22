@@ -12,17 +12,25 @@ public class Usuario {
     public static String BD_ID = "_id";
     public static String BD_ID_TIPO = "integer primary key autoincrement";
 
-    public static String BD_EMAIL = "email";
-    public static String BD_EMAIL_TIPO = "text";
+    public static String BD_NOME = "nome";
+    public static String BD_NOME_TIPO = "text";
 
-    public static String BD_SENHA = "senha";
-    public static String BD_SENHA_TIPO = "text";
+    public static String BD_STATUS = "status";
+    public static String BD_STATUS_TIPO = "text";
+
+    public static String BD_INTERESSE = "interesse";
+    public static String BD_INTERESSE_TIPO = "text";
+
+    public static String BD_ANIVERSARIO = "aniversario";
+    public static String BD_ANIVERSARIO_TIPO = "integer"; // Usar o Unix time
 
     public static String getCreateTableQuery() {
         return MakeCreateTableQuery.makeString(BD_TABELA, new StringsCampo[] {
                 new StringsCampo(BD_ID, BD_ID_TIPO),
-                new StringsCampo(BD_EMAIL, BD_EMAIL_TIPO),
-                new StringsCampo(BD_SENHA, BD_SENHA_TIPO)
+                new StringsCampo(BD_NOME, BD_NOME_TIPO),
+                new StringsCampo(BD_STATUS, BD_STATUS_TIPO),
+                new StringsCampo(BD_INTERESSE, BD_INTERESSE_TIPO),
+                new StringsCampo(BD_ANIVERSARIO, BD_ANIVERSARIO_TIPO)
             });
     }
 
