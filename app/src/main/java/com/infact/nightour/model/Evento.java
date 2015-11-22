@@ -2,6 +2,9 @@ package com.infact.nightour.model;
 
 import android.graphics.Bitmap;
 
+import com.infact.nightour.helper.MakeCreateTableQuery;
+import com.infact.nightour.helper.StringsCampo;
+
 import java.io.ByteArrayOutputStream;
 
 /**
@@ -24,6 +27,16 @@ public class Evento {
 
     public static String BD_IMAGEM = "imagem";
     public static String BD_IMAGEM_TIPO = "blob";
+
+    public static String getCreateTabelaQuery() {
+        return MakeCreateTableQuery.makeString(NOME_TABELA, new StringsCampo[] {
+                new StringsCampo(BD_ID, BD_ID_TIPO),
+                new StringsCampo(BD_NOME, BD_NOME_TIPO),
+                new StringsCampo(BD_DESCRICAO, BD_DESCRICAO_TIPO),
+                new StringsCampo(BD_GENERO, BD_GENERO_TIPO),
+                new StringsCampo(BD_IMAGEM, BD_IMAGEM_TIPO)
+        });
+    }
 
     private int id;
     private String nome;
