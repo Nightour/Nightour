@@ -39,4 +39,8 @@ public class UsuariosController {
 
         return resultado;
     }
+
+    private static String[] camposTabelaUsuario() {
+        return new String[]{ Usuario.BD_ID, Usuario.BD_NOME, Usuario.BD_STATUS, Usuario.BD_INTERESSE, Usuario.BD_ANIVERSARIO, Usuario.BD_IMAGEM_PERFIL };
+    }
 }
