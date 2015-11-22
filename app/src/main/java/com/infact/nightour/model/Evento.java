@@ -28,7 +28,7 @@ public class Evento {
     public static String BD_IMAGEM = "imagem";
     public static String BD_IMAGEM_TIPO = "blob";
 
-    public static String getCreateTabelaQuery() {
+    public static String getCreateTableQuery() {
         return MakeCreateTableQuery.makeString(NOME_TABELA, new StringsCampo[] {
                 new StringsCampo(BD_ID, BD_ID_TIPO),
                 new StringsCampo(BD_NOME, BD_NOME_TIPO),
