@@ -1,18 +1,8 @@
-#.gradle
-#/local.properties
-#/.idea/workspace.xml
-#/.idea/libraries
-#.DS_Store
-#/build
-#/captures
-
-# Ignore tudo
-*
-
-# Menos o código
-!app/
-!*.java
-
-# E os arquivos do GitHub
-!*.gitattributes
-!*.gitignore
+/.idea
+/build
+/captures
+/gradle*
+*.DS_Store
+*.gradle
+*.properties
+*.iml
