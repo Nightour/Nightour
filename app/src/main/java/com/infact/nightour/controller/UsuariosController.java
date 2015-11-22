@@ -25,5 +25,7 @@ public class UsuariosController {
         valores.put(usuario.BD_STATUS, usuario.getStatus());
         valores.put(usuario.BD_INTERESSE, usuario.getInteresse());
         valores.put(usuario.BD_ANIVERSARIO, usuario.getAniversarioUnixTime());
+
+        return valores;
     }
 }
