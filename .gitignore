@@ -10,8 +10,9 @@
 *
 
 # Menos o código
-!app
+!app/
+!*.java
 
 # E os arquivos do GitHub
-* .gitattributes
-* .gitignore
+!*.gitattributes
+!*.gitignore
