@@ -74,4 +74,14 @@ public class UsuariosController {
         db.close();
         return cursor;
     }
+
+    public void alteraUsuario(Usuario usuario) {
+        ContentValues valores = makeContentValues(usuario);
+
+        String where = usuario.BD_ID + " = " + usuario.getId();
+
+        db = banco.getWritableDatabase();
+        db.update(usuario.NOME_TABELA, valores, where, null);
+        db.close();
+    }
 }
