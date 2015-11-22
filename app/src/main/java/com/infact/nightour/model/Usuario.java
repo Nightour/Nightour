@@ -86,4 +86,9 @@ public class Usuario {
     public void setAniversario(Date aniversario) {
         this.aniversario = aniversario;
     }
+
+    public long getAniversarioUnixTime() {
+        long unixTime = getAniversario().getTime() / 1000L;
+        return unixTime;
+    }
 }
