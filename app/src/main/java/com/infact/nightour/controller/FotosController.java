@@ -2,6 +2,7 @@ package com.infact.nightour.controller;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.infact.nightour.BancoDeDados;
@@ -33,5 +34,19 @@ public class FotosController {
 
     private static String[] camposTabelaFoto() {
         return new String[]{ Foto.BD_ID, Foto.BD_IMAGEM, Foto.BD_DESCRICAO, Foto.BD_TIMESTAMP };
+    }
+
+    public Cursor carregaFotos() {
+        String[] campos = camposTabelaFoto();
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.query(Foto.NOME_TABELA, campos, null, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        db.close();
+        return cursor;
     }
 }
