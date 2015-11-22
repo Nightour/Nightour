@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringsCampo;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Date;
 
 /**
@@ -53,6 +54,12 @@ public class Foto {
 
     public void setImagem(Bitmap imagem) {
         this.imagem = imagem;
+    }
+
+    public byte[] getImagemBytes() {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        getImagem().compress(Bitmap.CompressFormat.PNG, 0, stream);
+        return stream.toByteArray();
     }
 
     public Date getTimestamp() {
