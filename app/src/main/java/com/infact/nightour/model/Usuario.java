@@ -4,6 +4,8 @@ import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.helper.StringsCampo;
 
+import java.util.Date;
+
 /**
  * Created by Timóteo on 08/11/2015.
  */
@@ -40,8 +42,10 @@ public class Usuario {
     }
 
     private int id;
-    private String email;
-    private String senha;
+    private String nome;
+    private String status;
+    private String interesse;
+    private Date aniversario;
 
     public int getId() {
         return id;
@@ -51,19 +55,35 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getNome() {
+        return nome;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getStatus() {
+        return status;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getInteresse() {
+        return interesse;
+    }
+
+    public void setInteresse(String interesse) {
+        this.interesse = interesse;
+    }
+
+    public Date getAniversario() {
+        return aniversario;
+    }
+
+    public void setAniversario(Date aniversario) {
+        this.aniversario = aniversario;
     }
 }
