@@ -77,4 +77,12 @@ public class FotosController {
         db.update(foto.NOME_TABELA, valores, where, null);
         db.close();
     }
+
+    public void deletaFoto(int id) {
+        String where = Foto.BD_ID + " = " + id;
+
+        db = banco.getWritableDatabase();
+        db.delete(Foto.NOME_TABELA, where, null);
+        db.close();
+    }
 }
