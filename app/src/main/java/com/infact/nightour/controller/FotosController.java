@@ -30,4 +30,8 @@ public class FotosController {
 
         return resultado;
     }
+
+    private static String[] camposTabelaFoto() {
+        return new String[]{ Foto.BD_ID, Foto.BD_IMAGEM, Foto.BD_DESCRICAO, Foto.BD_TIMESTAMP };
+    }
 }
