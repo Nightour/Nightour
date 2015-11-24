@@ -2,6 +2,7 @@ package com.infact.nightour.controller;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.infact.nightour.BancoDeDados;
@@ -39,5 +40,19 @@ public class AvaliacaoController {
 
     private static String[] camposTabelaAvaliacao() {
         return new String[]{ Avaliacao.BD_ID, Avaliacao.BD_QUANT_ESTRELAS, Avaliacao.BD_COMENTARIO, Avaliacao.BD_TIMESTAMP };
+    }
+
+    public Cursor carregaAvaliacoes() {
+        String[] campos = camposTabelaAvaliacao();
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.query(Avaliacao.NOME_TABELA, campos, null, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        db.close();
+        return cursor;
     }
 }
