@@ -80,4 +80,12 @@ public class AvaliacaoController {
         db.update(avaliacao.NOME_TABELA, valores, where, null);
         db.close();
     }
+
+    public void deletaAvaliacao(int id) {
+        String where = Avaliacao.BD_ID + " = " + id;
+
+        db = banco.getWritableDatabase();
+        db.delete(Avaliacao.NOME_TABELA, where, null);
+        db.close();
+    }
 }
