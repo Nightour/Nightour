@@ -55,4 +55,19 @@ public class AvaliacaoController {
         db.close();
         return cursor;
     }
+
+    public Cursor carregaAvaliacaoById(int id) {
+        String[] campos = camposTabelaAvaliacao();
+        String where = Avaliacao.BD_ID + " = " + id;
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.query(Avaliacao.NOME_TABELA, campos, where, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        db.close();
+        return cursor;
+    }
 }
