@@ -70,4 +70,14 @@ public class AvaliacaoController {
         db.close();
         return cursor;
     }
+
+    public void alteraAvaliacao(Avaliacao avaliacao) {
+        ContentValues valores = makeContentValues(avaliacao);
+
+        String where = avaliacao.BD_ID + " = " + avaliacao.getId();
+
+        db = banco.getWritableDatabase();
+        db.update(avaliacao.NOME_TABELA, valores, where, null);
+        db.close();
+    }
 }
