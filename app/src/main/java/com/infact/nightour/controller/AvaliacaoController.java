@@ -36,4 +36,8 @@ public class AvaliacaoController {
 
         return resultado;
     }
+
+    private static String[] camposTabelaAvaliacao() {
+        return new String[]{ Avaliacao.BD_ID, Avaliacao.BD_QUANT_ESTRELAS, Avaliacao.BD_COMENTARIO, Avaliacao.BD_TIMESTAMP };
+    }
 }
