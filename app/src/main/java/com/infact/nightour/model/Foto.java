@@ -71,7 +71,7 @@ public class Foto {
     }
 
     public long getTimestampUnixTime() {
-        long unixTime = System.currentTimeMillis() / 1000L;
+        long unixTime = getTimestamp().getTime() / 1000L;
         return unixTime;
     }
 
