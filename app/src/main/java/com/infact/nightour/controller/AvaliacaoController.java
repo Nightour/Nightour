@@ -26,4 +26,14 @@ public class AvaliacaoController {
 
         return valores;
     }
+
+    public long insereAvaliacao(Avaliacao avaliacao) {
+        ContentValues valores = makeContentValues(avaliacao);
+
+        db = banco.getWritableDatabase();
+        long resultado = db.insert(avaliacao.NOME_TABELA, null, valores);
+        db.close();
+
+        return resultado;
+    }
 }
