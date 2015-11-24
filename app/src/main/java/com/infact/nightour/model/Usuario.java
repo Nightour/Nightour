@@ -28,7 +28,7 @@ public class Usuario {
     public static String BD_ANIVERSARIO_TIPO = "integer"; // Usar o Unix time
 
     public static String BD_IMAGEM_PERFIL = "imagemPerfil"; // Chave estrangeira
-    public static String BD_IMAGEM_REFERENCIA = "PLACEHOLDER"; // Substituir por Foto.NOME_TABELA mais tarde
+    public static String BD_IMAGEM_REFERENCIA = Foto.NOME_TABELA;
 
     public static String getCreateTableQuery() {
         return MakeCreateTableQuery.makeString(NOME_TABELA, new Object[] {
