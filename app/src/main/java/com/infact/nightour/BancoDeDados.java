@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.infact.nightour.model.Evento;
+import com.infact.nightour.model.Foto;
 import com.infact.nightour.model.Usuario;
 
 /**
@@ -21,6 +22,9 @@ public class BancoDeDados extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = Evento.getCreateTableQuery();
+        db.execSQL(query);
+
+        query = Foto.getCreateTableQuery();
         db.execSQL(query);
 
         query = Usuario.getCreateTableQuery();
