@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.infact.nightour.model.Avaliacao;
 import com.infact.nightour.model.Evento;
 import com.infact.nightour.model.Usuario;
 
@@ -24,6 +25,9 @@ public class BancoDeDados extends SQLiteOpenHelper {
         db.execSQL(query);
 
         query = Usuario.getCreateTableQuery();
+        db.execSQL(query);
+
+        query = Avaliacao.getCreateTableQuery();
         db.execSQL(query);
     }
 
