@@ -72,4 +72,9 @@ public class Avaliacao {
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
+
+    public long getTimestampUnixTime() {
+        long unixTime = getTimestamp().getTime() / 1000L;
+        return unixTime;
+    }
 }
