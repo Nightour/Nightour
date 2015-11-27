@@ -5,7 +5,7 @@ package com.infact.nightour.helper;
  */
 public class StringChaveEstrangeira {
     private String nomeChave;
-    private String tipo;
+    private String tipoCampo;
     private String campoReferenciado;
     private String tabelaReferenciada;
 
