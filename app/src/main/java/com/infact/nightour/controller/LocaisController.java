@@ -55,4 +55,19 @@ public class LocaisController {
         db.close();
         return cursor;
     }
+
+    public Cursor carregaLocalById(int id) {
+        String[] campos = camposTabelaLocal();
+        String where = Local.BD_ID + " = " + id;
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.query(Local.NOME_TABELA, campos, where, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        db.close();
+        return cursor;
+    }
 }
