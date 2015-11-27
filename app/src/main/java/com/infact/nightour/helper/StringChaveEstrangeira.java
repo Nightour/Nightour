@@ -10,7 +10,7 @@ public class StringChaveEstrangeira {
 
     public StringChaveEstrangeira(String nomeChave, String tabelaReferenciada, String campoReferenciado) {
         this.nomeChave = nomeChave;
-        this.campoReferenciado = campoReferenciado;
+        this.setCampoReferenciado(campoReferenciado);
         this.setTabelaReferenciada(tabelaReferenciada);
     }
 
@@ -33,5 +33,13 @@ public class StringChaveEstrangeira {
     @Override
     public String toString() {
         return "FOREIGN KEY(" + getNomeChave() + ") REFERENCES artist(" + getTabelaReferenciada() + ")";
+    }
+
+    public String getCampoReferenciado() {
+        return campoReferenciado;
+    }
+
+    public void setCampoReferenciado(String campoReferenciado) {
+        this.campoReferenciado = campoReferenciado;
     }
 }
