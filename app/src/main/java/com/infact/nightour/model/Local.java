@@ -30,9 +30,18 @@ public class Local {
         });
     }
 
+    private int id;
     private double longitude;
     private double latitude;
     private float zoom;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public double getLongitude() {
         return longitude;
