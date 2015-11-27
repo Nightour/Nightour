@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#242625</color>
+    <color name="colorAccent">#cdb667</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="goldColor">#cdb667</color>
+    <color name="transparent">#0000</color>
+    <color name="gray">#eee</color>
+    <color name="fundo_do_texto_da_home">#804d4d4d</color>
+
 </resources>

@@ -3,7 +3,6 @@ package com.infact.nightour.model;
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringsCampo;
 
-import java.sql.Time;
 import java.util.Date;
 
 /**
