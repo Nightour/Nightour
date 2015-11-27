@@ -11,11 +11,11 @@ import com.infact.nightour.model.Avaliacao;
 /**
  * Created by Timóteo on 24/11/2015.
  */
-public class AvaliacaoController {
+public class AvaliacoesController {
     private SQLiteDatabase db;
     private BancoDeDados banco;
 
-    public AvaliacaoController(Context context) {
+    public AvaliacoesController(Context context) {
         banco = new BancoDeDados(context);
     }
 
