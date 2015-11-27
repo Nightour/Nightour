@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by Timóteo on 24/11/2015.
  */
 public class Avaliacao {
-    public static String NOME_TABELA = "eventos";
+    public static String NOME_TABELA = "avaliacoes";
 
     public static String BD_ID = "_id";
     public static String BD_ID_TIPO = "integer primary key autoincrement";
