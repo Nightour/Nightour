@@ -1,5 +1,6 @@
 package com.infact.nightour.model;
 
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -38,6 +39,23 @@ public class Evento {
                 new StringsCampo(BD_IMAGEM, BD_IMAGEM_TIPO)
         });
     }
+
+    // ---
+
+    // Cria um evento a partir dos dados na posição apontada pelo cursor passado.
+    public static Evento fromCursor(Cursor cursor) {
+        Evento evento = new Evento();
+
+        evento.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BD_ID)));
+        evento.setNome(cursor.getString(cursor.getColumnIndexOrThrow(BD_NOME)));
+        evento.setDescricao(cursor.getString(cursor.getColumnIndexOrThrow(BD_DESCRICAO)));
+        evento.setGenero(cursor.getString(cursor.getColumnIndexOrThrow(BD_GENERO)));
+        evento.setImagemBytes(cursor.getBlob(cursor.getColumnIndexOrThrow(BD_IMAGEM)));
+
+        return evento;
+    }
+
+    // ---
 
     private int id;
     private String nome;
