@@ -34,7 +34,7 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
         evento.setNome("Evento A");
         evento.setGenero("Rock");
         evento.setDescricao("Adabo dabo.");
-        evento.setImagem(null);
+        evento.setImagem(makeBitmap(context, R.drawable.eventos___ex));
 
         eventos.add(evento);
 
@@ -42,7 +42,7 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
         evento.setNome("Evento B");
         evento.setGenero("Brega");
         evento.setDescricao("Inakos nakos.");
-        evento.setImagem(null);
+        evento.setImagem(makeBitmap(context, R.drawable.eventos___ex_9_2));
 
         eventos.add(evento);
 
@@ -50,7 +50,7 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
         evento.setNome("Evento C");
         evento.setGenero("Eletrônica");
         evento.setDescricao("Nimda da.");
-        evento.setImagem(null);
+        evento.setImagem(makeBitmap(context, R.drawable.eventos___ex_9_3));
 
         eventos.add(evento);
 
@@ -58,7 +58,7 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
         evento.setNome("Evento D");
         evento.setGenero("Sertanejo");
         evento.setDescricao("Oloko loko.");
-        evento.setImagem(null);
+        evento.setImagem(makeBitmap(context, R.drawable.eventos___ex_9_5));
 
         eventos.add(evento);
 
@@ -66,7 +66,7 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
         evento.setNome("Evento E");
         evento.setGenero("Samba");
         evento.setDescricao("Adabo dabo.");
-        evento.setImagem(null);
+        evento.setImagem(makeBitmap(context, R.drawable.eventos___ex_9_6));
 
         eventos.add(evento);
 
