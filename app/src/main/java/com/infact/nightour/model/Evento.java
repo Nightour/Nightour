@@ -1,6 +1,7 @@
 package com.infact.nightour.model;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringsCampo;
@@ -82,6 +83,10 @@ public class Evento {
 
     public void setImagem(Bitmap imagem) {
         this.imagem = imagem;
+    }
+
+    public void setImagemBytes(byte[] bytes) {
+        setImagem(BitmapFactory.decodeByteArray(bytes, 0, bytes.length));
     }
 
     public byte[] getImagemBytes() {
