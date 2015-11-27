@@ -8,11 +8,11 @@ import com.infact.nightour.BancoDeDados;
 /**
  * Created by Timóteo on 26/11/2015.
  */
-public class LocalController {
+public class LocaisController {
     private SQLiteDatabase db;
     private BancoDeDados banco;
 
-    public LocalController(Context context) {
+    public LocaisController(Context context) {
         banco = new BancoDeDados(context);
     }
 }
