@@ -13,10 +13,20 @@ import android.widget.TextView;
 import com.example.neto.nightour.R;
 import com.infact.nightour.model.Evento;
 
+import java.util.List;
+
 /**
  * Created by Timóteo on 27/11/2015.
  */
 public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.MyViewHolder> {
+    private List<Evento> eventos;
+    private LayoutInflater inflater;
+    private Context context;
+
+    public HomeEventoAdapter(Context context) {
+        this.context = context;
+        this.inflater = LayoutInflater.from(context);
+    }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
