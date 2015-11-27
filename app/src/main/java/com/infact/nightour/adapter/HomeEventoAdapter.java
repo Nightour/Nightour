@@ -25,7 +25,10 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        Evento evento = eventos.get(position);
 
+        holder.ibItemDescubra.setImageBitmap(evento.getImagem());
+        holder.tvItemDescubra.setText(evento.getNome());
     }
 
     @Override
