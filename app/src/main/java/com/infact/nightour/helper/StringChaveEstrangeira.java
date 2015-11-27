@@ -34,7 +34,9 @@ public class StringChaveEstrangeira {
 
     @Override
     public String toString() {
-        return "FOREIGN KEY(" + getNomeChave() + ") REFERENCES " + getTabelaReferenciada() + "(" + getCampoReferenciado() + ")";
+        String query = getNomeChave() + " " + getTipoCampo() + ",";
+        query += "FOREIGN KEY(" + getNomeChave() + ") REFERENCES " + getTabelaReferenciada() + "(" + getCampoReferenciado() + ")";
+        return query;
     }
 
     public String getCampoReferenciado() {
