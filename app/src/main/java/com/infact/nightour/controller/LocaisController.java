@@ -2,6 +2,7 @@ package com.infact.nightour.controller;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.infact.nightour.BancoDeDados;
@@ -39,5 +40,19 @@ public class LocaisController {
 
     private static String[] camposTabelaLocal() {
         return new String[]{ Local.BD_ID, Local.BD_LATITUDE, Local.BD_LONGITUDE, Local.BD_ZOOM };
+    }
+
+    public Cursor carregaLocais() {
+        String[] campos = camposTabelaLocal();
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.query(Local.NOME_TABELA, campos, null, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        db.close();
+        return cursor;
     }
 }
