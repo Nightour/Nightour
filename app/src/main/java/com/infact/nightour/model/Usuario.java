@@ -29,6 +29,7 @@ public class Usuario {
 
     public static String BD_IMAGEM_PERFIL = "imagemPerfil"; // Chave estrangeira
     public static String BD_IMAGEM_REFERENCIA = Foto.NOME_TABELA;
+    public static String BD_IMAGEM_CAMPO_REFERENCIADO = Foto.BD_ID;
 
     public static String getCreateTableQuery() {
         return MakeCreateTableQuery.makeString(NOME_TABELA, new Object[] {
@@ -37,7 +38,7 @@ public class Usuario {
                 new StringsCampo(BD_STATUS, BD_STATUS_TIPO),
                 new StringsCampo(BD_INTERESSE, BD_INTERESSE_TIPO),
                 new StringsCampo(BD_ANIVERSARIO, BD_ANIVERSARIO_TIPO),
-                new StringChaveEstrangeira(BD_IMAGEM_PERFIL, BD_IMAGEM_REFERENCIA)
+                new StringChaveEstrangeira(BD_IMAGEM_PERFIL, BD_IMAGEM_REFERENCIA, BD_IMAGEM_CAMPO_REFERENCIADO)
             });
     }
 
