@@ -70,4 +70,14 @@ public class LocaisController {
         db.close();
         return cursor;
     }
+
+    public void alteraLocal(Local local) {
+        ContentValues valores = makeContentValues(usuario);
+
+        String where = local.BD_ID + " = " + local.getId();
+
+        db = banco.getWritableDatabase();
+        db.update(local.NOME_TABELA, valores, where, null);
+        db.close();
+    }
 }
