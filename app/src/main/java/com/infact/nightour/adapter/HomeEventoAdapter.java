@@ -13,12 +13,59 @@ import android.widget.TextView;
 import com.example.neto.nightour.R;
 import com.infact.nightour.model.Evento;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Timóteo on 27/11/2015.
  */
 public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.MyViewHolder> {
+    private static List<Evento> getEventosTeste() {
+        List<Evento> eventos = new ArrayList<Evento>();
+
+        Evento evento = new Evento();
+        evento.setNome("Evento A");
+        evento.setGenero("Rock");
+        evento.setDescricao("Adabo dabo.");
+        evento.setImagem(null);
+
+        eventos.add(evento);
+
+        evento = new Evento();
+        evento.setNome("Evento B");
+        evento.setGenero("Brega");
+        evento.setDescricao("Inakos nakos.");
+        evento.setImagem(null);
+
+        eventos.add(evento);
+
+        evento = new Evento();
+        evento.setNome("Evento C");
+        evento.setGenero("Eletrônica");
+        evento.setDescricao("Nimda da.");
+        evento.setImagem(null);
+
+        eventos.add(evento);
+
+        evento = new Evento();
+        evento.setNome("Evento D");
+        evento.setGenero("Sertanejo");
+        evento.setDescricao("Oloko loko.");
+        evento.setImagem(null);
+
+        eventos.add(evento);
+
+        evento = new Evento();
+        evento.setNome("Evento E");
+        evento.setGenero("Samba");
+        evento.setDescricao("Adabo dabo.");
+        evento.setImagem(null);
+
+        eventos.add(evento);
+
+        return eventos;
+    }
+
     private List<Evento> eventos;
     private LayoutInflater inflater;
     private Context context;
