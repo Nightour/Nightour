@@ -2,6 +2,8 @@ package com.infact.nightour.adapter;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +22,12 @@ import java.util.List;
  * Created by Timóteo on 27/11/2015.
  */
 public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.MyViewHolder> {
-    private static List<Evento> getEventosTeste() {
+    private static Bitmap makeBitmap(Context context, int resource) {
+        Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(), resource);
+        return largeIcon;
+    }
+
+    private static List<Evento> getEventosTeste(Context context) {
         List<Evento> eventos = new ArrayList<Evento>();
 
         Evento evento = new Evento();
@@ -72,7 +79,7 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
 
     public HomeEventoAdapter(Context context, List<Evento> eventos) {
         this.context = context;
-        this.eventos = getEventosTeste();//eventos;
+        this.eventos = getEventosTeste(context);//eventos;
         this.inflater = LayoutInflater.from(context);
     }
 
