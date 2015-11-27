@@ -34,8 +34,13 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
+        ImageButton ibItemDescubra;
+        TextView tvItemDescubra;
+
         public MyViewHolder(View view) {
             super(view);
+            this.ibItemDescubra = (ImageButton) view.findViewById(R.id.ibIconeEvento_Home);
+            this.tvItemDescubra = (TextView) view.findViewById(R.id.tvNomeEvento_Home);
         }
     }
 }
