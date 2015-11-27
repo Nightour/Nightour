@@ -8,6 +8,8 @@ import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringsCampo;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Timóteo on 08/11/2015.
@@ -53,6 +55,16 @@ public class Evento {
         evento.setImagemBytes(cursor.getBlob(cursor.getColumnIndexOrThrow(BD_IMAGEM)));
 
         return evento;
+    }
+
+    public static List<Evento> getListFromCursor(Cursor cursor) {
+        List<Evento> eventos = new ArrayList<Evento>();
+
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            eventos.add(Evento.fromCursor(cursor));
+        }
+
+        return eventos;
     }
 
     // ---
