@@ -72,7 +72,7 @@ public class LocaisController {
     }
 
     public void alteraLocal(Local local) {
-        ContentValues valores = makeContentValues(usuario);
+        ContentValues valores = makeContentValues(local);
 
         String where = local.BD_ID + " = " + local.getId();
 
