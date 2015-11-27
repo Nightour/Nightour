@@ -1,9 +1,11 @@
 package com.infact.nightour.controller;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.infact.nightour.BancoDeDados;
+import com.infact.nightour.model.Local;
 
 /**
  * Created by Timóteo on 26/11/2015.
@@ -14,5 +16,14 @@ public class LocaisController {
 
     public LocaisController(Context context) {
         banco = new BancoDeDados(context);
+    }
+
+    private static ContentValues makeContentValues(Local local) {
+        ContentValues valores = new ContentValues();
+        valores.put(local.BD_LATITUDE, local.getLatitude());
+        valores.put(local.BD_LONGITUDE, local.getLongitude());
+        valores.put(local.BD_ZOOM, local.getZoom());
+
+        return valores;
     }
 }
