@@ -80,4 +80,12 @@ public class LocaisController {
         db.update(local.NOME_TABELA, valores, where, null);
         db.close();
     }
+
+    public void deletaLocal(int id) {
+        String where = Local.BD_ID + " = " + id;
+
+        db = banco.getWritableDatabase();
+        db.delete(Local.NOME_TABELA, where, null);
+        db.close();
+    }
 }
