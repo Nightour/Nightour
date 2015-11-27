@@ -10,7 +10,7 @@ public class StringChaveEstrangeira {
     private String tabelaReferenciada;
 
     public StringChaveEstrangeira(String nomeChave, String tipo, String tabelaReferenciada, String campoReferenciado) {
-        this.nomeChave = nomeChave;
+        this.setNomeChave(nomeChave);
         this.setTipoCampo(tipo);
         this.setCampoReferenciado(campoReferenciado);
         this.setTabelaReferenciada(tabelaReferenciada);
