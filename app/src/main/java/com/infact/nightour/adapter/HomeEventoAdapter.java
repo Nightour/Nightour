@@ -30,7 +30,9 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        View view = inflater.inflate(R.layout.descubra_item, parent, false);
+        MyViewHolder holder = new MyViewHolder(view);
+        return holder;
     }
 
     @Override
