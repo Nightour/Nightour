@@ -26,4 +26,14 @@ public class LocaisController {
 
         return valores;
     }
+
+    public long insereLocal(Local local) {
+        ContentValues valores = makeContentValues(local);
+
+        db = banco.getWritableDatabase();
+        long resultado = db.insert(local.NOME_TABELA, null, valores);
+        db.close();
+
+        return resultado;
+    }
 }
