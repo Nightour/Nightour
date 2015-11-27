@@ -46,7 +46,7 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
 
     @Override
     public int getItemCount() {
-        return 0;
+        return eventos.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
