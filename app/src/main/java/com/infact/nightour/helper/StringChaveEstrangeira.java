@@ -32,7 +32,7 @@ public class StringChaveEstrangeira {
 
     @Override
     public String toString() {
-        return "FOREIGN KEY(" + getNomeChave() + ") REFERENCES artist(" + getTabelaReferenciada() + ")";
+        return "FOREIGN KEY(" + getNomeChave() + ") REFERENCES " + getTabelaReferenciada() + "(" + getCampoReferenciado() + ")";
     }
 
     public String getCampoReferenciado() {
