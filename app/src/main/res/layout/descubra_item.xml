@@ -4,15 +4,15 @@
     android:layout_height="wrap_content"
     android:clickable="true">
     <ImageButton
-        android:id="@+id/ibItemDescubra"
+        android:id="@+id/ibIconeEvento_Home"
         android:layout_width="140dp"
         android:layout_height="140dp"/>
     <TextView
-        android:id="@+id/tvItemDescubra"
+        android:id="@+id/tvNomeEvento_Home"
         android:text="All night Pub"
         android:layout_width="140dp"
         android:layout_height="80dp"
-        android:layout_below="@+id/ibItemDescubra"
+        android:layout_below="@+id/ibIconeEvento_Home"
         android:background="@color/colorPrimaryDark"
         android:textColor="#242625"/>
 </RelativeLayout>
