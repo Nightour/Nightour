@@ -29,4 +29,32 @@ public class Local {
                 new StringsCampo(BD_ZOOM, BD_ZOOM_TIPO)
         });
     }
+
+    private double longitude;
+    private double latitude;
+    private float zoom;
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public float getZoom() {
+        return zoom;
+    }
+
+    public void setZoom(float zoom) {
+        this.zoom = zoom;
+    }
 }
