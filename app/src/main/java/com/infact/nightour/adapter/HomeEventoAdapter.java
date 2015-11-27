@@ -23,8 +23,9 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
     private LayoutInflater inflater;
     private Context context;
 
-    public HomeEventoAdapter(Context context) {
+    public HomeEventoAdapter(Context context, List<Evento> eventos) {
         this.context = context;
+        this.eventos = eventos;
         this.inflater = LayoutInflater.from(context);
     }
 
