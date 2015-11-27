@@ -7,7 +7,7 @@ import com.infact.nightour.helper.StringsCampo;
  * Created by Timóteo on 26/11/2015.
  */
 public class Local {
-    public static String NOME_TABELA = "fotos";
+    public static String NOME_TABELA = "locais";
 
     public static String BD_ID = "_id";
     public static String BD_ID_TIPO = "integer primary key autoincrement";
