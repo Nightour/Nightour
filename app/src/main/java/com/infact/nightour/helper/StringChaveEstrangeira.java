@@ -11,6 +11,7 @@ public class StringChaveEstrangeira {
 
     public StringChaveEstrangeira(String nomeChave, String tipo, String tabelaReferenciada, String campoReferenciado) {
         this.nomeChave = nomeChave;
+        this.setTipoCampo(tipo);
         this.setCampoReferenciado(campoReferenciado);
         this.setTabelaReferenciada(tabelaReferenciada);
     }
@@ -42,5 +43,13 @@ public class StringChaveEstrangeira {
 
     public void setCampoReferenciado(String campoReferenciado) {
         this.campoReferenciado = campoReferenciado;
+    }
+
+    public String getTipoCampo() {
+        return tipoCampo;
+    }
+
+    public void setTipoCampo(String tipoCampo) {
+        this.tipoCampo = tipoCampo;
     }
 }
