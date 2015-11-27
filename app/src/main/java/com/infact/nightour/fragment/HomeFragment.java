@@ -29,19 +29,7 @@ public class HomeFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rvOQueRolaHoje);
 
-        /*adapter = new DescubraOuOQueRolaAdapter(getActivity(), DescubraOuOQueRolaItem.getList());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new TheClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-            }
 
-            @Override
-            public void onLongClick(View view, int position) {
-
-            }
-        }));*/
 
         // Inflate the layout for this fragment
         return rootView;
@@ -60,63 +48,5 @@ public class HomeFragment extends BaseFragment {
     public String toString(){
         return "Home";
     }
-    /*public interface ClickListener {
-        void onClick(View view, int position);
-
-        void onLongClick(View view, int position);
-    }
-    static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
-
-        private GestureDetector gestureDetector;
-        private TheClickListener clickListener;
-
-        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final TheClickListener clickListener) {
-            this.clickListener = clickListener;
-            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onSingleTapUp(MotionEvent e) {
-                    return true;
-                }
-
-                @Override
-                public void onLongPress(MotionEvent e) {
-                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
-                    if (child != null && clickListener != null) {
-                        clickListener.onLongClick(child, recyclerView.getChildAdapterPosition(child));
-                    }
-                }
-            });
-        }
-
-        @Override
-        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            View child = rv.findChildViewUnder(e.getX(), e.getY());
-            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
-                clickListener.onClick(child, rv.getChildAdapterPosition(child));
-            }
-            return false;
-        }
-
-        @Override
-        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-        }
-
-        @Override
-        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-        }
-
-
-    }
-
-    public interface TheClickListener {
-        void onClick(View view, int position);
-
-        void onLongClick(View view, int position);
-    }
-    public interface HomeFragmentListener {
-        void onDescubraOuOQueRolaItemSelected(View view, int position);
-    }*/
 }
 
