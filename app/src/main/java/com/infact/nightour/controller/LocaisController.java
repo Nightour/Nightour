@@ -36,4 +36,8 @@ public class LocaisController {
 
         return resultado;
     }
+
+    private static String[] camposTabelaLocal() {
+        return new String[]{ Local.BD_ID, Local.BD_LATITUDE, Local.BD_LONGITUDE, Local.BD_ZOOM };
+    }
 }
