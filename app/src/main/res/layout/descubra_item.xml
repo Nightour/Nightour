@@ -2,17 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingRight="5dp"
+    android:paddingLeft="5dp"
     android:clickable="true">
     <ImageButton
         android:id="@+id/ibIconeEvento_Home"
-        android:layout_width="140dp"
-        android:layout_height="140dp"/>
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
     <TextView
         android:id="@+id/tvNomeEvento_Home"
-        android:text="All night Pub"
-        android:layout_width="140dp"
-        android:layout_height="80dp"
-        android:layout_below="@+id/ibIconeEvento_Home"
+        android:text="All night Pub!"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
-        android:textColor="#242625"/>
+        android:textColor="@color/goldColor"
+        android:layout_below="@+id/ibIconeEvento_Home"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
