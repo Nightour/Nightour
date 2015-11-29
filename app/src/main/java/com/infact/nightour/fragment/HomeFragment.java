@@ -3,6 +3,7 @@ package com.infact.nightour.fragment;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,10 +28,6 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        for (Evento evento: HomeEventoAdapter.getEventosTeste(getActivity())) {
-            new EventosController(getActivity()).insereEvento(evento);
-        }
     }
 
     @Override
