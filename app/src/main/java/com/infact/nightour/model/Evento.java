@@ -1,11 +1,15 @@
 package com.infact.nightour.model;
 
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringsCampo;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Timóteo on 08/11/2015.
@@ -37,6 +41,33 @@ public class Evento {
                 new StringsCampo(BD_IMAGEM, BD_IMAGEM_TIPO)
         });
     }
+
+    // ---
+
+    // Cria um evento a partir dos dados na posição apontada pelo cursor passado.
+    public static Evento fromCursor(Cursor cursor) {
+        Evento evento = new Evento();
+
+        evento.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BD_ID)));
+        evento.setNome(cursor.getString(cursor.getColumnIndexOrThrow(BD_NOME)));
+        evento.setDescricao(cursor.getString(cursor.getColumnIndexOrThrow(BD_DESCRICAO)));
+        evento.setGenero(cursor.getString(cursor.getColumnIndexOrThrow(BD_GENERO)));
+        evento.setImagemBytes(cursor.getBlob(cursor.getColumnIndexOrThrow(BD_IMAGEM)));
+
+        return evento;
+    }
+
+    public static List<Evento> getListFromCursor(Cursor cursor) {
+        List<Evento> eventos = new ArrayList<Evento>();
+
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            eventos.add(Evento.fromCursor(cursor));
+        }
+
+        return eventos;
+    }
+
+    // ---
 
     private int id;
     private String nome;
@@ -82,6 +113,10 @@ public class Evento {
 
     public void setImagem(Bitmap imagem) {
         this.imagem = imagem;
+    }
+
+    public void setImagemBytes(byte[] bytes) {
+        setImagem(BitmapFactory.decodeByteArray(bytes, 0, bytes.length));
     }
 
     public byte[] getImagemBytes() {

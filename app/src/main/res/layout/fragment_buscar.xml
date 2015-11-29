@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context="com.infact.nightour.activity.BuscarFragment">
+
+
+    <ImageView
+        android:id="@+id/ivIconeDeBuscaNafragment_buscar"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:src="@drawable/ic_search_cinza_pequeno_fragment_busca"/>
+    <TextView
+        android:id="@+id/label"
+        android:layout_below="@+id/ivIconeDeBuscaNafragment_buscar"
+        android:layout_marginTop="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="20dp"
+        android:text="Encontre o que procura"
+        android:textStyle="bold"
+        android:textColor="@color/textColorPrimary"/>
+
+    <TextView
+        android:layout_below="@id/label"
+        android:layout_centerInParent="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="Busque músicos, bandas, eventos, lugares e amigos."
+        android:textColor="@color/textColorPrimary"/>
+
+</RelativeLayout>

@@ -1,0 +1,126 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context="com.infact.nightour.fragment.HomeFragment">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvMensagem"
+            android:layout_width="match_parent"
+            android:layout_height="32.33dp"
+            android:text="Divirta-se hoje!"
+            android:textColor="@color/goldColor"
+            android:textSize="20sp"
+            android:gravity="center"/>
+
+
+        <TextView
+            android:id="@+id/tvOQueRolaHoje"
+            android:layout_width="match_parent"
+            android:layout_height="24.33dp"
+            android:layout_below="@+id/tvMensagem"
+            android:text="Ao vivo"
+            android:textColor="#FFFFFF"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="7.3dp"
+            android:paddingLeft="13.67dp"
+            android:background="@color/fundo_do_texto_da_home"/>
+
+        <LinearLayout
+            android:id="@+id/llOQueRolaHoje"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/tvOQueRolaHoje">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvOQueRolaHoje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvDescubra"
+            android:layout_width="match_parent"
+            android:layout_height="24.33dp"
+            android:text="Descubra"
+            android:textColor="#FFFFFF"
+            android:gravity="center_vertical"
+            android:paddingLeft="13.67dp"
+            android:layout_below="@id/llOQueRolaHoje"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="7.3dp"
+            android:background="@color/fundo_do_texto_da_home"/>
+        <LinearLayout
+            android:id="@+id/llDescubra"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/tvDescubra">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvDescubra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvExplore"
+            android:layout_width="match_parent"
+            android:layout_height="24.33dp"
+            android:text="Explore"
+            android:textColor="#FFFFFF"
+            android:gravity="center_vertical"
+            android:paddingLeft="13.67dp"
+            android:layout_below="@id/llDescubra"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="7.3dp"
+            android:background="@color/fundo_do_texto_da_home"/>
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/rlBotoesPersonalizadosDaHome"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/tvExplore"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true">
+            <ImageButton
+                android:id="@+id/ibEventos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/eventos"/>
+
+            <ImageButton
+                android:id="@+id/ibLugares"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ibEventos"
+                android:layout_marginLeft="13.33dp"
+                android:background="@drawable/eventos"/>
+            <ImageButton
+                android:id="@+id/ibPessoas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pessoas___quadrado_03"
+                android:layout_below="@+id/ibEventos"
+                android:layout_marginTop="9.33dp"
+                android:layout_marginBottom="10dp"/>
+            <ImageButton
+                android:id="@+id/ibMusicos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ibPessoas"
+                android:layout_marginLeft="13.33dp"
+                android:layout_below="@+id/ibEventos"
+                android:layout_marginTop="9.33dp"
+                android:background="@drawable/pessoas___quadrado_03"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
