@@ -35,7 +35,7 @@ public class HomeFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rvOQueRolaHoje);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
 
         EventosController crud = new EventosController(getActivity());
         List<Evento> eventos = Evento.getListFromCursor(crud.carregaEventos());
