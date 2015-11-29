@@ -77,7 +77,7 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
 
     public HomeEventoAdapter(Context context, List<Evento> eventos) {
         this.context = context;
-        this.eventos = getEventosTeste(context);//eventos;
+        this.eventos = eventos;
         this.inflater = LayoutInflater.from(context);
     }
 
