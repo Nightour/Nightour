@@ -25,7 +25,7 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
         return largeIcon;
     }
 
-    private static List<Evento> getEventosTeste(Context context) {
+    public static List<Evento> getEventosTeste(Context context) {
         List<Evento> eventos = new ArrayList<Evento>();
 
         Evento evento = new Evento();
