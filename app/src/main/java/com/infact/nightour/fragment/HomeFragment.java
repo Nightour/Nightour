@@ -28,6 +28,9 @@ public class HomeFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        for (Evento evento: HomeEventoAdapter.getEventosTeste(getActivity())) {
+            new EventosController(getActivity()).insereEvento(evento);
+        }
     }
 
     @Override
