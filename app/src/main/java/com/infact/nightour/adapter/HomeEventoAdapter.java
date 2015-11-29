@@ -1,14 +1,12 @@
 package com.infact.nightour.adapter;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CursorAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -34,7 +32,7 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
         evento.setNome("Evento A");
         evento.setGenero("Rock");
         evento.setDescricao("Adabo dabo.");
-        evento.setImagem(makeBitmap(context, R.drawable.eventos___ex));
+        evento.setImagem(makeBitmap(context, R.drawable.eventos___ex_9));
 
         eventos.add(evento);
 
