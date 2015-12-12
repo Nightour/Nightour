@@ -1,5 +1,10 @@
 package com.infact.nightour.relation;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.infact.nightour.BancoDeDados;
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.model.Usuario;
@@ -28,5 +33,12 @@ public class UsuarioSegueUsuario {
         });
     }
 
+    // ---
 
+    private SQLiteDatabase db;
+    private BancoDeDados banco;
+
+    UsuarioSegueUsuario(Context context) {
+        banco = new BancoDeDados(context);
+    }
 }
