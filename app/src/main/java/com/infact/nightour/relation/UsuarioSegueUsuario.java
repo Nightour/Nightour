@@ -55,4 +55,12 @@ public class UsuarioSegueUsuario {
 
         return resultado;
     }
+
+    public void deletaSeguidor(Usuario seguidor, Usuario seguido) {
+        String where = BD_CHAVE_SEGUIDOR + " = " + seguidor.getId() + " AND " + BD_CHAVE_SEGUIDO + " = " + seguido.getId();
+
+        db = banco.getWritableDatabase();
+        db.delete(NOME_TABELA, where, null);
+        db.close();
+    }
 }
