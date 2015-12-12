@@ -67,7 +67,7 @@ public class UsuarioSegueUsuario {
 
     public Cursor carregaSeguidores(Usuario seguido) {
         String query = "SELECT * FROM " + Usuario.NOME_TABELA + " usuario WHERE usuario." + Usuario.BD_ID + " IN " +
-                "(SELECT segue." + BD_CHAVE_SEGUIDOR + " FROM " + NOME_TABELA + " segue WHERE segue." + BD_CHAVE_SEGUIDO + " = " + seguido.getId() + ")";
+                "(SELECT relacao." + BD_CHAVE_SEGUIDOR + " FROM " + NOME_TABELA + " relacao WHERE relacao." + BD_CHAVE_SEGUIDO + " = " + seguido.getId() + ")";
 
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
