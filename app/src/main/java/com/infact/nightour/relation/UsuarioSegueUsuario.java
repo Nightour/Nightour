@@ -41,4 +41,18 @@ public class UsuarioSegueUsuario {
     UsuarioSegueUsuario(Context context) {
         banco = new BancoDeDados(context);
     }
+
+    // ---
+
+    public long insereSeguidor(Usuario seguidor, Usuario seguido) {
+        ContentValues valores = new ContentValues();
+        valores.put(BD_CHAVE_SEGUIDOR, seguidor.getId());
+        valores.put(BD_CHAVE_SEGUIDO, seguido.getId());
+
+        db = banco.getWritableDatabase();
+        long resultado = db.insert(NOME_TABELA, null, valores);
+        db.close();
+
+        return resultado;
+    }
 }
