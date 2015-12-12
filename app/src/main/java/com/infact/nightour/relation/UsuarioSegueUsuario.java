@@ -79,4 +79,19 @@ public class UsuarioSegueUsuario {
 
         return cursor;
     }
+
+    public Cursor carregaSeguindo(Usuario seguidor) {
+        String query = "SELECT * FROM " + Usuario.NOME_TABELA + " usuario WHERE usuario." + Usuario.BD_ID + " IN " +
+                "(SELECT relacao." + BD_CHAVE_SEGUIDO + " FROM " + NOME_TABELA + " relacao WHERE relacao." + BD_CHAVE_SEGUIDOR + " = " + seguidor.getId() + ")";
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        db.close();
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+    }
 }
