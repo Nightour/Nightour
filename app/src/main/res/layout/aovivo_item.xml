@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fontFamily="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_gravity="center"
+    android:layout_width="140dp"
+    android:layout_height="240dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    card_view:cardBackgroundColor="@color/colorPrimaryDark"
+    android:clickable="true">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/rlImageButtonAoVivoItem"
+            android:layout_width="140dp"
+            android:layout_height="140dp">
+        <ImageView
+            android:id="@+id/ibIconeEventoAoVivo_Home"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rvCaixaAoVivoItem"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/rlImageButtonAoVivoItem"
+            android:background="@color/colorPrimaryDark">
+            <TextView
+                android:id="@+id/tvNomeEventoAoVivo_Home"
+                android:text="All night Pub!"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorPrimary"
+                android:layout_alignParentStart="true"
+                android:fontFamily="sans-serif-regular"
+                android:paddingLeft="12dp"/>
+            <LinearLayout
+                android:id="@+id/llLocalizacaoAoVivoItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_below="@+id/tvNomeEventoAoVivo_Home">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/place_15"
+                    android:layout_gravity="center"
+                    android:paddingLeft="12dp"/>
+                <TextView
+                    android:id="@+id/tvLocalizacaoAoVivoItem"
+                    android:text="All night Pub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="5dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/llLocalizacaoAoVivoItem"
+                android:layout_marginTop="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/avaliacao_ok___branco_14"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:id="@+id/tvfavoritosAoVivoItem"
+                        android:text=" 4,5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorPrimary"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="16sp"
+                        android:layout_marginTop="3dp"
+                        android:gravity="center"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:foregroundGravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/people_12"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvTotalDeUsuarios"
+                        android:text=" 50"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorPrimary"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="16sp"
+                        android:layout_marginTop="3dp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:foregroundGravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/pessoas_do_sexo_de_interesse_mais_preenchido_13"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvTotalDeSuaPreferenciaSexual"
+                        android:text=" 20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorPrimary"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="16sp"
+                        android:layout_marginTop="3dp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -27,13 +27,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.infact.nightour.activity.TabbedActivity"
-            android:label="@string/title_activity_tabbed"
+            android:name="com.infact.nightour.activity.EventoActivity"
+            android:label="@string/title_activity_evento"
             android:theme="@style/MyMaterialTheme" >
         </activity>
         <activity
-            android:name="com.infact.nightour.activity.ScrollingActivity"
-            android:label="@string/title_activity_scrolling"
+            android:name="com.infact.nightour.activity.FrequentadorActivitty"
+            android:label="@string/title_activity_frequentador_activitty"
             android:theme="@style/MyMaterialTheme" >
         </activity>
     </application>

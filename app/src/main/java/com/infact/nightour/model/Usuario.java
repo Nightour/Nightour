@@ -50,6 +50,10 @@ public class Usuario {
     private Date aniversario;
     private int chaveImagemPerfil; // Pegar a imagem de perfil do usuário através de FotosController.carregaImagemPerfilByUsuario!
 
+    public Usuario(String nome){
+        this.nome = nome;
+    }
+
     public int getId() {
         return id;
     }

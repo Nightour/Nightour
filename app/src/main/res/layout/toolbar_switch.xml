@@ -3,10 +3,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/colorPrimaryDark">
-        <Switch
-        android:id="@+id/action_switch"
-        android:switchPadding="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/action_switch"
+            android:switchPadding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="18.33dp"/>
 </RelativeLayout>

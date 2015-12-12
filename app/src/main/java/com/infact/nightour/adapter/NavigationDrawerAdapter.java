@@ -42,12 +42,13 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     public void onBindViewHolder(MyViewHolder holder, int position) {
         NavDrawerMenuItem current = data.get(position);
         holder.title.setText(current.getTitle());
-        holder.img.setImageResource(current.getImg());
         if(current.selected){
+            holder.img.setImageResource(current.getImg());
             holder.tvmarcadordrawer.setVisibility(View.VISIBLE);
             holder.title.setTextColor(context.getResources().getColor(R.color.textColorPrimary));
         }
         else {
+            holder.img.setImageResource(current.getImgNaoSelecionado());
             holder.tvmarcadordrawer.setVisibility(View.INVISIBLE);
             holder.title.setTextColor(0x99FFFFFF);
         }
@@ -83,7 +84,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
         TextView title;
         ImageView img;
         TextView tvmarcadordrawer;
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(View itemView){
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.tvMenuItem);
             img = (ImageView) itemView.findViewById(R.id.ivMenuItem);

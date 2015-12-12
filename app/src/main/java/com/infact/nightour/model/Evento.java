@@ -124,4 +124,9 @@ public class Evento {
         getImagem().compress(Bitmap.CompressFormat.PNG, 0, stream);
         return stream.toByteArray();
     }
+
+    @Override
+    public String toString(){
+        return "Evento{" + "nome='" + nome +'\'' + '}';
+    }
 }

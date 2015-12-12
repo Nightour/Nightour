@@ -16,13 +16,14 @@ import android.widget.Toast;
 import com.example.neto.nightour.R;
 import com.infact.nightour.adapter.NavigationDrawerAdapter;
 import com.infact.nightour.fragment.BuscarFragment;
+import com.infact.nightour.fragment.ConfiguracoesFragment;
 import com.infact.nightour.fragment.DrawerFragment;
 import com.infact.nightour.fragment.HomeFragment;
+import com.infact.nightour.fragment.InBoxFragment;
 import com.infact.nightour.fragment.NewsFragment;
 import com.infact.nightour.fragment.PerfilFragment;
 
 public class MainActivity extends DebugActivity implements DrawerFragment.FragmentDrawerListener {
-
 
 
 private static String TAG = MainActivity.class.getSimpleName();
@@ -32,8 +33,11 @@ private static String TAG = MainActivity.class.getSimpleName();
     public static SearchView svBuscar;
     public static MenuItem searchMenuItem;
     public static MenuItem switchMenuItem;
-    private String title;
-    public static Fragment fragment = null;; //caso o searchview suma e apareça, tornar public não static
+
+    public static Fragment fragment = null;private String title;
+    public static int APosicao;
+    public static HomeFragment homefragment;
+     //caso o searchview suma e apareça, tornar public não static
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +49,32 @@ private static String TAG = MainActivity.class.getSimpleName();
         drawerFragment = (DrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
         drawerFragment.setDrawerListener(this);
+
         drawerFragment.ibFotoDePerfilNaNavigation.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
                 onDrawerItemSelected(v, 3);
+            }
+        });
+
+        drawerFragment.ibInBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDrawerItemSelected(v, 4);
+            }
+        });
+
+        drawerFragment.ibConfiguracoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDrawerItemSelected(v, 5);
             }
         });
 
 
         // display the first navigation drawer view on app launch
 
+        DrawerFragment.adapter.clearSelected();
         NavigationDrawerAdapter.data.get(0).selected = true;
         displayView(0);
 
@@ -70,8 +90,6 @@ private static String TAG = MainActivity.class.getSimpleName();
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                // newText is text entered by user to SearchView
-                Toast.makeText(getApplicationContext(), newText, Toast.LENGTH_LONG).show();
                 return false;
             }
         };
@@ -82,11 +100,16 @@ private static String TAG = MainActivity.class.getSimpleName();
         searchMenuItem = menu.findItem(R.id.action_search);
         svBuscar = (SearchView) searchMenuItem.getActionView();
         svBuscar.setOnQueryTextListener(listener);
+        svBuscar.setIconifiedByDefault(false);
+        //svBuscar.setOnCloseListener(listener);
+
 
         switchMenuItem = menu.findItem(R.id.action_switch);
-        if(fragment + "" == getString(R.string.title_buscar) + "")
+        if(APosicao == 1)
         {
+
             searchMenuItem.setVisible(true);
+            svBuscar.setMaxWidth(900);
             svBuscar.onActionViewExpanded();
             svBuscar.setQueryHint("Buscar");
             switchMenuItem.setVisible(false);
@@ -117,14 +140,17 @@ private static String TAG = MainActivity.class.getSimpleName();
 
     }
     private void displayView(int position) {
+        APosicao = position;
         switch (position) {
             case 0:
                 title = getString(R.string.app_name);
-                fragment = new HomeFragment();
+                homefragment = new HomeFragment();
+                fragment = homefragment;
                 title = fragment + "";
                 break;
             case 1:
                 fragment = new BuscarFragment();
+                title = fragment + "";
                 break;
             case 2:
                 title = getString(R.string.app_name);
@@ -135,6 +161,17 @@ private static String TAG = MainActivity.class.getSimpleName();
                 title = getString(R.string.app_name);
                 fragment = new PerfilFragment();
                 title = "" + fragment;
+                break;
+            case 4:
+                title = getString(R.string.app_name);
+                fragment = new InBoxFragment();
+                title = "" + fragment;
+                break;
+            case 5:
+                title = getString(R.string.app_name);
+                fragment = new ConfiguracoesFragment();
+                title = "" + fragment;
+                break;
             default:
                 break;
         }
@@ -145,10 +182,10 @@ private static String TAG = MainActivity.class.getSimpleName();
             fragmentTransaction.replace(R.id.container_body, fragment);
             fragmentTransaction.commit();
 
-            if(fragment + "" != getString(R.string.title_buscar) + ""){
-                getSupportActionBar().setTitle(title);}
-            else{
+            if(APosicao == 1 || APosicao > 3){
                 getSupportActionBar().setTitle(null);}
+            else{
+                getSupportActionBar().setTitle(title);}
             drawerFragment.getDrawerLayout().closeDrawer(GravityCompat.START);
 
         }
