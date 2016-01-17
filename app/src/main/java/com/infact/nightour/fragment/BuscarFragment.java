@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.neto.nightour.R;
+import com.example.neto.nightour.R;;
 
 public class BuscarFragment extends BaseFragment {
     public BuscarFragment() {

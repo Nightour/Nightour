@@ -9,6 +9,7 @@ import com.infact.nightour.model.Evento;
 import com.infact.nightour.model.Foto;
 import com.infact.nightour.model.Local;
 import com.infact.nightour.model.Usuario;
+import com.infact.nightour.relation.UsuarioSegueUsuario;
 
 /**
  * Created by Timóteo on 08/11/2015.
@@ -37,6 +38,11 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
         query = Local.getCreateTableQuery();
         db.execSQL(query);
+
+        // Relações
+
+        query = UsuarioSegueUsuario.getCreateTableQuery();
+        db.execSQL(query);
     }
 
     @Override
@@ -46,6 +52,11 @@ public class BancoDeDados extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Usuario.NOME_TABELA);
         db.execSQL("DROP TABLE IF EXISTS " + Avaliacao.NOME_TABELA);
         db.execSQL("DROP TABLE IF EXISTS " + Local.NOME_TABELA);
+
+        // Relações
+
+        db.execSQL("DROP TABLE IF EXISTS " + UsuarioSegueUsuario.NOME_TABELA);
+
         onCreate(db);
     }
 }

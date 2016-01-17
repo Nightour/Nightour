@@ -1,21 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
+    android:layout_gravity="center"
+    android:layout_width="140dp"
     android:layout_height="wrap_content"
-    android:paddingRight="5dp"
-    android:paddingLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    card_view:cardBackgroundColor="@color/colorPrimaryDark"
     android:clickable="true">
-    <ImageButton
-        android:id="@+id/ibIconeEvento_Home"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
-    <TextView
-        android:id="@+id/tvNomeEvento_Home"
-        android:text="All night Pub!"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/goldColor"
-        android:layout_below="@+id/ibIconeEvento_Home"
-        android:layout_alignParentStart="true" />
-</RelativeLayout>
+    <!--card_view:cardElevation="20dp"-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/rlImageButtonItem"
+            android:layout_width="140dp"
+            android:layout_height="140dp">
+        <ImageView
+            android:id="@+id/ibIconeEventoDescubra_Home"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rvCaixaItem"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/rlImageButtonItem"
+            android:background="@color/colorPrimaryDark">
+            <TextView
+                android:id="@+id/tvNomeEventoDescubra_Home"
+                android:text="All night Pub!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorPrimary"
+                android:layout_alignParentStart="true"
+                android:fontFamily="sans-serif-regular"
+                android:paddingLeft="12dp"/>
+            <LinearLayout
+                android:id="@+id/llLocalizacaoDescubraItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_below="@+id/tvNomeEventoDescubra_Home">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/place_15"
+                    android:layout_gravity="center"
+                    android:paddingLeft="12dp"/>
+                <TextView
+                    android:id="@+id/tvLocalizacaoAoVivoItem"
+                    android:text="All night Pub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="5dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvFavoritosDescubraItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="4,5"
+                android:textColor="@color/textColorPrimary"
+                android:layout_marginLeft="12dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="8dp"/>
+            <ImageView
+                android:id="@+id/ivFavoritosDescubraItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tvFavoritosDescubraItem"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/avaliacao_ok___branco_14"
+                android:padding="2dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="8dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+    <!--<TextView
+                    android:id="@+id/tvGenero"
+                    android:text="gênero geek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorPrimary"
+                    android:layout_below="@+id/tvLocalizacao"/-->

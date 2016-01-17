@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
-    tools:context="com.infact.nightour.fragment.HomeFragment">
+    tools:context="com.example.neto.nightour.fragment.HomeFragment">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -36,14 +36,14 @@
         <LinearLayout
             android:id="@+id/llOQueRolaHoje"
             android:layout_width="wrap_content"
-            android:layout_height="150dp"
+            android:layout_height="240dp"
             android:orientation="horizontal"
             android:layout_below="@+id/tvOQueRolaHoje">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvOQueRolaHoje"
+            <FrameLayout
+                android:id="@+id/flAoVivoFragmentEventos"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"/>
+
         </LinearLayout>
         <TextView
             android:id="@+id/tvDescubra"
@@ -57,18 +57,19 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="7.3dp"
             android:background="@color/fundo_do_texto_da_home"/>
+
         <LinearLayout
             android:id="@+id/llDescubra"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:orientation="horizontal"
-            android:layout_below="@+id/tvDescubra">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tvDescubra"
+            android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvDescubra"
+            <FrameLayout
+                android:id="@+id/flDescubraFragmentEventos"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
+                android:layout_height="match_parent"/>
+        </LinearLayout> 
 
         <TextView
             android:id="@+id/tvExplore"
@@ -95,32 +96,32 @@
                 android:id="@+id/ibEventos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/eventos"/>
+                android:background="@drawable/eventos___botao_04"/>
 
             <ImageButton
                 android:id="@+id/ibLugares"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/ibEventos"
-                android:layout_marginLeft="13.33dp"
-                android:background="@drawable/eventos"/>
+                android:layout_marginLeft="11dp"
+                android:background="@drawable/lugares___botao_02"/>
             <ImageButton
                 android:id="@+id/ibPessoas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/pessoas___quadrado_03"
+                android:background="@drawable/botao_de_pessoas_01"
                 android:layout_below="@+id/ibEventos"
-                android:layout_marginTop="9.33dp"
+                android:layout_marginTop="11dp"
                 android:layout_marginBottom="10dp"/>
             <ImageButton
                 android:id="@+id/ibMusicos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/ibPessoas"
-                android:layout_marginLeft="13.33dp"
+                android:layout_marginLeft="11dp"
                 android:layout_below="@+id/ibEventos"
-                android:layout_marginTop="9.33dp"
-                android:background="@drawable/pessoas___quadrado_03"/>
+                android:layout_marginTop="11dp"
+                android:background="@drawable/musicos___botao_05"/>
         </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

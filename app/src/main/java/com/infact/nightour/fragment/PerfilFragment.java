@@ -2,11 +2,13 @@ package com.infact.nightour.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.neto.nightour.R;
+import com.infact.nightour.filtros.BlurFilter;
 
 public class PerfilFragment extends BaseFragment {
 
@@ -17,14 +19,20 @@ public class PerfilFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+
+
+        }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_perfil, container, false);
 
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.flTabPerfil, new PerfilTabFragment());
+        ft.commit();
         // Inflate the layout for this fragment
+
         return rootView;
     }
 

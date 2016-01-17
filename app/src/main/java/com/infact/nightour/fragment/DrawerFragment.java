@@ -32,6 +32,8 @@ public class DrawerFragment extends BaseFragment {
     private View containerView;
     private FragmentDrawerListener drawerListener;
     public static ImageButton ibFotoDePerfilNaNavigation;
+    public static ImageButton ibConfiguracoes;
+    public static ImageButton ibInBox;
     private static String imgs = null;
 
     public DrawerFragment() {
@@ -78,6 +80,8 @@ public class DrawerFragment extends BaseFragment {
             }
         }));
         ibFotoDePerfilNaNavigation = (ImageButton) layout.findViewById(R.id.ibFotoDePerfilNaNavigation);
+        ibConfiguracoes = (ImageButton) layout.findViewById(R.id.ibConfiguracoes);
+        ibInBox = (ImageButton) layout.findViewById(R.id.ibInBox);
 
         return layout;
     }
@@ -90,7 +94,7 @@ public class DrawerFragment extends BaseFragment {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                if( MainActivity.fragment + "" == getString(R.string.title_buscar) + "") {
+                if( MainActivity.APosicao == 1) {
                     MainActivity.searchMenuItem.setVisible(true);
                     MainActivity.svBuscar.onActionViewExpanded();
                     MainActivity.svBuscar.setQueryHint("Buscar");
