@@ -28,6 +28,7 @@ public class AvaliacoesController {
         return valores;
     }
 
+    // Não se esqueça de atribuir o id de um timestamp à avaliação antes de inserí-la!!
     public long insereAvaliacao(Avaliacao avaliacao) {
         ContentValues valores = makeContentValues(avaliacao);
 
