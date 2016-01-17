@@ -1,5 +1,9 @@
 package com.infact.nightour.relation;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.infact.nightour.BancoDeDados;
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.model.Evento;
@@ -27,5 +31,14 @@ public class UsuarioFoiAEvento {
                 new StringChaveEstrangeira(BD_CHAVE_EVENTO, BD_CHAVE_EVENTO_TIPO, BD_EVENTO_REFERENCIA, BD_EVENTO_CAMPO_REFERENCIADO),
                 "PRIMARY KEY(" + BD_CHAVE_USUARIO + ", " + BD_CHAVE_EVENTO + ")"
         });
+    }
+
+    // ---
+
+    private SQLiteDatabase db;
+    private BancoDeDados banco;
+
+    UsuarioFoiAEvento(Context context) {
+        banco = new BancoDeDados(context);
     }
 }
