@@ -16,8 +16,8 @@ import com.infact.nightour.model.Usuario;
 public class UsuarioSegueUsuario {
     public static String NOME_TABELA = "usuarios_seguem_usuarios";
 
-    public static String BD_CHAVE_SEGUIDOR = "chaveUsuarioSeguidor"; // Chave estrangeira
-    public static String BD_CHAVE_SEGUIDOR_TIPO = "integer";
+    public static String BD_CHAVE_SEGUIDOR = "seguidor_chave"; // Chave estrangeira
+    public static String BD_CHAVE_SEGUIDOR_TIPO = "INT";
     public static String BD_SEGUIDOR_REFERENCIA = Usuario.NOME_TABELA;
     public static String BD_SEGUIDOR_CAMPO_REFERENCIADO = Usuario.BD_ID;
 
