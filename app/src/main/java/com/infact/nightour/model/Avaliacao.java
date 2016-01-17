@@ -41,7 +41,7 @@ public class Avaliacao {
     private int id;
     private int quantEstrelas;
     private String comentario;
-    private Date timestamp;
+    private int chaveTimestamp;
 
     public int getId() {
         return id;
@@ -67,16 +67,11 @@ public class Avaliacao {
         this.comentario = comentario;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
+    public int getChaveTimestamp() {
+        return chaveTimestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public long getTimestampUnixTime() {
-        long unixTime = getTimestamp().getTime() / 1000L;
-        return unixTime;
+    public void setChaveTimestamp(int chaveTimestamp) {
+        this.chaveTimestamp = chaveTimestamp;
     }
 }
