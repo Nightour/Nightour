@@ -68,7 +68,7 @@ public class UsuarioFoiAEvento {
 
     public Cursor carregaEventosIdosPor(Usuario usuario) {
         String query = "SELECT * FROM " + Evento.NOME_TABELA + " evento WHERE evento." + Evento.BD_ID + " IN " +
-                "(SELECT evento." + BD_CHAVE_EVENTO + " FROM " + NOME_TABELA + " relacao WHERE relacao." + BD_CHAVE_USUARIO + " = " + usuario.getId() + ")";
+                "(SELECT relacao." + BD_CHAVE_EVENTO + " FROM " + NOME_TABELA + " relacao WHERE relacao." + BD_CHAVE_USUARIO + " = " + usuario.getId() + ")";
 
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
