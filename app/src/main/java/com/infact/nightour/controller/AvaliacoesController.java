@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.infact.nightour.BancoDeDados;
 import com.infact.nightour.model.Avaliacao;
+import com.infact.nightour.model.Timestamp;
 
 /**
  * Created by Timóteo on 24/11/2015.
@@ -30,12 +31,19 @@ public class AvaliacoesController {
         return valores;
     }
 
-    public long insereAvaliacao(Avaliacao avaliacao) {
-        ContentValues valores = makeContentValues(avaliacao);
+    public long insereAvaliacao(Avaliacao avaliacao, Timestamp createTime) {
+        long timestampId = new TimestampController(this.context).insereTimestamp(createTime);
+        long resultado = -1;
 
-        db = banco.getWritableDatabase();
-        long resultado = db.insert(avaliacao.NOME_TABELA, null, valores);
-        db.close();
+        if (timestampId != -1) {
+            avaliacao.setChaveTimestamp((int)timestampId);
+
+            ContentValues valores = makeContentValues(avaliacao);
+
+            db = banco.getWritableDatabase();
+            resultado = db.insert(avaliacao.NOME_TABELA, null, valores);
+            db.close();
+        }
 
         return resultado;
     }
