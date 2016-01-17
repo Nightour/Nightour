@@ -55,7 +55,7 @@ public class Evento {
         evento.setNome(cursor.getString(cursor.getColumnIndexOrThrow(BD_NOME)));
         evento.setDescricao(cursor.getString(cursor.getColumnIndexOrThrow(BD_DESCRICAO)));
         evento.setGenero(cursor.getString(cursor.getColumnIndexOrThrow(BD_GENERO)));
-        evento.setImagemBytes(cursor.getBlob(cursor.getColumnIndexOrThrow(BD_IMAGEM)));
+        evento.setChaveImagem(cursor.getInt(cursor.getColumnIndexOrThrow(BD_IMAGEM_CHAVE)));
 
         return evento;
     }
@@ -76,7 +76,7 @@ public class Evento {
     private String nome;
     private String descricao;
     private String genero;
-    private Bitmap imagem;
+    private int chaveImagem;
 
     public int getId() {
         return id;
@@ -110,26 +110,16 @@ public class Evento {
         this.genero = genero;
     }
 
-    public Bitmap getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(Bitmap imagem) {
-        this.imagem = imagem;
-    }
-
-    public void setImagemBytes(byte[] bytes) {
-        setImagem(BitmapFactory.decodeByteArray(bytes, 0, bytes.length));
-    }
-
-    public byte[] getImagemBytes() {
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        getImagem().compress(Bitmap.CompressFormat.PNG, 0, stream);
-        return stream.toByteArray();
-    }
-
     @Override
     public String toString(){
         return "Evento{" + "nome='" + nome +'\'' + '}';
+    }
+
+    public int getChaveImagem() {
+        return chaveImagem;
+    }
+
+    public void setChaveImagem(int chaveImagem) {
+        this.chaveImagem = chaveImagem;
     }
 }
