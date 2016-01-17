@@ -68,7 +68,7 @@ public class UsuarioTemFotos {
 
     public Cursor carregaFotosDo(Usuario usuario) {
         String query = "SELECT * FROM " + Foto.NOME_TABELA + " foto WHERE foto." + Foto.BD_ID + " IN " +
-                "(SELECT relacao." + BD_CHAVE_DONO + " FROM " + NOME_TABELA + " relacao WHERE relacao." + BD_CHAVE_DONO + " = " + usuario.getId() + ")";
+                "(SELECT relacao." + BD_CHAVE_FOTO + " FROM " + NOME_TABELA + " relacao WHERE relacao." + BD_CHAVE_DONO + " = " + usuario.getId() + ")";
 
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
