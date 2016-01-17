@@ -1,5 +1,6 @@
 package com.infact.nightour.relation;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -40,5 +41,19 @@ public class UsuarioFoiAEvento {
 
     UsuarioFoiAEvento(Context context) {
         banco = new BancoDeDados(context);
+    }
+
+    // ---
+
+    public long insereFoiAEvento(Usuario usuario, Evento evento) {
+        ContentValues valores = new ContentValues();
+        valores.put(BD_CHAVE_USUARIO, usuario.getId());
+        valores.put(BD_CHAVE_EVENTO, evento.getId());
+
+        db = banco.getWritableDatabase();
+        long resultado = db.insert(NOME_TABELA, null, valores);
+        db.close();
+
+        return resultado;
     }
 }
