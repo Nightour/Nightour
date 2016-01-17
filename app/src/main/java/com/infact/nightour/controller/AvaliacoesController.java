@@ -39,7 +39,7 @@ public class AvaliacoesController {
     }
 
     private static String[] camposTabelaAvaliacao() {
-        return new String[]{ Avaliacao.BD_ID, Avaliacao.BD_QUANT_ESTRELAS, Avaliacao.BD_COMENTARIO, Avaliacao.BD_TIMESTAMP };
+        return new String[]{ Avaliacao.BD_ID, Avaliacao.BD_QUANT_ESTRELAS, Avaliacao.BD_COMENTARIO, Avaliacao.BD_TIMESTAMP_CHAVE };
     }
 
     public Cursor carregaAvaliacoes() {
