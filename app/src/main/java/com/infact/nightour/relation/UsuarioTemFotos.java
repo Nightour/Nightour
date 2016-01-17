@@ -1,5 +1,9 @@
 package com.infact.nightour.relation;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.infact.nightour.BancoDeDados;
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.model.Foto;
@@ -27,5 +31,14 @@ public class UsuarioTemFotos {
                 new StringChaveEstrangeira(BD_CHAVE_FOTO, BD_CHAVE_FOTO_TIPO, BD_FOTO_REFERENCIA, BD_FOTO_CAMPO_REFERENCIADO),
                 "PRIMARY KEY(" + BD_CHAVE_DONO + ", " + BD_CHAVE_FOTO + ")"
         });
+    }
+
+    // ---
+
+    private SQLiteDatabase db;
+    private BancoDeDados banco;
+
+    UsuarioTemFotos(Context context) {
+        banco = new BancoDeDados(context);
     }
 }
