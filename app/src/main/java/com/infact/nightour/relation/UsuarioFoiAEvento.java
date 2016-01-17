@@ -80,4 +80,19 @@ public class UsuarioFoiAEvento {
 
         return cursor;
     }
+
+    public Cursor carregaUsuariosQueForamA(Evento evento) {
+        String query = "SELECT * FROM " + Usuario.NOME_TABELA + " usuario WHERE usuario." + Usuario.BD_ID + " IN " +
+                "(SELECT relacao." + BD_CHAVE_USUARIO + " FROM " + NOME_TABELA + " relacao WHERE relacao." + BD_CHAVE_EVENTO + " = " + evento.getId() + ")";
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        db.close();
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+    }
 }
