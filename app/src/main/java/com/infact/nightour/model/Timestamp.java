@@ -11,4 +11,7 @@ public class Timestamp {
 
     public static String BD_CREATE_TIME = "create_time";
     public static String BD_CREATE_TIME_TIPO = "INT"; // Armazenado em Unix time
+
+    public static String BD_UPDATE_TIME = "update_time";
+    public static String BD_UPDATE_TIME_TIPO = "INT"; // Armazenado em Unix time
 }
