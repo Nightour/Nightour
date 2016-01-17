@@ -10,6 +10,7 @@ import com.infact.nightour.model.Foto;
 import com.infact.nightour.model.Local;
 import com.infact.nightour.model.Timestamp;
 import com.infact.nightour.model.Usuario;
+import com.infact.nightour.relation.UsuarioFoiAEvento;
 import com.infact.nightour.relation.UsuarioSegueUsuario;
 
 /**
@@ -49,12 +50,16 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
         query = UsuarioSegueUsuario.getCreateTableQuery();
         db.execSQL(query);
+
+        query = UsuarioFoiAEvento.getCreateTableQuery();
+        db.execSQL(query);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Relações
 
+        db.execSQL("DROP TABLE IF EXISTS " + UsuarioFoiAEvento.NOME_TABELA);
         db.execSQL("DROP TABLE IF EXISTS " + UsuarioSegueUsuario.NOME_TABELA);
 
         // Objetos
