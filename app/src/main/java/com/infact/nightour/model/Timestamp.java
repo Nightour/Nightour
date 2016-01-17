@@ -3,10 +3,24 @@ package com.infact.nightour.model;
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringsCampo;
 
+import java.util.Date;
+
 /**
  * Created by Timóteo on 17/01/2016.
  */
 public class Timestamp {
+    public static long makeUnixTime(Date date) {
+        long unixTime = date.getTime();
+        return unixTime;
+    }
+
+    public static Date dateFromUnixTime(int unixTime) {
+        Date date = new Date();
+        date.setTime(unixTime);
+
+        return date;
+    }
+
     public static String NOME_TABELA = "timestamps";
 
     public static String BD_ID = "_id";
