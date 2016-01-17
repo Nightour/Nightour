@@ -52,7 +52,11 @@ public class BancoDeDados extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Usuario.NOME_TABELA);
         db.execSQL("DROP TABLE IF EXISTS " + Avaliacao.NOME_TABELA);
         db.execSQL("DROP TABLE IF EXISTS " + Local.NOME_TABELA);
+
+        // Relações
+
         db.execSQL("DROP TABLE IF EXISTS " + UsuarioSegueUsuario.NOME_TABELA);
+
         onCreate(db);
     }
 }
