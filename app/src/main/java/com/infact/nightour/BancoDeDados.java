@@ -8,6 +8,7 @@ import com.infact.nightour.model.Avaliacao;
 import com.infact.nightour.model.Evento;
 import com.infact.nightour.model.Foto;
 import com.infact.nightour.model.Local;
+import com.infact.nightour.model.Timestamp;
 import com.infact.nightour.model.Usuario;
 import com.infact.nightour.relation.UsuarioSegueUsuario;
 
@@ -37,6 +38,9 @@ public class BancoDeDados extends SQLiteOpenHelper {
         db.execSQL(query);
 
         query = Local.getCreateTableQuery();
+        db.execSQL(query);
+
+        query = Timestamp.getCreateTableQuery();
         db.execSQL(query);
 
         // Relações
