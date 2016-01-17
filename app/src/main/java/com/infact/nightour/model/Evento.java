@@ -83,6 +83,7 @@ public class Evento {
     private String descricao;
     private String genero;
     private int chaveImagem;
+    private int chaveLocal;
 
     public int getId() {
         return id;
@@ -127,5 +128,13 @@ public class Evento {
 
     public void setChaveImagem(int chaveImagem) {
         this.chaveImagem = chaveImagem;
+    }
+
+    public int getChaveLocal() {
+        return chaveLocal;
+    }
+
+    public void setChaveLocal(int chaveLocal) {
+        this.chaveLocal = chaveLocal;
     }
 }
