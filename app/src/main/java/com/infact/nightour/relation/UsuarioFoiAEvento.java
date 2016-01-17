@@ -20,4 +20,12 @@ public class UsuarioFoiAEvento {
     public static String BD_CHAVE_EVENTO_TIPO = "INT";
     public static String BD_EVENTO_REFERENCIA = Evento.NOME_TABELA;
     public static String BD_EVENTO_CAMPO_REFERENCIADO = Evento.BD_ID;
+
+    public static String getCreateTableQuery() {
+        return MakeCreateTableQuery.makeString(NOME_TABELA, new Object[]{
+                new StringChaveEstrangeira(BD_CHAVE_USUARIO, BD_CHAVE_USUARIO_TIPO, BD_USUARIO_REFERENCIA, BD_USUARIO_CAMPO_REFERENCIADO),
+                new StringChaveEstrangeira(BD_CHAVE_EVENTO, BD_CHAVE_EVENTO_TIPO, BD_EVENTO_REFERENCIA, BD_EVENTO_CAMPO_REFERENCIADO),
+                "PRIMARY KEY(" + BD_CHAVE_USUARIO + ", " + BD_CHAVE_EVENTO + ")"
+        });
+    }
 }
