@@ -24,7 +24,8 @@ public class EventosController {
         valores.put(Evento.BD_NOME, evento.getNome());
         valores.put(Evento.BD_DESCRICAO, evento.getDescricao());
         valores.put(Evento.BD_GENERO, evento.getGenero());
-        valores.put(Evento.BD_IMAGEM, evento.getImagemBytes());
+        valores.put(Evento.BD_IMAGEM_CHAVE, evento.getChaveImagem());
+        valores.put(Evento.BD_LOCAL_CHAVE, evento.getChaveLocal());
 
         db = banco.getWritableDatabase();
         long resultado = db.insert(Evento.NOME_TABELA, null, valores);
@@ -34,7 +35,7 @@ public class EventosController {
     }
 
     private static String[] camposTabelaEvento() {
-        return new String[]{ Evento.BD_ID, Evento.BD_NOME, Evento.BD_DESCRICAO, Evento.BD_GENERO, Evento.BD_IMAGEM };
+        return new String[]{ Evento.BD_ID, Evento.BD_NOME, Evento.BD_DESCRICAO, Evento.BD_GENERO, Evento.BD_IMAGEM_CHAVE };
     }
 
     public Cursor carregaEventos() {
@@ -72,7 +73,8 @@ public class EventosController {
         valores.put(Evento.BD_NOME, evento.getNome());
         valores.put(Evento.BD_DESCRICAO, evento.getDescricao());
         valores.put(Evento.BD_GENERO, evento.getGenero());
-        valores.put(Evento.BD_IMAGEM, evento.getImagemBytes());
+        valores.put(Evento.BD_IMAGEM_CHAVE, evento.getChaveImagem());
+        valores.put(Evento.BD_LOCAL_CHAVE, evento.getChaveLocal());
 
         String where = Evento.BD_ID + " = " + evento.getId();
 
