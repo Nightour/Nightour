@@ -21,8 +21,8 @@ public class UsuarioSegueUsuario {
     public static String BD_SEGUIDOR_REFERENCIA = Usuario.NOME_TABELA;
     public static String BD_SEGUIDOR_CAMPO_REFERENCIADO = Usuario.BD_ID;
 
-    public static String BD_CHAVE_SEGUIDO = "chaveUsuarioSeguido"; // Chave estrangeira
-    public static String BD_CHAVE_SEGUIDO_TIPO = "integer";
+    public static String BD_CHAVE_SEGUIDO = "seguido_chave"; // Chave estrangeira
+    public static String BD_CHAVE_SEGUIDO_TIPO = "INT";
     public static String BD_SEGUIDO_REFERENCIA = Usuario.NOME_TABELA;
     public static String BD_SEGUIDO_CAMPO_REFERENCIADO = Usuario.BD_ID;
 
