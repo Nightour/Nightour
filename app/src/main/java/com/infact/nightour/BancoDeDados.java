@@ -30,19 +30,19 @@ public class BancoDeDados extends SQLiteOpenHelper {
         query = Timestamp.getCreateTableQuery();
         db.execSQL(query);
 
-        query = Evento.getCreateTableQuery();
+        query = Foto.getCreateTableQuery();
         db.execSQL(query);
 
-        query = Foto.getCreateTableQuery();
+        query = Local.getCreateTableQuery();
+        db.execSQL(query);
+
+        query = Evento.getCreateTableQuery();
         db.execSQL(query);
 
         query = Usuario.getCreateTableQuery();
         db.execSQL(query);
 
         query = Avaliacao.getCreateTableQuery();
-        db.execSQL(query);
-
-        query = Local.getCreateTableQuery();
         db.execSQL(query);
 
         // Relações
