@@ -14,10 +14,8 @@ import com.infact.nightour.model.Avaliacao;
 public class AvaliacoesController {
     private SQLiteDatabase db;
     private BancoDeDados banco;
-    private Context context;
 
     public AvaliacoesController(Context context) {
-        this.context = context;
         banco = new BancoDeDados(context);
     }
 
