@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.infact.nightour.helper.MakeCreateTableQuery;
+import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.helper.StringsCampo;
 
 import java.io.ByteArrayOutputStream;
@@ -29,16 +30,18 @@ public class Evento {
     public static String BD_GENERO = "genero";
     public static String BD_GENERO_TIPO = "text";
 
-    public static String BD_IMAGEM = "imagem";
-    public static String BD_IMAGEM_TIPO = "blob";
+    public static String BD_IMAGEM_CHAVE = "imagem_chave"; // Chave estrangeira
+    public static String BD_IMAGEM_CHAVE_TIPO = "INT";
+    public static String BD_IMAGEM_REFERENCIA = Foto.NOME_TABELA;
+    public static String BD_IMAGEM_CAMPO_REFERENCIADO = Foto.BD_ID;
 
     public static String getCreateTableQuery() {
-        return MakeCreateTableQuery.makeString(NOME_TABELA, new StringsCampo[] {
+        return MakeCreateTableQuery.makeString(NOME_TABELA, new Object[] {
                 new StringsCampo(BD_ID, BD_ID_TIPO),
                 new StringsCampo(BD_NOME, BD_NOME_TIPO),
                 new StringsCampo(BD_DESCRICAO, BD_DESCRICAO_TIPO),
                 new StringsCampo(BD_GENERO, BD_GENERO_TIPO),
-                new StringsCampo(BD_IMAGEM, BD_IMAGEM_TIPO)
+                new StringChaveEstrangeira(BD_IMAGEM_CHAVE, BD_IMAGEM_CHAVE_TIPO, BD_IMAGEM_REFERENCIA, BD_IMAGEM_CAMPO_REFERENCIADO)
         });
     }
 
