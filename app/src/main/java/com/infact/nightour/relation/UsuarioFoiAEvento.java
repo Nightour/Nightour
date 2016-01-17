@@ -56,4 +56,12 @@ public class UsuarioFoiAEvento {
 
         return resultado;
     }
+
+    public void deletaFoiAEvento(Usuario usuario, Evento evento) {
+        String where = BD_CHAVE_USUARIO + " = " + usuario.getId() + " AND " + BD_CHAVE_EVENTO + " = " + evento.getId();
+
+        db = banco.getWritableDatabase();
+        db.delete(NOME_TABELA, where, null);
+        db.close();
+    }
 }
