@@ -25,4 +25,32 @@ public class Timestamp {
                 new StringsCampo(BD_UPDATE_TIME, BD_UPDATE_TIME_TIPO)
         });
     }
+
+    private int id;
+    private int createTime;
+    private int updateTime;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(int createTime) {
+        this.createTime = createTime;
+    }
+
+    public int getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(int updateTime) {
+        this.updateTime = updateTime;
+    }
 }
