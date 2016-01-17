@@ -20,8 +20,10 @@ public class Avaliacao {
     public static String BD_COMENTARIO = "comentario";
     public static String BD_COMENTARIO_TIPO = "text";
 
-    public static String BD_TIMESTAMP = "timestamp";
-    public static String BD_TIMESTAMP_TIPO = "int"; // Armazenado em Unix time
+    public static String BD_TIMESTAMP_CHAVE = "timestamp_chave"; // Chave estrangeira
+    public static String BD_TIMESTAMP_CHAVE_TIPO = "INT";
+    public static String BD_TIMESTAMP_REFERENCIA = Timestamp.NOME_TABELA;
+    public static String BD_TIMESTAMP_CAMPO_REFERENCIADO = Timestamp.BD_ID;
 
     public Avaliacao() {
     }
