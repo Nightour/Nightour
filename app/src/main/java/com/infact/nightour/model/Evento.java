@@ -27,15 +27,15 @@ public class Evento {
     public static String BD_DESCRICAO = "evento_descricao";
     public static String BD_DESCRICAO_TIPO = "text";
 
-    public static String BD_GENERO = "genero";
+    public static String BD_GENERO = "evento_genero";
     public static String BD_GENERO_TIPO = "text";
 
-    public static String BD_IMAGEM_CHAVE = "imagem_chave"; // Chave estrangeira
+    public static String BD_IMAGEM_CHAVE = "evento_imagem_chave"; // Chave estrangeira
     public static String BD_IMAGEM_CHAVE_TIPO = "INT";
     public static String BD_IMAGEM_REFERENCIA = Foto.NOME_TABELA;
     public static String BD_IMAGEM_CAMPO_REFERENCIADO = Foto.BD_ID;
 
-    public static String BD_LOCAL_CHAVE = "local_chave"; // Chave estrangeira
+    public static String BD_LOCAL_CHAVE = "evento_local_chave"; // Chave estrangeira
     public static String BD_LOCAL_CHAVE_TIPO = "INT";
     public static String BD_LOCAL_REFERENCIA = Local.NOME_TABELA;
     public static String BD_LOCAL_CAMPO_REFERENCIADO = Local.BD_ID;
