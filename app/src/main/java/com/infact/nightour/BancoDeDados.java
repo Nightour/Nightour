@@ -53,16 +53,18 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + Timestamp.NOME_TABELA);
-        db.execSQL("DROP TABLE IF EXISTS " + Evento.NOME_TABELA);
-        db.execSQL("DROP TABLE IF EXISTS " + Foto.NOME_TABELA);
-        db.execSQL("DROP TABLE IF EXISTS " + Usuario.NOME_TABELA);
-        db.execSQL("DROP TABLE IF EXISTS " + Avaliacao.NOME_TABELA);
-        db.execSQL("DROP TABLE IF EXISTS " + Local.NOME_TABELA);
-
         // Relações
 
         db.execSQL("DROP TABLE IF EXISTS " + UsuarioSegueUsuario.NOME_TABELA);
+
+        // Objetos
+
+        db.execSQL("DROP TABLE IF EXISTS " + Avaliacao.NOME_TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Usuario.NOME_TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Evento.NOME_TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Local.NOME_TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Foto.NOME_TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Timestamp.NOME_TABELA);
 
         onCreate(db);
     }
