@@ -14,7 +14,7 @@ import com.infact.nightour.model.Usuario;
  * Created by Timóteo on 12/12/2015.
  */
 public class UsuarioSegueUsuario {
-    public static String NOME_TABELA = "usuario_segue_usuario";
+    public static String NOME_TABELA = "usuarios_seguem_usuarios";
 
     public static String BD_CHAVE_SEGUIDOR = "chaveUsuarioSeguidor"; // Chave estrangeira
     public static String BD_CHAVE_SEGUIDOR_TIPO = "integer";
