@@ -27,7 +27,7 @@ public class Usuario {
     public static String BD_ANIVERSARIO = "aniversario";
     public static String BD_ANIVERSARIO_TIPO = "integer"; // Usar o Unix time
 
-    public static String BD_IMAGEM_PERFIL = "imagemPerfil"; // Chave estrangeira
+    public static String BD_IMAGEM_PERFIL = "fotoPerfil_chave"; // Chave estrangeira
     public static String BD_IMAGEM_PERFIL_TIPO = "integer";
     public static String BD_IMAGEM_REFERENCIA = Foto.NOME_TABELA;
     public static String BD_IMAGEM_CAMPO_REFERENCIADO = Foto.BD_ID;
