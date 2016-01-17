@@ -2,6 +2,7 @@ package com.infact.nightour.relation;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.infact.nightour.BancoDeDados;
@@ -63,5 +64,20 @@ public class UsuarioFoiAEvento {
         db = banco.getWritableDatabase();
         db.delete(NOME_TABELA, where, null);
         db.close();
+    }
+
+    public Cursor carregaEventosIdosPor(Usuario usuario) {
+        String query = "SELECT * FROM " + Evento.NOME_TABELA + " evento WHERE evento." + Evento.BD_ID + " IN " +
+                "(SELECT evento." + BD_CHAVE_EVENTO + " FROM " + NOME_TABELA + " relacao WHERE relacao." + BD_CHAVE_USUARIO + " = " + usuario.getId() + ")";
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        db.close();
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        return cursor;
     }
 }
