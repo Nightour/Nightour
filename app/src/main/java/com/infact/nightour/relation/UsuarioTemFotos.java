@@ -80,4 +80,19 @@ public class UsuarioTemFotos {
 
         return cursor;
     }
+
+    public Cursor carregaDonosDa(Foto foto) {
+        String query = "SELECT * FROM " + Usuario.NOME_TABELA + " usuario WHERE usuario." + Usuario.BD_ID + " IN " +
+                "(SELECT relacao." + BD_CHAVE_DONO + " FROM " + NOME_TABELA + " relacao WHERE relacao." + BD_CHAVE_FOTO + " = " + foto.getId() + ")";
+
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        db.close();
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+    }
 }
