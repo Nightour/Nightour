@@ -95,8 +95,7 @@ public class Usuario {
     }
 
     public long getAniversarioUnixTime() {
-        long unixTime = getAniversario().getTime() / 1000L;
-        return unixTime;
+        return Timestamp.makeUnixTime(getAniversario());
     }
 
     public int getChaveImagemPerfil() {
