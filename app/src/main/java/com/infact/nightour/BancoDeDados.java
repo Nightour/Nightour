@@ -8,6 +8,7 @@ import com.infact.nightour.model.Avaliacao;
 import com.infact.nightour.model.Evento;
 import com.infact.nightour.model.Foto;
 import com.infact.nightour.model.Local;
+import com.infact.nightour.model.Timestamp;
 import com.infact.nightour.model.Usuario;
 import com.infact.nightour.relation.UsuarioSegueUsuario;
 
@@ -24,7 +25,12 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = Evento.getCreateTableQuery();
+        String query;
+
+        query = Timestamp.getCreateTableQuery();
+        db.execSQL(query);
+
+        query = Evento.getCreateTableQuery();
         db.execSQL(query);
 
         query = Foto.getCreateTableQuery();
@@ -47,6 +53,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + Timestamp.NOME_TABELA);
         db.execSQL("DROP TABLE IF EXISTS " + Evento.NOME_TABELA);
         db.execSQL("DROP TABLE IF EXISTS " + Foto.NOME_TABELA);
         db.execSQL("DROP TABLE IF EXISTS " + Usuario.NOME_TABELA);
