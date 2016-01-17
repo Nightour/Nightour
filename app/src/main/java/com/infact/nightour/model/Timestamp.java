@@ -6,5 +6,6 @@ package com.infact.nightour.model;
 public class Timestamp {
     public static String NOME_TABELA = "timestamps";
 
-
+    public static String BD_ID = "_id";
+    public static String BD_ID_TIPO = "integer primary key autoincrement";
 }
