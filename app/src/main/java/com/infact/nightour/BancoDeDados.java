@@ -8,7 +8,9 @@ import com.infact.nightour.model.Avaliacao;
 import com.infact.nightour.model.Evento;
 import com.infact.nightour.model.Foto;
 import com.infact.nightour.model.Local;
+import com.infact.nightour.model.Timestamp;
 import com.infact.nightour.model.Usuario;
+import com.infact.nightour.relation.UsuarioFoiAEvento;
 import com.infact.nightour.relation.UsuarioSegueUsuario;
 
 /**
@@ -24,10 +26,18 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = Evento.getCreateTableQuery();
+        String query;
+
+        query = Timestamp.getCreateTableQuery();
         db.execSQL(query);
 
         query = Foto.getCreateTableQuery();
+        db.execSQL(query);
+
+        query = Local.getCreateTableQuery();
+        db.execSQL(query);
+
+        query = Evento.getCreateTableQuery();
         db.execSQL(query);
 
         query = Usuario.getCreateTableQuery();
@@ -36,26 +46,30 @@ public class BancoDeDados extends SQLiteOpenHelper {
         query = Avaliacao.getCreateTableQuery();
         db.execSQL(query);
 
-        query = Local.getCreateTableQuery();
-        db.execSQL(query);
-
         // Relações
 
         query = UsuarioSegueUsuario.getCreateTableQuery();
+        db.execSQL(query);
+
+        query = UsuarioFoiAEvento.getCreateTableQuery();
         db.execSQL(query);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + Evento.NOME_TABELA);
-        db.execSQL("DROP TABLE IF EXISTS " + Foto.NOME_TABELA);
-        db.execSQL("DROP TABLE IF EXISTS " + Usuario.NOME_TABELA);
-        db.execSQL("DROP TABLE IF EXISTS " + Avaliacao.NOME_TABELA);
-        db.execSQL("DROP TABLE IF EXISTS " + Local.NOME_TABELA);
-
         // Relações
 
+        db.execSQL("DROP TABLE IF EXISTS " + UsuarioFoiAEvento.NOME_TABELA);
         db.execSQL("DROP TABLE IF EXISTS " + UsuarioSegueUsuario.NOME_TABELA);
+
+        // Objetos
+
+        db.execSQL("DROP TABLE IF EXISTS " + Avaliacao.NOME_TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Usuario.NOME_TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Evento.NOME_TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Local.NOME_TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Foto.NOME_TABELA);
+        db.execSQL("DROP TABLE IF EXISTS " + Timestamp.NOME_TABELA);
 
         onCreate(db);
     }
