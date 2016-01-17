@@ -40,7 +40,7 @@ public class Foto {
 
     private int id;
     private Bitmap imagem;
-    private Date timestamp;
+    private int chaveTimestamp;
     private String descricao;
 
     public int getId() {
@@ -65,24 +65,19 @@ public class Foto {
         return stream.toByteArray();
     }
 
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public long getTimestampUnixTime() {
-        long unixTime = getTimestamp().getTime() / 1000L;
-        return unixTime;
-    }
-
     public String getDescricao() {
         return descricao;
     }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public int getChaveTimestamp() {
+        return chaveTimestamp;
+    }
+
+    public void setChaveTimestamp(int chaveTimestamp) {
+        this.chaveTimestamp = chaveTimestamp;
     }
 }
