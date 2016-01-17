@@ -1,6 +1,7 @@
 package com.infact.nightour.model;
 
 import com.infact.nightour.helper.MakeCreateTableQuery;
+import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.helper.StringsCampo;
 
 import java.util.Date;
@@ -29,11 +30,11 @@ public class Avaliacao {
     }
 
     public static String getCreateTableQuery() {
-        return MakeCreateTableQuery.makeString(NOME_TABELA, new StringsCampo[]{
+        return MakeCreateTableQuery.makeString(NOME_TABELA, new Object[]{
                 new StringsCampo(BD_ID, BD_ID_TIPO),
                 new StringsCampo(BD_QUANT_ESTRELAS, BD_QUANT_ESTRELAS_TIPO),
                 new StringsCampo(BD_COMENTARIO, BD_COMENTARIO_TIPO),
-                new StringsCampo(BD_TIMESTAMP, BD_TIMESTAMP_TIPO)
+                new StringChaveEstrangeira(BD_TIMESTAMP_CHAVE, BD_TIMESTAMP_CHAVE_TIPO, BD_TIMESTAMP_REFERENCIA, BD_TIMESTAMP_CAMPO_REFERENCIADO)
         });
     }
 
