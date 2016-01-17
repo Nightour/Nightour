@@ -25,6 +25,7 @@ public class EventosController {
         valores.put(Evento.BD_DESCRICAO, evento.getDescricao());
         valores.put(Evento.BD_GENERO, evento.getGenero());
         valores.put(Evento.BD_IMAGEM_CHAVE, evento.getChaveImagem());
+        valores.put(Evento.BD_LOCAL_CHAVE, evento.getChaveLocal());
 
         db = banco.getWritableDatabase();
         long resultado = db.insert(Evento.NOME_TABELA, null, valores);
@@ -73,6 +74,7 @@ public class EventosController {
         valores.put(Evento.BD_DESCRICAO, evento.getDescricao());
         valores.put(Evento.BD_GENERO, evento.getGenero());
         valores.put(Evento.BD_IMAGEM_CHAVE, evento.getChaveImagem());
+        valores.put(Evento.BD_LOCAL_CHAVE, evento.getChaveLocal());
 
         String where = Evento.BD_ID + " = " + evento.getId();
 
