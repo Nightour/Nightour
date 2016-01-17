@@ -23,7 +23,7 @@ public class AvaliacoesController {
         ContentValues valores = new ContentValues();
         valores.put(avaliacao.BD_QUANT_ESTRELAS, avaliacao.getQuantEstrelas());
         valores.put(avaliacao.BD_COMENTARIO, avaliacao.getComentario());
-        valores.put(avaliacao.BD_TIMESTAMP, avaliacao.getTimestampUnixTime());
+        valores.put(avaliacao.BD_TIMESTAMP_CHAVE, avaliacao.getChaveTimestamp());
 
         return valores;
     }
