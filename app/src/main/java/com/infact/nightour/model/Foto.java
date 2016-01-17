@@ -3,6 +3,7 @@ package com.infact.nightour.model;
 import android.graphics.Bitmap;
 
 import com.infact.nightour.helper.MakeCreateTableQuery;
+import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.helper.StringsCampo;
 
 import java.io.ByteArrayOutputStream;
@@ -20,8 +21,10 @@ public class Foto {
     public static String BD_IMAGEM = "imagem";
     public static String BD_IMAGEM_TIPO = "blob";
 
-    public static String BD_TIMESTAMP = "timestamp";
-    public static String BD_TIMESTAMP_TIPO = "integer"; // Usa o Unix time
+    public static String BD_TIMESTAMP_CHAVE = "timestamp_chave"; // Chave estrangeira
+    public static String BD_TIMESTAMP_CHAVE_TIPO = "INT";
+    public static String BD_TIMESTAMP_REFERENCIA = Timestamp.NOME_TABELA;
+    public static String BD_TIMESTAMP_CAMPO_REFERENCIADO = Timestamp.BD_ID;
 
     public static String BD_DESCRICAO = "descricao";
     public static String BD_DESCRICAO_TIPO = "text";
@@ -30,7 +33,7 @@ public class Foto {
         return MakeCreateTableQuery.makeString(NOME_TABELA, new Object[] {
                 new StringsCampo(BD_ID, BD_ID_TIPO),
                 new StringsCampo(BD_IMAGEM, BD_IMAGEM_TIPO),
-                new StringsCampo(BD_TIMESTAMP, BD_TIMESTAMP_TIPO),
+                new StringChaveEstrangeira(BD_TIMESTAMP_CHAVE, BD_TIMESTAMP_CHAVE_TIPO, BD_TIMESTAMP_REFERENCIA, BD_TIMESTAMP_CAMPO_REFERENCIADO),
                 new StringsCampo(BD_DESCRICAO, BD_DESCRICAO_TIPO)
         });
     }
