@@ -56,4 +56,12 @@ public class UsuarioTemFotos {
 
         return resultado;
     }
+
+    public void deletaTemFoto(Usuario exDono, Foto foto) {
+        String where = BD_CHAVE_DONO + " = " + exDono.getId() + " AND " + BD_CHAVE_FOTO + " = " + foto.getId();
+
+        db = banco.getWritableDatabase();
+        db.delete(NOME_TABELA, where, null);
+        db.close();
+    }
 }
