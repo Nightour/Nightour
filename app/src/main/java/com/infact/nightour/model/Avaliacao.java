@@ -1,6 +1,7 @@
 package com.infact.nightour.model;
 
 import com.infact.nightour.helper.MakeCreateTableQuery;
+import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.helper.StringsCampo;
 
 import java.util.Date;
@@ -20,25 +21,27 @@ public class Avaliacao {
     public static String BD_COMENTARIO = "comentario";
     public static String BD_COMENTARIO_TIPO = "text";
 
-    public static String BD_TIMESTAMP = "timestamp";
-    public static String BD_TIMESTAMP_TIPO = "int"; // Armazenado em Unix time
+    public static String BD_TIMESTAMP_CHAVE = "timestamp_chave"; // Chave estrangeira
+    public static String BD_TIMESTAMP_CHAVE_TIPO = "INT";
+    public static String BD_TIMESTAMP_REFERENCIA = Timestamp.NOME_TABELA;
+    public static String BD_TIMESTAMP_CAMPO_REFERENCIADO = Timestamp.BD_ID;
 
     public Avaliacao() {
     }
 
     public static String getCreateTableQuery() {
-        return MakeCreateTableQuery.makeString(NOME_TABELA, new StringsCampo[]{
+        return MakeCreateTableQuery.makeString(NOME_TABELA, new Object[]{
                 new StringsCampo(BD_ID, BD_ID_TIPO),
                 new StringsCampo(BD_QUANT_ESTRELAS, BD_QUANT_ESTRELAS_TIPO),
                 new StringsCampo(BD_COMENTARIO, BD_COMENTARIO_TIPO),
-                new StringsCampo(BD_TIMESTAMP, BD_TIMESTAMP_TIPO)
+                new StringChaveEstrangeira(BD_TIMESTAMP_CHAVE, BD_TIMESTAMP_CHAVE_TIPO, BD_TIMESTAMP_REFERENCIA, BD_TIMESTAMP_CAMPO_REFERENCIADO)
         });
     }
 
     private int id;
     private int quantEstrelas;
     private String comentario;
-    private Date timestamp;
+    private int chaveTimestamp;
 
     public int getId() {
         return id;
@@ -64,16 +67,11 @@ public class Avaliacao {
         this.comentario = comentario;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
+    public int getChaveTimestamp() {
+        return chaveTimestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public long getTimestampUnixTime() {
-        long unixTime = getTimestamp().getTime() / 1000L;
-        return unixTime;
+    public void setChaveTimestamp(int chaveTimestamp) {
+        this.chaveTimestamp = chaveTimestamp;
     }
 }

@@ -23,11 +23,12 @@ public class AvaliacoesController {
         ContentValues valores = new ContentValues();
         valores.put(avaliacao.BD_QUANT_ESTRELAS, avaliacao.getQuantEstrelas());
         valores.put(avaliacao.BD_COMENTARIO, avaliacao.getComentario());
-        valores.put(avaliacao.BD_TIMESTAMP, avaliacao.getTimestampUnixTime());
+        valores.put(avaliacao.BD_TIMESTAMP_CHAVE, avaliacao.getChaveTimestamp());
 
         return valores;
     }
 
+    // Não se esqueça de atribuir o id de um timestamp à avaliação antes de inserí-la!!
     public long insereAvaliacao(Avaliacao avaliacao) {
         ContentValues valores = makeContentValues(avaliacao);
 
@@ -39,7 +40,7 @@ public class AvaliacoesController {
     }
 
     private static String[] camposTabelaAvaliacao() {
-        return new String[]{ Avaliacao.BD_ID, Avaliacao.BD_QUANT_ESTRELAS, Avaliacao.BD_COMENTARIO, Avaliacao.BD_TIMESTAMP };
+        return new String[]{ Avaliacao.BD_ID, Avaliacao.BD_QUANT_ESTRELAS, Avaliacao.BD_COMENTARIO, Avaliacao.BD_TIMESTAMP_CHAVE };
     }
 
     public Cursor carregaAvaliacoes() {

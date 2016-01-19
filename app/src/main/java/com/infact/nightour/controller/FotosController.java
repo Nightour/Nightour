@@ -24,7 +24,7 @@ public class FotosController {
         ContentValues valores = new ContentValues();
         valores.put(foto.BD_IMAGEM, foto.getImagemBytes());
         valores.put(foto.BD_DESCRICAO, foto.getDescricao());
-        valores.put(foto.BD_TIMESTAMP, foto.getTimestampUnixTime());
+        valores.put(foto.BD_TIMESTAMP_CHAVE, foto.getChaveTimestamp());
 
         db = banco.getWritableDatabase();
         long resultado = db.insert(foto.NOME_TABELA, null, valores);
@@ -34,7 +34,7 @@ public class FotosController {
     }
 
     private static String[] camposTabelaFoto() {
-        return new String[]{ Foto.BD_ID, Foto.BD_IMAGEM, Foto.BD_DESCRICAO, Foto.BD_TIMESTAMP };
+        return new String[]{ Foto.BD_ID, Foto.BD_IMAGEM, Foto.BD_DESCRICAO, Foto.BD_TIMESTAMP_CHAVE };
     }
 
     public Cursor carregaFotos() {
@@ -74,7 +74,7 @@ public class FotosController {
         ContentValues valores = new ContentValues();
         valores.put(foto.BD_IMAGEM, foto.getImagemBytes());
         valores.put(foto.BD_DESCRICAO, foto.getDescricao());
-        valores.put(foto.BD_TIMESTAMP, foto.getTimestampUnixTime());
+        valores.put(foto.BD_TIMESTAMP_CHAVE, foto.getChaveTimestamp());
 
         String where = foto.BD_ID + " = " + foto.getId();
 
