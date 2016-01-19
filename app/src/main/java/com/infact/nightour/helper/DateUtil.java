@@ -7,13 +7,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import org.joda.time.DateTime;
-import org.joda.time.Days;
-import org.joda.time.Interval;
-import org.joda.time.LocalDate;
-import org.joda.time.Period;
-import org.joda.time.PeriodType;
-
 @SuppressWarnings("deprecation")
 public final class DateUtil {
 
@@ -122,14 +115,14 @@ public final class DateUtil {
      * @param data
      * @return
      */
-    public static Date parseDateNumeros(String data) {
+    /*public static Date parseDateNumeros(String data) {
         if (!StringUtil.notEmpty(data) || data.length() < 8) {
             return null;
         }
         String[] parts = {data.substring(0, 4), data.substring(4, 6), data.substring(6, 8)};
         String completeDate = parts[2] + "/" + parts[1] + "/" + parts[0];
         return parseDate(completeDate);
-    }
+    }*/
 
     /**
      * Converte a String para uma data no formato padrao.
@@ -213,7 +206,7 @@ public final class DateUtil {
     /**
      * Começo do dia
      *
-     * @param calendar
+     * @param date
      * @return
      */
     public static Calendar inicioDoDia(Date date) {
@@ -229,7 +222,7 @@ public final class DateUtil {
     /**
      * Final do dia
      *
-     * @param calendar
+     * @param date
      * @return
      */
     public static Calendar fimDoDia(Date date) {
@@ -245,7 +238,7 @@ public final class DateUtil {
     /**
      * Recupera calendar como String no formato padrao do sistema.
      *
-     * @param calendar
+     * @param data
      * @return String
      */
     public static String getCalendarAsString(Calendar data) {
@@ -255,7 +248,7 @@ public final class DateUtil {
     /**
      * Recupera o calendar como String no formato informado.
      *
-     * @param calendar
+     * @param data
      * @return String
      */
     public static String getCalendarAsString(Calendar data, String pattern) {
@@ -270,127 +263,12 @@ public final class DateUtil {
     /**
      * Verifica se a data informada e menor que a data atual.
      *
-     * @param calendar
+     * @param data
      * @return Boolean
      */
     public static Boolean isDateLowerCurrentDate(Date data) {
 
         return data.before(getDate().getTime());
-    }
-
-    /**
-     * Verifica se as datas são iguais, levando em consideracao apenas
-     * dias/meses/anos.
-     *
-     * @param data1
-     * @param data2
-     * @return
-     */
-    public static boolean isIgual(Date data1, Date data2) {
-        if ((data1 != null) && (data2 != null)) {
-            LocalDate l1 = new LocalDate(data1);
-            LocalDate l2 = new LocalDate(data2);
-            return l1.isEqual(l2);
-        }
-        return false;
-    }
-
-    /**
-     * Verifica se a primeira data é menor ou igual, levando em consideracao
-     * apenas dias/meses/anos.
-     *
-     * @param data1
-     * @param data2
-     * @return
-     */
-    public static boolean isDataAnteriorOuIgual(Date data1, Date data2) {
-        if ((data1 != null) && (data2 != null)) {
-            LocalDate l1 = new LocalDate(data1);
-            LocalDate l2 = new LocalDate(data2);
-            return l1.isBefore(l2) || l1.isEqual(l2);
-        }
-        return false;
-    }
-
-    /**
-     * Verifica se a primeira data é maior, levando em consideracao apenas
-     * dias/meses/anos.
-     *
-     * @param data1
-     * @param data2
-     * @return
-     */
-    public static boolean isDataMaior(Date data1, Date data2) {
-        if ((data1 != null) && (data2 != null)) {
-            LocalDate l1 = new LocalDate(data1);
-            LocalDate l2 = new LocalDate(data2);
-            return l1.isAfter(l2);
-        }
-        return false;
-    }
-
-    /**
-     * Verifica se a primeira data é menor, levando em consideracao apenas
-     * dias/meses/anos.
-     *
-     * @param data1
-     * @param data2
-     * @return
-     */
-    public static boolean isDataMenor(Date data1, Date data2) {
-        if ((data1 != null) && (data2 != null)) {
-            LocalDate l1 = new LocalDate(data1);
-            LocalDate l2 = new LocalDate(data2);
-            return l1.isBefore(l2);
-        }
-        return false;
-    }
-
-    /**
-     * Verifica se a primeira data é maior ou igual, levando em consideracao
-     * apenas dias/meses/anos.
-     *
-     * @param data1
-     * @param data2
-     * @return
-     */
-    public static boolean isDataPosteriorOuIgual(Date data1, Date data2) {
-        if ((data1 != null) && (data2 != null)) {
-            LocalDate l1 = new LocalDate(data1);
-            LocalDate l2 = new LocalDate(data2);
-            return l1.isAfter(l2) || l1.isEqual(l2);
-        }
-        return false;
-    }
-
-    /**
-     * Verifica se a data passada esta dentro do intervalo.
-     *
-     * @param dataInicial
-     * @param dataFinal
-     * @param dataToCheck
-     * @return
-     */
-    public static boolean isNoPeriodo(Date dataInicial, Date dataFinal, Date dataToCheck) {
-        if (dataToCheck == null) {
-            return false;
-        }
-
-        final int tooLongYear = 2200;
-        final int startYearDate = 1900;
-
-        Date dtFim = dataFinal;
-        if (dtFim == null) {
-            dtFim = new Date(tooLongYear - startYearDate, 1, 1);
-        }
-
-        Interval intervalo1 = new Interval(new LocalDate(dataInicial).toDateTimeAtStartOfDay(),
-                new LocalDate(dtFim).toDateTimeAtCurrentTime());
-
-        Interval intervalo2 = new Interval(new LocalDate(dataToCheck).toDateTimeAtStartOfDay().plusSeconds(1),
-                new LocalDate(dataToCheck).toDateTimeAtStartOfDay().plusSeconds(1));
-
-        return intervalo1.overlaps(intervalo2);
     }
 
     /**
@@ -452,9 +330,10 @@ public final class DateUtil {
      * @param dataNasc
      * @return int a Idade
      */
-    public static int calculaIdade(Date dataNasc) {
-        Period periodo = new Period(new DateTime(dataNasc), new DateTime());
-        return periodo.getYears();
+    public static int naoFuncionando_calculaIdade(Date dataNasc) {
+        //Period periodo = new Period(new DateTime(dataNasc), new DateTime());
+        //return periodo.getYears();
+        return 0;
     }
 
     /**
@@ -504,92 +383,6 @@ public final class DateUtil {
         formatter.applyPattern(DatePattern.MMMMYYYY.getPattern());
         String mes = formatter.format(data);
         return mes;
-    }
-
-    /**
-     * calcula Quantidade de dias entre as datas.
-     *
-     * @param dataMaior uma data superior.
-     * @param dataMenor uma data inferior.
-     * @see DateUtil.calculaDias()
-     * @return
-     */
-    public static Integer calculaPeriodoEmDias(Date dataMenor, Date dataMaior) {
-        if ((dataMenor != null) && (dataMaior != null)) {
-            return DateUtil.calculaPeriodo(dataMenor, dataMaior);
-        }
-        return null;
-    }
-
-    /**
-     * calcula Quantidade de dias entre as datas.
-     *
-     * @param dataMaior uma data superior.
-     * @param dataMenor uma data inferior.
-     * @see DateUtil.calculaDias()
-     * @return
-     */
-    public static Integer calculaPeriodo(Date dataMenor, Date dataMaior) {
-        if ((dataMenor != null) && (dataMaior != null)) {
-            DateTime dataMenorJodaTime = new DateTime(dataMenor.getTime());
-            DateTime dataMaiorJodaTime = new DateTime(dataMaior.getTime());
-            Period periodo = new Period(dataMenorJodaTime, dataMaiorJodaTime, PeriodType.days());
-
-            return periodo.getDays();
-        }
-        return null;
-    }
-
-    /**
-     * @param dataMenor
-     * @param dataMaior
-     * @return
-     */
-    public static Integer calculaPeriodoEmMeses(Date dataMenor, Date dataMaior) {
-        if ((dataMenor != null) && (dataMaior != null)) {
-            DateTime dataMenorJodaTime = new DateTime(dataMenor.getTime());
-            DateTime dataMaiorJodaTime = new DateTime(dataMaior.getTime());
-            Period periodo = new Period(dataMenorJodaTime, dataMaiorJodaTime, PeriodType.months());
-            return periodo.getMonths();
-        }
-        return null;
-    }
-
-    /**
-     * @param dataMenor
-     * @param dataMaior
-     * @return
-     */
-    public static Integer calculaPeriodoEmAnos(Date dataMenor, Date dataMaior) {
-        if ((dataMenor != null) && (dataMaior != null)) {
-            DateTime dataMenorJodaTime = new DateTime(dataMenor.getTime());
-            DateTime dataMaiorJodaTime = new DateTime(dataMaior.getTime());
-            Period periodo = new Period(dataMenorJodaTime, dataMaiorJodaTime, PeriodType.years());
-            return periodo.getYears();
-        }
-        return null;
-    }
-
-    /**
-     * Calcula a data final.
-     *
-     * @param dataInicial
-     * @param qtdeDias
-     * @return
-     */
-    public static Date calculaDataFinal(Date dataInicial, int qtdeDias) {
-        return new DateTime(dataInicial).plusDays(qtdeDias).toDate();
-    }
-
-    /**
-     * Calcula a data anterior.
-     *
-     * @param data
-     * @param qtdeDiasAtras
-     * @return
-     */
-    public static Date calculaDataAnterior(Date data, int qtdeDiasAtras) {
-        return new DateTime(data).minusDays(qtdeDiasAtras).toDate();
     }
 
     /**
@@ -652,57 +445,6 @@ public final class DateUtil {
         calenda.setTime(data);
         Integer ano = calenda.get(Calendar.YEAR);
         return ano;
-    }
-
-    /**
-     * Calcula a quantidade de dias entre as datas informadas.
-     *
-     * @param dataMaior
-     * @param dataMenor
-     * @return
-     */
-    public static int quantidadeDeDiasEntre(Date dataMaior, Date dataMenor) {
-        return Days.daysBetween(new DateTime(dataMenor), new DateTime(dataMaior)).getDays();
-    }
-
-    /**
-     * Retorna a menor data (data mais proxima) entre as datas da lista
-     * informada.
-     *
-     * @param datas
-     * @param dataComparacao
-     * @return
-     */
-    public static Date obterDataMaisProxima(List<Date> datas, Date dataComparacao) {
-
-        Date dtMenor = null;
-        if (datas != null && !datas.isEmpty()) {
-
-            // inicializa com a primeira data
-            dtMenor = datas.get(0);
-
-            int qtDias = quantidadeDeDiasEntre(dtMenor, dataComparacao);
-
-            // considera numeros positivos para realizar a contagem na comparacao de datas
-            qtDias = Math.abs(qtDias);
-
-            for (Date dt : datas) {
-
-                int qtde = quantidadeDeDiasEntre(dt, dataComparacao);
-                qtde = Math.abs(qtde);
-
-                if (qtde < qtDias) {
-                    dtMenor = dt;
-                    qtDias = qtde;
-                } else if (qtde == qtDias) {
-                    // em caso de datas com o mesmo numero de dias, obtem a data menor
-                    dt.before(dtMenor);
-                    dtMenor = dt;
-                }
-            }
-        }
-
-        return dtMenor;
     }
 
 }
