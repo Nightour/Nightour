@@ -11,6 +11,7 @@ public class EventoDTO {
 
     private FotoDTO capa;
     private LocalDTO local;
+    private UsuarioDTO criador;
 
     public int getId() {
         return id;
@@ -58,5 +59,13 @@ public class EventoDTO {
 
     public void setLocal(LocalDTO local) {
         this.local = local;
+    }
+
+    public UsuarioDTO getCriador() {
+        return criador;
+    }
+
+    public void setCriador(UsuarioDTO criador) {
+        this.criador = criador;
     }
 }
