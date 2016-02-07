@@ -18,7 +18,7 @@ public class EventoService {
         Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(), resource);
         return largeIcon;}
 
-    public static List<Evento> getEventos(Context context, String tipo) {
+    /*public static List<Evento> getEventos(Context context, String tipo) {
         List<Evento> eventos = new ArrayList<Evento>();
         Evento evento = new Evento();
         evento.setNome("Copacabana Chopperia");
@@ -53,5 +53,5 @@ public class EventoService {
 
         eventos.add(evento);
         return eventos;
-    }
+    }*/
 }
