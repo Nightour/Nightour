@@ -1,6 +1,7 @@
 package com.infact.nightour.adapter;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.neto.nightour.R;
+import com.infact.nightour.controller.FotosController;
 import com.infact.nightour.model.Evento;
+import com.infact.nightour.model.Foto;
 
 import java.util.List;
 
@@ -38,7 +41,11 @@ public class HomeAoVivoEventoAdapter extends RecyclerView.Adapter<HomeAoVivoEven
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Evento evento = eventos.get(position);
-        holder.ibAoVivoItemDescubra.setImageBitmap(evento.getImagem());
+
+        Cursor fotoCursor = new FotosController(this.context).carregaFotoById(evento.getChaveImagem());
+        Foto foto = Foto.fromCursor(fotoCursor);
+
+        holder.ibAoVivoItemDescubra.setImageBitmap(foto.getImagem());
         holder.tvAoVivoItemDescubra.setText(evento.getNome());
     }
 
