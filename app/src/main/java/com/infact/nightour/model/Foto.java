@@ -46,6 +46,17 @@ public class Foto {
         return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
     }
 
+    public static Foto fromCursor(Cursor cursor) {
+        Foto foto = new Foto();
+
+        foto.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BD_ID)));
+        foto.setImagem(bitmapFromBlob(cursor.getBlob(cursor.getColumnIndexOrThrow(BD_IMAGEM))));
+        foto.setChaveTimestamp(cursor.getInt(cursor.getColumnIndexOrThrow(BD_TIMESTAMP_CHAVE)));
+        foto.setDescricao(cursor.getString(cursor.getColumnIndexOrThrow(BD_DESCRICAO)));
+
+        return foto;
+    }
+
     // ---
 
     private int id;
