@@ -1,6 +1,8 @@
 package com.infact.nightour.model;
 
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringChaveEstrangeira;
@@ -37,6 +39,25 @@ public class Foto {
                 new StringsCampo(BD_DESCRICAO, BD_DESCRICAO_TIPO)
         });
     }
+
+    // ---
+
+    public static Bitmap bitmapFromBlob(byte[] byteArray) {
+        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+    }
+
+    public static Foto fromCursor(Cursor cursor) {
+        Foto foto = new Foto();
+
+        foto.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BD_ID)));
+        foto.setImagem(bitmapFromBlob(cursor.getBlob(cursor.getColumnIndexOrThrow(BD_IMAGEM))));
+        foto.setChaveTimestamp(cursor.getInt(cursor.getColumnIndexOrThrow(BD_TIMESTAMP_CHAVE)));
+        foto.setDescricao(cursor.getString(cursor.getColumnIndexOrThrow(BD_DESCRICAO)));
+
+        return foto;
+    }
+
+    // ---
 
     private int id;
     private Bitmap imagem;
