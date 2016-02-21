@@ -1,6 +1,7 @@
 package com.infact.nightour.adapter;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.neto.nightour.R;
+import com.infact.nightour.controller.FotosController;
 import com.infact.nightour.model.Evento;
+import com.infact.nightour.model.Foto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +45,11 @@ public class HomeEventoAdapter extends RecyclerView.Adapter<HomeEventoAdapter.My
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Evento evento = eventos.get(position);
-        holder.ibItemDescubra.setImageBitmap(evento.getImagem());
+
+        Cursor fotoCursor = new FotosController(this.context).carregaFotoById(evento.getChaveImagem());
+        Foto foto = Foto.fromCursor(fotoCursor);
+
+        holder.ibItemDescubra.setImageBitmap(foto.getImagem());
         holder.tvItemDescubra.setText(evento.getNome());
 
         //Utilizar Picasso para WebService

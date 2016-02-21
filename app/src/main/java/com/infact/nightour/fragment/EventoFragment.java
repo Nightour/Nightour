@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.neto.nightour.R;
 import com.infact.nightour.model.Evento;
+import com.infact.nightour.model.Foto;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +22,7 @@ import com.infact.nightour.model.Evento;
 public class EventoFragment extends BaseFragment {
 
     private Evento evento;
+    private Foto foto;
     private TextView tvDescricaoDoEventoNaPagina;
     private ImageView ivFotoDoUsuarioNoEvento;
 
@@ -46,11 +48,13 @@ public class EventoFragment extends BaseFragment {
 
         return rootView;
     }
-    public void setEvento(Evento evento){
+    public void setEvento(Evento evento, Foto foto){
         if(evento != null){
             this.evento = evento;
+            this.foto = foto;
+
             tvDescricaoDoEventoNaPagina.setText(evento.getDescricao());
-            Drawable d = new BitmapDrawable(getResources(), evento.getImagem());
+            Drawable d = new BitmapDrawable(getResources(), foto.getImagem());
             ivFotoDoUsuarioNoEvento.setImageDrawable(d);
         }
     }
