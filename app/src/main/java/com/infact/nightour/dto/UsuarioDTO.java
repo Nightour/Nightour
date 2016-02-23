@@ -1,10 +1,8 @@
 package com.infact.nightour.dto;
 
-/**
- * Created by Timóteo on 19/01/2016.
- */
 public class UsuarioDTO {
-    private int id;
+    private Long id;
+    private String facebookId;
     private String nome;
     private String status;
     private String interesse;
@@ -12,12 +10,20 @@ public class UsuarioDTO {
 
     private FotoDTO imagemPerfil;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getFacebookId() {
+        return facebookId;
+    }
+
+    public void setFacebookId(String facebookId) {
+        this.facebookId = facebookId;
     }
 
     public String getNome() {
