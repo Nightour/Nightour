@@ -1,23 +1,19 @@
 package com.infact.nightour.dto;
 
-/**
- * Created by Timóteo on 19/01/2016.
- */
 public class EventoDTO {
-    private int id;
+    private Long id;
     private String nome;
     private String descricao;
-    private String genero;
+    private Long genero;
 
     private FotoDTO capa;
     private LocalDTO local;
-    private UsuarioDTO criador;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,11 +33,11 @@ public class EventoDTO {
         this.descricao = descricao;
     }
 
-    public String getGenero() {
+    public Long getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(Long genero) {
         this.genero = genero;
     }
 
@@ -59,13 +55,5 @@ public class EventoDTO {
 
     public void setLocal(LocalDTO local) {
         this.local = local;
-    }
-
-    public UsuarioDTO getCriador() {
-        return criador;
-    }
-
-    public void setCriador(UsuarioDTO criador) {
-        this.criador = criador;
     }
 }
