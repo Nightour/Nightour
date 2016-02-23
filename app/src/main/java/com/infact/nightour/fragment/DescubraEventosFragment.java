@@ -59,7 +59,7 @@ public class DescubraEventosFragment extends BaseFragment {
 
 
     private void taskDescubraEventos(){
-        this.eventos = EventoService.getEventos(getContext(), tipo);
+        //this.eventos = EventoService.getEventos(getContext(), tipo);
         recyclerView.setAdapter(new HomeEventoAdapter(getContext(), eventos, onClickEvento()));
     }
 

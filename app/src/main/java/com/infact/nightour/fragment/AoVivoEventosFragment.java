@@ -60,7 +60,7 @@ public class AoVivoEventosFragment extends BaseFragment {
 
 
     private void taskAoVivoEventos(){
-        this.eventos = EventoService.getEventos(getContext(), tipo);
+        //this.eventos = EventoService.getEventos(getContext(), tipo);
         recyclerView.setAdapter(new HomeAoVivoEventoAdapter(getContext(), eventos, onClickEvento()));
     }
 
