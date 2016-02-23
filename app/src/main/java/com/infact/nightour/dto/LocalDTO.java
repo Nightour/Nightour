@@ -1,19 +1,16 @@
 package com.infact.nightour.dto;
 
-/**
- * Created by Timóteo on 19/01/2016.
- */
 public class LocalDTO {
-    private int id;
+    private Long id;
     private double longitude;
     private double latitude;
     private double zoom;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
