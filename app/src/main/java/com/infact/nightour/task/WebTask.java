@@ -3,6 +3,7 @@ package com.infact.nightour.task;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.infact.nightour.rest.RestClient;
 
@@ -40,5 +41,6 @@ public class WebTask extends AsyncTask <Object, Object, String>{
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         dialog.dismiss();
+        Log.d("Foo", s);
     }
 }
