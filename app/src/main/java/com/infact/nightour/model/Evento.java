@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.infact.nightour.controller.FotosController;
+import com.infact.nightour.controller.LocaisController;
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.helper.StringsCampo;
@@ -62,6 +63,9 @@ public class Evento {
         int chaveImagem = cursor.getInt(cursor.getColumnIndexOrThrow(BD_IMAGEM_CHAVE));
         evento.setImagem(Foto.fromCursor(new FotosController(context).carregaFotoById(chaveImagem)));
 
+        int chaveLocal = cursor.getInt(cursor.getColumnIndexOrThrow(BD_LOCAL_CHAVE));
+        evento.setLocal(Local.fromCursor(new LocaisController(context).carregaLocalById(chaveLocal)));
+
         return evento;
     }
 
@@ -81,7 +85,7 @@ public class Evento {
     private String nome;
     private String descricao;
     private Foto imagem;
-    private int chaveLocal;
+    private Local local;
 
     public int getId() {
         return id;
@@ -125,10 +129,14 @@ public class Evento {
     }
 
     public int getChaveLocal() {
-        return chaveLocal;
+        return getLocal().getId();
     }
 
-    public void setChaveLocal(int chaveLocal) {
-        this.chaveLocal = chaveLocal;
+    public Local getLocal() {
+        return local;
+    }
+
+    public void setLocal(Local local) {
+        this.local = local;
     }
 }
