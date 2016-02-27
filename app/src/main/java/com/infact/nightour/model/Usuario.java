@@ -48,7 +48,7 @@ public class Usuario {
     private String status;
     private String interesse;
     private Date aniversario;
-    private int chaveImagemPerfil; // Pegar a imagem de perfil do usuário através de FotosController.carregaImagemPerfilByUsuario!
+    private Foto imagemPerfil;
 
     public Usuario(String nome){
         this.nome = nome;
@@ -99,10 +99,14 @@ public class Usuario {
     }
 
     public int getChaveImagemPerfil() {
-        return chaveImagemPerfil;
+        return getImagemPerfil().getId();
     }
 
-    public void setChaveImagemPerfil(int chaveImagemPerfil) {
-        this.chaveImagemPerfil = chaveImagemPerfil;
+    public Foto getImagemPerfil() {
+        return imagemPerfil;
+    }
+
+    public void setImagemPerfil(Foto imagemPerfil) {
+        this.imagemPerfil = imagemPerfil;
     }
 }
