@@ -27,9 +27,6 @@ public class Evento {
     public static String BD_DESCRICAO = "evento_descricao";
     public static String BD_DESCRICAO_TIPO = "text";
 
-    public static String BD_GENERO = "evento_genero";
-    public static String BD_GENERO_TIPO = "text";
-
     public static String BD_IMAGEM_CHAVE = "evento_imagem_chave"; // Chave estrangeira
     public static String BD_IMAGEM_CHAVE_TIPO = "INT";
     public static String BD_IMAGEM_REFERENCIA = Foto.NOME_TABELA;
@@ -45,7 +42,6 @@ public class Evento {
                 new StringsCampo(BD_ID, BD_ID_TIPO),
                 new StringsCampo(BD_NOME, BD_NOME_TIPO),
                 new StringsCampo(BD_DESCRICAO, BD_DESCRICAO_TIPO),
-                new StringsCampo(BD_GENERO, BD_GENERO_TIPO),
                 new StringChaveEstrangeira(BD_IMAGEM_CHAVE, BD_IMAGEM_CHAVE_TIPO, BD_IMAGEM_REFERENCIA, BD_IMAGEM_CAMPO_REFERENCIADO),
                 new StringChaveEstrangeira(BD_LOCAL_CHAVE, BD_LOCAL_CHAVE_TIPO, BD_LOCAL_REFERENCIA, BD_LOCAL_CAMPO_REFERENCIADO)
         });
@@ -60,7 +56,6 @@ public class Evento {
         evento.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BD_ID)));
         evento.setNome(cursor.getString(cursor.getColumnIndexOrThrow(BD_NOME)));
         evento.setDescricao(cursor.getString(cursor.getColumnIndexOrThrow(BD_DESCRICAO)));
-        evento.setGenero(cursor.getString(cursor.getColumnIndexOrThrow(BD_GENERO)));
         evento.setChaveImagem(cursor.getInt(cursor.getColumnIndexOrThrow(BD_IMAGEM_CHAVE)));
 
         return evento;
@@ -81,7 +76,6 @@ public class Evento {
     private int id;
     private String nome;
     private String descricao;
-    private String genero;
     private int chaveImagem;
     private int chaveLocal;
 
@@ -107,14 +101,6 @@ public class Evento {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
     }
 
     @Override

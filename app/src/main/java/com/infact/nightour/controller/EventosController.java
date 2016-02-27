@@ -23,7 +23,6 @@ public class EventosController {
         ContentValues valores = new ContentValues();
         valores.put(Evento.BD_NOME, evento.getNome());
         valores.put(Evento.BD_DESCRICAO, evento.getDescricao());
-        valores.put(Evento.BD_GENERO, evento.getGenero());
         valores.put(Evento.BD_IMAGEM_CHAVE, evento.getChaveImagem());
         valores.put(Evento.BD_LOCAL_CHAVE, evento.getChaveLocal());
 
@@ -35,7 +34,7 @@ public class EventosController {
     }
 
     private static String[] camposTabelaEvento() {
-        return new String[]{ Evento.BD_ID, Evento.BD_NOME, Evento.BD_DESCRICAO, Evento.BD_GENERO, Evento.BD_IMAGEM_CHAVE };
+        return new String[]{ Evento.BD_ID, Evento.BD_NOME, Evento.BD_DESCRICAO, Evento.BD_IMAGEM_CHAVE };
     }
 
     public Cursor carregaEventos() {
@@ -72,7 +71,6 @@ public class EventosController {
         valores.put(Evento.BD_ID, evento.getId());
         valores.put(Evento.BD_NOME, evento.getNome());
         valores.put(Evento.BD_DESCRICAO, evento.getDescricao());
-        valores.put(Evento.BD_GENERO, evento.getGenero());
         valores.put(Evento.BD_IMAGEM_CHAVE, evento.getChaveImagem());
         valores.put(Evento.BD_LOCAL_CHAVE, evento.getChaveLocal());
 
