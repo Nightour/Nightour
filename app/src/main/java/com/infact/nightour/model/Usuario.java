@@ -65,7 +65,7 @@ public class Usuario {
     private String nome;
     private String status;
     private String interesse;
-    private Date aniversario;
+    private long aniversario;
     private Foto imagemPerfil;
 
     public Usuario() {}
@@ -105,11 +105,11 @@ public class Usuario {
         this.interesse = interesse;
     }
 
-    public Date getAniversario() {
+    public long getAniversario() {
         return aniversario;
     }
 
-    public void setAniversario(Date aniversario) {
+    public void setAniversario(long aniversario) {
         this.aniversario = aniversario;
     }
 
