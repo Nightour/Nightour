@@ -14,9 +14,11 @@ import com.infact.nightour.model.Usuario;
 public class UsuariosController {
     private SQLiteDatabase db;
     private BancoDeDados banco;
+    private Context context;
 
     public UsuariosController(Context context) {
-        banco = new BancoDeDados(context);
+        this.banco = new BancoDeDados(context);
+        this.context = context;
     }
 
     private static ContentValues makeContentValues(Usuario usuario) {
@@ -37,6 +39,13 @@ public class UsuariosController {
         db = banco.getWritableDatabase();
         long resultado = db.insert(usuario.NOME_TABELA, null, valores);
         db.close();
+
+        if (resultado != -1) {
+            usuario.setId(resultado);
+
+            FotosController fotosController = new FotosController(this.context);
+            fotosController.insereFoto(usuario.getImagemPerfil());
+        }
 
         return resultado;
     }
