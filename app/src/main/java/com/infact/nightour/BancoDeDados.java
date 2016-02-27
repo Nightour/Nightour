@@ -28,9 +28,6 @@ public class BancoDeDados extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String query;
 
-        query = Timestamp.getCreateTableQuery();
-        db.execSQL(query);
-
         query = Foto.getCreateTableQuery();
         db.execSQL(query);
 
@@ -41,17 +38,6 @@ public class BancoDeDados extends SQLiteOpenHelper {
         db.execSQL(query);
 
         query = Usuario.getCreateTableQuery();
-        db.execSQL(query);
-
-        query = Avaliacao.getCreateTableQuery();
-        db.execSQL(query);
-
-        // Relações
-
-        query = UsuarioSegueUsuario.getCreateTableQuery();
-        db.execSQL(query);
-
-        query = UsuarioFoiAEvento.getCreateTableQuery();
         db.execSQL(query);
     }
 
