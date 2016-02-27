@@ -1,9 +1,11 @@
 package com.infact.nightour.model;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.infact.nightour.controller.FotosController;
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.helper.StringsCampo;
@@ -50,22 +52,24 @@ public class Evento {
     // ---
 
     // Cria um evento a partir dos dados na posição apontada pelo cursor passado.
-    public static Evento fromCursor(Cursor cursor) {
+    public static Evento fromCursor(Cursor cursor, Context context) {
         Evento evento = new Evento();
 
         evento.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BD_ID)));
         evento.setNome(cursor.getString(cursor.getColumnIndexOrThrow(BD_NOME)));
         evento.setDescricao(cursor.getString(cursor.getColumnIndexOrThrow(BD_DESCRICAO)));
-        evento.setChaveImagem(cursor.getInt(cursor.getColumnIndexOrThrow(BD_IMAGEM_CHAVE)));
+
+        int chaveImagem = cursor.getInt(cursor.getColumnIndexOrThrow(BD_IMAGEM_CHAVE));
+        evento.setImagem(Foto.fromCursor(new FotosController(context).carregaFotoById(chaveImagem)));
 
         return evento;
     }
 
-    public static List<Evento> getListFromCursor(Cursor cursor) {
+    public static List<Evento> getListFromCursor(Cursor cursor, Context context) {
         List<Evento> eventos = new ArrayList<Evento>();
 
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-            eventos.add(Evento.fromCursor(cursor));
+            eventos.add(Evento.fromCursor(cursor, context));
         }
 
         return eventos;
@@ -76,7 +80,7 @@ public class Evento {
     private int id;
     private String nome;
     private String descricao;
-    private int chaveImagem;
+    private Foto imagem;
     private int chaveLocal;
 
     public int getId() {
@@ -108,12 +112,16 @@ public class Evento {
         return "Evento{" + "nome='" + nome +'\'' + '}';
     }
 
-    public int getChaveImagem() {
-        return chaveImagem;
+    public Foto getImagem() {
+        return imagem;
     }
 
-    public void setChaveImagem(int chaveImagem) {
-        this.chaveImagem = chaveImagem;
+    public void setImagem(Foto imagem) {
+        this.imagem = imagem;
+    }
+
+    public int getChaveImagem() {
+        return getImagem().getId();
     }
 
     public int getChaveLocal() {
