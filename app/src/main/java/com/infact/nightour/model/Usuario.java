@@ -1,5 +1,9 @@
 package com.infact.nightour.model;
 
+import android.content.Context;
+import android.database.Cursor;
+
+import com.infact.nightour.controller.FotosController;
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.helper.StringsCampo;
@@ -43,6 +47,20 @@ public class Usuario {
             });
     }
 
+    public static Usuario fromCursor(Cursor cursor, Context context) {
+        Usuario usuario = new Usuario();
+
+        usuario.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BD_ID)));
+        usuario.setNome(cursor.getString(cursor.getColumnIndexOrThrow(BD_NOME)));
+        usuario.setStatus(cursor.getString(cursor.getColumnIndexOrThrow(BD_STATUS)));
+        usuario.setInteresse(cursor.getString(cursor.getColumnIndexOrThrow(BD_INTERESSE)));
+
+        int chaveImagem = cursor.getInt(cursor.getColumnIndexOrThrow(BD_IMAGEM_PERFIL));
+        usuario.setImagemPerfil(Foto.fromCursor(new FotosController(context).carregaFotoById(chaveImagem)));
+
+        return usuario;
+    }
+
     private long id;
     private String nome;
     private String status;
@@ -50,6 +68,7 @@ public class Usuario {
     private Date aniversario;
     private Foto imagemPerfil;
 
+    public Usuario() {}
     public Usuario(String nome){
         this.nome = nome;
     }
