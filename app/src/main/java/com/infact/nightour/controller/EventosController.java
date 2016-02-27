@@ -14,9 +14,11 @@ import com.infact.nightour.model.Evento;
 public class EventosController {
     private SQLiteDatabase db;
     private BancoDeDados banco;
+    private Context context;
 
     public EventosController(Context context) {
-        banco = new BancoDeDados(context);
+        this.banco = new BancoDeDados(context);
+        this.context = context;
     }
 
     public long insereEvento(Evento evento) {
@@ -29,6 +31,18 @@ public class EventosController {
         db = banco.getWritableDatabase();
         long resultado = db.insert(Evento.NOME_TABELA, null, valores);
         db.close();
+
+        if (resultado != -1) {
+            evento.setId(resultado);
+
+            FotosController fotosController = new FotosController(this.context);
+            long fotoResultado = fotosController.insereFoto(evento.getImagem());
+
+            if (fotoResultado != -1) {
+                LocaisController locaisController = new LocaisController(this.context);
+                locaisController.insereLocal(evento.getLocal());
+            }
+        }
 
         return resultado;
     }
