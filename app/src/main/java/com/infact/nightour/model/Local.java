@@ -1,5 +1,7 @@
 package com.infact.nightour.model;
 
+import android.database.Cursor;
+
 import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringsCampo;
 
@@ -28,6 +30,17 @@ public class Local {
                 new StringsCampo(BD_LONGITUDE, BD_LONGITUDE_TIPO),
                 new StringsCampo(BD_ZOOM, BD_ZOOM_TIPO)
         });
+    }
+
+    public static Local fromCursor(Cursor cursor) {
+        Local local = new Local();
+
+        local.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BD_ID)));
+        local.setLatitude(cursor.getDouble(cursor.getColumnIndexOrThrow(BD_LATITUDE)));
+        local.setLongitude(cursor.getDouble(cursor.getColumnIndexOrThrow(BD_LONGITUDE)));
+        local.setZoom(cursor.getFloat(cursor.getColumnIndexOrThrow(BD_ZOOM)));
+
+        return local;
     }
 
     private int id;
