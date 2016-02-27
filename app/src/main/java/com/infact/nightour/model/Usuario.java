@@ -114,10 +114,6 @@ public class Usuario {
         this.aniversario = aniversario;
     }
 
-    public long getAniversarioUnixTime() {
-        return Timestamp.makeUnixTime(getAniversario());
-    }
-
     public int getChaveImagemPerfil() {
         return getImagemPerfil().getId();
     }
