@@ -1,8 +1,10 @@
 package com.infact.nightour.converter;
 
 import com.infact.nightour.dto.FotoDTO;
+import com.infact.nightour.dto.LocalDTO;
 import com.infact.nightour.dto.UsuarioDTO;
 import com.infact.nightour.model.Foto;
+import com.infact.nightour.model.Local;
 import com.infact.nightour.model.Usuario;
 
 /**
@@ -17,6 +19,17 @@ public class Converter {
         foto.setDescricao(dto.getDescricao());
 
         return foto;
+    }
+
+    public static Local DTOtoLocal(LocalDTO dto) {
+        Local local = new Local();
+
+        local.setId(dto.getId());
+        local.setZoom((float)dto.getZoom());
+        local.setLatitude(dto.getLatitude());
+        local.setLongitude(dto.getLongitude());
+
+        return local;
     }
 
     public static Usuario DTOtoUsuario(UsuarioDTO dto) {
