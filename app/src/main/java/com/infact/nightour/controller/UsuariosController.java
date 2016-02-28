@@ -26,7 +26,6 @@ public class UsuariosController {
         valores.put(usuario.BD_NOME, usuario.getNome());
         valores.put(usuario.BD_STATUS, usuario.getStatus());
         valores.put(usuario.BD_INTERESSE, usuario.getInteresse());
-        valores.put(usuario.BD_ANIVERSARIO, usuario.getAniversarioUnixTime());
         valores.put(usuario.BD_IMAGEM_PERFIL, usuario.getChaveImagemPerfil());
 
         return valores;
