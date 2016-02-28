@@ -35,7 +35,7 @@ public class Local {
     public static Local fromCursor(Cursor cursor) {
         Local local = new Local();
 
-        local.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BD_ID)));
+        local.setId(cursor.getLong(cursor.getColumnIndexOrThrow(BD_ID)));
         local.setLatitude(cursor.getDouble(cursor.getColumnIndexOrThrow(BD_LATITUDE)));
         local.setLongitude(cursor.getDouble(cursor.getColumnIndexOrThrow(BD_LONGITUDE)));
         local.setZoom(cursor.getFloat(cursor.getColumnIndexOrThrow(BD_ZOOM)));
@@ -43,16 +43,16 @@ public class Local {
         return local;
     }
 
-    private int id;
+    private long id;
     private double longitude;
     private double latitude;
     private float zoom;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
