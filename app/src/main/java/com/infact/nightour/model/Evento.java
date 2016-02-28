@@ -124,7 +124,7 @@ public class Evento {
         this.imagem = imagem;
     }
 
-    public int getChaveImagem() {
+    public long getChaveImagem() {
         return getImagem().getId();
     }
 
