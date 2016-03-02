@@ -27,7 +27,7 @@ public class Converter {
         Local local = new Local();
 
         local.setId(dto.getId());
-        local.setZoom((float)dto.getZoom());
+        local.setZoom((float) dto.getZoom());
         local.setLatitude(dto.getLatitude());
         local.setLongitude(dto.getLongitude());
 
@@ -56,5 +56,16 @@ public class Converter {
         evento.setImagem(DTOtoFoto(dto.getCapa()));
 
         return evento;
+    }
+
+    public static LocalDTO localToDTO(Local local) {
+        LocalDTO dto = new LocalDTO();
+
+        dto.setId(local.getId());
+        dto.setZoom(local.getZoom());
+        dto.setLatitude(local.getLatitude());
+        dto.setLongitude(local.getLongitude());
+
+        return dto;
     }
 }
