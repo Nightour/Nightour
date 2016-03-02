@@ -78,4 +78,16 @@ public class Converter {
 
         return dto;
     }
+
+    public EventoDTO eventoToDTO(Evento evento) {
+        EventoDTO dto = new EventoDTO();
+
+        dto.setId(evento.getId());
+        dto.setNome(evento.getNome());
+        dto.setDescricao(evento.getDescricao());
+        dto.setLocal(localToDTO(evento.getLocal()));
+        dto.setCapa(fotoToDTO(evento.getImagem()));
+
+        return dto;
+    }
 }
