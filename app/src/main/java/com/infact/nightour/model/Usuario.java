@@ -114,7 +114,7 @@ public class Usuario {
         this.aniversario = aniversario;
     }
 
-    public int getChaveImagemPerfil() {
+    public long getChaveImagemPerfil() {
         return getImagemPerfil().getId();
     }
 
