@@ -91,7 +91,7 @@ public class Converter {
         return dto;
     }
 
-    public EventoDTO eventoToDTO(Evento evento) {
+    public static EventoDTO eventoToDTO(Evento evento) {
         EventoDTO dto = new EventoDTO();
 
         dto.setId(evento.getId());
