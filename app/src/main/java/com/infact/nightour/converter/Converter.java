@@ -27,7 +27,7 @@ public class Converter {
         Local local = new Local();
 
         local.setId(dto.getId());
-        local.setZoom((float)dto.getZoom());
+        local.setZoom((float) dto.getZoom());
         local.setLatitude(dto.getLatitude());
         local.setLongitude(dto.getLongitude());
 
@@ -56,5 +56,50 @@ public class Converter {
         evento.setImagem(DTOtoFoto(dto.getCapa()));
 
         return evento;
+    }
+
+    public static LocalDTO localToDTO(Local local) {
+        LocalDTO dto = new LocalDTO();
+
+        dto.setId(local.getId());
+        dto.setZoom(local.getZoom());
+        dto.setLatitude(local.getLatitude());
+        dto.setLongitude(local.getLongitude());
+
+        return dto;
+    }
+
+    public static FotoDTO fotoToDTO(Foto foto) {
+        FotoDTO dto = new FotoDTO();
+
+        dto.setId(foto.getId());
+        dto.setImagem(foto.getImagemBytes());
+        dto.setDescricao(foto.getDescricao());
+
+        return dto;
+    }
+
+    public static UsuarioDTO usuarioToDTO(Usuario usuario) {
+        UsuarioDTO dto = new UsuarioDTO();
+
+        dto.setId(usuario.getId());
+        dto.setStatus(usuario.getStatus());
+        dto.setInteresse(usuario.getInteresse());
+        dto.setAniversario(usuario.getAniversario() + "");
+        dto.setImagemPerfil(fotoToDTO(usuario.getImagemPerfil()));
+
+        return dto;
+    }
+
+    public static EventoDTO eventoToDTO(Evento evento) {
+        EventoDTO dto = new EventoDTO();
+
+        dto.setId(evento.getId());
+        dto.setNome(evento.getNome());
+        dto.setDescricao(evento.getDescricao());
+        dto.setLocal(localToDTO(evento.getLocal()));
+        dto.setCapa(fotoToDTO(evento.getImagem()));
+
+        return dto;
     }
 }
