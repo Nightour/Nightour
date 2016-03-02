@@ -79,6 +79,18 @@ public class Converter {
         return dto;
     }
 
+    public static UsuarioDTO usuarioToDTO(Usuario usuario) {
+        UsuarioDTO dto = new UsuarioDTO();
+
+        dto.setId(usuario.getId());
+        dto.setStatus(usuario.getStatus());
+        dto.setInteresse(usuario.getInteresse());
+        dto.setAniversario(usuario.getAniversario() + "");
+        dto.setImagemPerfil(fotoToDTO(usuario.getImagemPerfil()));
+
+        return dto;
+    }
+
     public EventoDTO eventoToDTO(Evento evento) {
         EventoDTO dto = new EventoDTO();
 
