@@ -68,4 +68,14 @@ public class Converter {
 
         return dto;
     }
+
+    public static FotoDTO fotoToDTO(Foto foto) {
+        FotoDTO dto = new FotoDTO();
+
+        dto.setId(foto.getId());
+        dto.setImagem(foto.getImagemBytes());
+        dto.setDescricao(foto.getDescricao());
+
+        return dto;
+    }
 }
