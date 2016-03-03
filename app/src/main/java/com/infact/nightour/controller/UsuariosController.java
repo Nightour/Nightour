@@ -42,7 +42,7 @@ public class UsuariosController {
         if (resultado != -1) {
             usuario.setId(resultado);
 
-            FotosController fotosController = new FotosController(this.context);
+            FotosController fotosController = new FotosController(this.getContext());
             fotosController.insereFoto(usuario.getImagemPerfil());
         }
 
@@ -98,5 +98,9 @@ public class UsuariosController {
         db = banco.getWritableDatabase();
         db.delete(Usuario.NOME_TABELA, where, null);
         db.close();
+    }
+
+    public Context getContext() {
+        return context;
     }
 }
