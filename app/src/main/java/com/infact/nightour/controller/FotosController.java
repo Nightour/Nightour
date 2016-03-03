@@ -51,7 +51,7 @@ public class FotosController {
         return cursor;
     }
 
-    public Cursor carregaFotoById(int id) {
+    public Cursor carregaFotoById(Long id) {
         String[] campos = camposTabelaFoto();
         String where = Foto.BD_ID + " = " + id;
 
