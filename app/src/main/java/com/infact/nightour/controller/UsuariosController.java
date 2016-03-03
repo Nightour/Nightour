@@ -90,6 +90,8 @@ public class UsuariosController {
         db = banco.getWritableDatabase();
         db.update(usuario.NOME_TABELA, valores, where, null);
         db.close();
+
+        new FotosController(this.context).alteraFoto(usuario.getImagemPerfil());
     }
 
     public void deletaUsuario(Long id) {
