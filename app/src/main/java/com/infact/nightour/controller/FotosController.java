@@ -83,7 +83,7 @@ public class FotosController {
         db.close();
     }
 
-    public void deletaFoto(int id) {
+    public void deletaFoto(Long id) {
         String where = Foto.BD_ID + " = " + id;
 
         db = banco.getWritableDatabase();
