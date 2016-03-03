@@ -81,7 +81,7 @@ public class LocaisController {
         db.close();
     }
 
-    public void deletaLocal(int id) {
+    public void deletaLocal(Long id) {
         String where = Local.BD_ID + " = " + id;
 
         db = banco.getWritableDatabase();
