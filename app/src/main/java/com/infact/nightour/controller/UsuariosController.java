@@ -67,7 +67,7 @@ public class UsuariosController {
         return cursor;
     }
 
-    public Cursor carregaUsuarioById(int id) {
+    public Cursor carregaUsuarioById(Long id) {
         String[] campos = camposTabelaUsuario();
         String where = Usuario.BD_ID + " = " + id;
 
