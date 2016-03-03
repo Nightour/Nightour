@@ -41,4 +41,18 @@ public class GsonParsing {
         }
         return usuarioDTOs;
     }
+
+    public static List<EventoDTO> getEventoDTOListFromJson(String json){
+        List<EventoDTO> eventoDTOs = new ArrayList<EventoDTO>();
+        try{
+            Gson gson = new Gson();
+            Type listType = new TypeToken<ArrayList<EventoDTO>>() {
+            }.getType();
+            eventoDTOs = gson.fromJson(json, listType);
+
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
+        return eventoDTOs;
+    }
 }
