@@ -8,7 +8,9 @@ import com.infact.nightour.helper.MakeCreateTableQuery;
 import com.infact.nightour.helper.StringChaveEstrangeira;
 import com.infact.nightour.helper.StringsCampo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Timóteo on 08/11/2015.
@@ -60,6 +62,16 @@ public class Usuario {
         usuario.setImagemPerfil(Foto.fromCursor(new FotosController(context).carregaFotoById(chaveImagem)));
 
         return usuario;
+    }
+
+    public static List<Usuario> getListFromCursor(Cursor cursor, Context context) {
+        List<Usuario> usuarios = new ArrayList<Usuario>();
+
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            usuarios.add(Usuario.fromCursor(cursor, context));
+        }
+
+        return usuarios;
     }
 
     private long id;
