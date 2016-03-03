@@ -95,7 +95,7 @@ public class EventosController {
         db.close();
     }
 
-    public void deletaEvento(int id) {
+    public void deletaEvento(Long id) {
         String where = Evento.BD_ID + " = " + id;
 
         db = banco.getWritableDatabase();
