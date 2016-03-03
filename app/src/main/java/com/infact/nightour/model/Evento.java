@@ -128,7 +128,7 @@ public class Evento {
         return getImagem().getId();
     }
 
-    public int getChaveLocal() {
+    public Long getChaveLocal() {
         return getLocal().getId();
     }
 
