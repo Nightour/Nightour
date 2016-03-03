@@ -92,7 +92,7 @@ public class UsuariosController {
         db.close();
     }
 
-    public void deletaUsuario(int id) {
+    public void deletaUsuario(Long id) {
         String where = Usuario.BD_ID + " = " + id;
 
         db = banco.getWritableDatabase();
