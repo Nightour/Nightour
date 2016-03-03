@@ -56,7 +56,7 @@ public class LocaisController {
         return cursor;
     }
 
-    public Cursor carregaLocalById(int id) {
+    public Cursor carregaLocalById(Long id) {
         String[] campos = camposTabelaLocal();
         String where = Local.BD_ID + " = " + id;
 
