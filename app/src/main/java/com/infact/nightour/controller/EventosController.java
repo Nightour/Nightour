@@ -65,7 +65,7 @@ public class EventosController {
         return cursor;
     }
 
-    public Cursor carregaEventoById(int id) {
+    public Cursor carregaEventoById(Long id) {
         String[] campos = camposTabelaEvento();
         String where = Evento.BD_ID + " = " + id;
 
@@ -95,7 +95,7 @@ public class EventosController {
         db.close();
     }
 
-    public void deletaEvento(int id) {
+    public void deletaEvento(Long id) {
         String where = Evento.BD_ID + " = " + id;
 
         db = banco.getWritableDatabase();

@@ -56,7 +56,7 @@ public class Usuario {
         usuario.setInteresse(cursor.getString(cursor.getColumnIndexOrThrow(BD_INTERESSE)));
         usuario.setAniversario(cursor.getLong(cursor.getColumnIndexOrThrow(BD_ANIVERSARIO)));
 
-        int chaveImagem = cursor.getInt(cursor.getColumnIndexOrThrow(BD_IMAGEM_PERFIL));
+        Long chaveImagem = cursor.getLong(cursor.getColumnIndexOrThrow(BD_IMAGEM_PERFIL));
         usuario.setImagemPerfil(Foto.fromCursor(new FotosController(context).carregaFotoById(chaveImagem)));
 
         return usuario;

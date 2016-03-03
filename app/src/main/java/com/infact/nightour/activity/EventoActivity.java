@@ -25,7 +25,7 @@ public class EventoActivity extends BaseActivity {
         EventoFragment ef = (EventoFragment) getSupportFragmentManager().findFragmentById(R.id.EventoFragment);
         Evento evento = (Evento) getIntent().getSerializableExtra("evento");
 
-        Cursor fotoCursor = new FotosController(null).carregaFotoById((int)evento.getChaveImagem());
+        Cursor fotoCursor = new FotosController(null).carregaFotoById(evento.getChaveImagem());
         Foto foto = Foto.fromCursor(fotoCursor);
 
         ef.setEvento(evento, foto);

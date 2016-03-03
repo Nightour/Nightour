@@ -67,7 +67,7 @@ public class UsuariosController {
         return cursor;
     }
 
-    public Cursor carregaUsuarioById(int id) {
+    public Cursor carregaUsuarioById(Long id) {
         String[] campos = camposTabelaUsuario();
         String where = Usuario.BD_ID + " = " + id;
 
@@ -92,7 +92,7 @@ public class UsuariosController {
         db.close();
     }
 
-    public void deletaUsuario(int id) {
+    public void deletaUsuario(Long id) {
         String where = Usuario.BD_ID + " = " + id;
 
         db = banco.getWritableDatabase();

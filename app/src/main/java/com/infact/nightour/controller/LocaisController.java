@@ -56,7 +56,7 @@ public class LocaisController {
         return cursor;
     }
 
-    public Cursor carregaLocalById(int id) {
+    public Cursor carregaLocalById(Long id) {
         String[] campos = camposTabelaLocal();
         String where = Local.BD_ID + " = " + id;
 
@@ -81,7 +81,7 @@ public class LocaisController {
         db.close();
     }
 
-    public void deletaLocal(int id) {
+    public void deletaLocal(Long id) {
         String where = Local.BD_ID + " = " + id;
 
         db = banco.getWritableDatabase();

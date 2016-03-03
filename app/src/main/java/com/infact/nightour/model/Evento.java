@@ -60,10 +60,10 @@ public class Evento {
         evento.setNome(cursor.getString(cursor.getColumnIndexOrThrow(BD_NOME)));
         evento.setDescricao(cursor.getString(cursor.getColumnIndexOrThrow(BD_DESCRICAO)));
 
-        int chaveImagem = cursor.getInt(cursor.getColumnIndexOrThrow(BD_IMAGEM_CHAVE));
+        Long chaveImagem = cursor.getLong(cursor.getColumnIndexOrThrow(BD_IMAGEM_CHAVE));
         evento.setImagem(Foto.fromCursor(new FotosController(context).carregaFotoById(chaveImagem)));
 
-        int chaveLocal = cursor.getInt(cursor.getColumnIndexOrThrow(BD_LOCAL_CHAVE));
+        Long chaveLocal = cursor.getLong(cursor.getColumnIndexOrThrow(BD_LOCAL_CHAVE));
         evento.setLocal(Local.fromCursor(new LocaisController(context).carregaLocalById(chaveLocal)));
 
         return evento;
@@ -128,7 +128,7 @@ public class Evento {
         return getImagem().getId();
     }
 
-    public int getChaveLocal() {
+    public Long getChaveLocal() {
         return getLocal().getId();
     }
 
