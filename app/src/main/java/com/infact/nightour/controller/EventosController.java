@@ -21,12 +21,18 @@ public class EventosController {
         this.context = context;
     }
 
-    public long insereEvento(Evento evento) {
+    private static ContentValues makeContentValues(Evento evento) {
         ContentValues valores = new ContentValues();
         valores.put(Evento.BD_NOME, evento.getNome());
         valores.put(Evento.BD_DESCRICAO, evento.getDescricao());
         valores.put(Evento.BD_IMAGEM_CHAVE, evento.getChaveImagem());
         valores.put(Evento.BD_LOCAL_CHAVE, evento.getChaveLocal());
+
+        return valores;
+    }
+
+    public long insereEvento(Evento evento) {
+        ContentValues valores = makeContentValues(evento);
 
         db = banco.getWritableDatabase();
         long resultado = db.insert(Evento.NOME_TABELA, null, valores);
@@ -81,18 +87,16 @@ public class EventosController {
     }
 
     public void alteraEvento(Evento evento) {
-        ContentValues valores = new ContentValues();
-        valores.put(Evento.BD_ID, evento.getId());
-        valores.put(Evento.BD_NOME, evento.getNome());
-        valores.put(Evento.BD_DESCRICAO, evento.getDescricao());
-        valores.put(Evento.BD_IMAGEM_CHAVE, evento.getChaveImagem());
-        valores.put(Evento.BD_LOCAL_CHAVE, evento.getChaveLocal());
+        ContentValues valores = makeContentValues(evento);
 
         String where = Evento.BD_ID + " = " + evento.getId();
 
         db = banco.getWritableDatabase();
         db.update(Evento.NOME_TABELA, valores, where, null);
         db.close();
+
+        new FotosController(this.context).alteraFoto(evento.getImagem());
+        new LocaisController(this.context).alteraLocal(evento.getLocal());
     }
 
     public void deletaEvento(Long id) {

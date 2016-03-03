@@ -5,13 +5,11 @@ package com.infact.nightour.helper;
  */
 public class StringChaveEstrangeira {
     private String nomeChave;
-    private String tipoCampo;
     private String campoReferenciado;
     private String tabelaReferenciada;
 
-    public StringChaveEstrangeira(String nomeChave, String tipo, String tabelaReferenciada, String campoReferenciado) {
+    public StringChaveEstrangeira(String nomeChave, String tabelaReferenciada, String campoReferenciado) {
         this.setNomeChave(nomeChave);
-        this.setTipoCampo(tipo);
         this.setCampoReferenciado(campoReferenciado);
         this.setTabelaReferenciada(tabelaReferenciada);
     }
@@ -34,8 +32,7 @@ public class StringChaveEstrangeira {
 
     @Override
     public String toString() {
-        String query = getNomeChave() + " " + getTipoCampo() + ",";
-        query += "FOREIGN KEY(" + getNomeChave() + ") REFERENCES " + getTabelaReferenciada() + "(" + getCampoReferenciado() + ")";
+        String query = "FOREIGN KEY(" + getNomeChave() + ") REFERENCES " + getTabelaReferenciada() + "(" + getCampoReferenciado() + ")";
         return query;
     }
 
@@ -45,13 +42,5 @@ public class StringChaveEstrangeira {
 
     public void setCampoReferenciado(String campoReferenciado) {
         this.campoReferenciado = campoReferenciado;
-    }
-
-    public String getTipoCampo() {
-        return tipoCampo;
-    }
-
-    public void setTipoCampo(String tipoCampo) {
-        this.tipoCampo = tipoCampo;
     }
 }

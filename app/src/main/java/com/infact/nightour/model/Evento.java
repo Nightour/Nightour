@@ -45,8 +45,10 @@ public class Evento {
                 new StringsCampo(BD_ID, BD_ID_TIPO),
                 new StringsCampo(BD_NOME, BD_NOME_TIPO),
                 new StringsCampo(BD_DESCRICAO, BD_DESCRICAO_TIPO),
-                new StringChaveEstrangeira(BD_IMAGEM_CHAVE, BD_IMAGEM_CHAVE_TIPO, BD_IMAGEM_REFERENCIA, BD_IMAGEM_CAMPO_REFERENCIADO),
-                new StringChaveEstrangeira(BD_LOCAL_CHAVE, BD_LOCAL_CHAVE_TIPO, BD_LOCAL_REFERENCIA, BD_LOCAL_CAMPO_REFERENCIADO)
+                new StringsCampo(BD_IMAGEM_CHAVE, BD_IMAGEM_CHAVE_TIPO),
+                new StringsCampo(BD_LOCAL_CHAVE, BD_LOCAL_CHAVE_TIPO),
+                new StringChaveEstrangeira(BD_IMAGEM_CHAVE, BD_IMAGEM_REFERENCIA, BD_IMAGEM_CAMPO_REFERENCIADO),
+                new StringChaveEstrangeira(BD_LOCAL_CHAVE, BD_LOCAL_REFERENCIA, BD_LOCAL_CAMPO_REFERENCIADO)
         });
     }
 

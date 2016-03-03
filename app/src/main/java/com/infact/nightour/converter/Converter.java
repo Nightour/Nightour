@@ -19,6 +19,7 @@ public class Converter {
         foto.setId(dto.getId());
         foto.setImagem(Foto.bitmapFromBlob(dto.getImagem()));
         foto.setDescricao(dto.getDescricao());
+        foto.setTimestamp(dto.getTimestamp());
 
         return foto;
     }
@@ -75,6 +76,7 @@ public class Converter {
         dto.setId(foto.getId());
         dto.setImagem(foto.getImagemBytes());
         dto.setDescricao(foto.getDescricao());
+        dto.setTimestamp(foto.getTimestamp());
 
         return dto;
     }
