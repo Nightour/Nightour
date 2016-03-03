@@ -94,6 +94,9 @@ public class EventosController {
         db = banco.getWritableDatabase();
         db.update(Evento.NOME_TABELA, valores, where, null);
         db.close();
+
+        new FotosController(this.context).alteraFoto(evento.getImagem());
+        new LocaisController(this.context).alteraLocal(evento.getLocal());
     }
 
     public void deletaEvento(Long id) {
