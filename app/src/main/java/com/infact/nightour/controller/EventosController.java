@@ -41,11 +41,11 @@ public class EventosController {
         if (resultado != -1) {
             evento.setId(resultado);
 
-            FotosController fotosController = new FotosController(this.context);
+            FotosController fotosController = new FotosController(this.getContext());
             long fotoResultado = fotosController.insereFoto(evento.getImagem());
 
             if (fotoResultado != -1) {
-                LocaisController locaisController = new LocaisController(this.context);
+                LocaisController locaisController = new LocaisController(this.getContext());
                 locaisController.insereLocal(evento.getLocal());
             }
         }
@@ -95,8 +95,8 @@ public class EventosController {
         db.update(Evento.NOME_TABELA, valores, where, null);
         db.close();
 
-        new FotosController(this.context).alteraFoto(evento.getImagem());
-        new LocaisController(this.context).alteraLocal(evento.getLocal());
+        new FotosController(this.getContext()).alteraFoto(evento.getImagem());
+        new LocaisController(this.getContext()).alteraLocal(evento.getLocal());
     }
 
     public void deletaEvento(Long id) {
@@ -105,5 +105,9 @@ public class EventosController {
         db = banco.getWritableDatabase();
         db.delete(Evento.NOME_TABELA, where, null);
         db.close();
+    }
+
+    public Context getContext() {
+        return context;
     }
 }
