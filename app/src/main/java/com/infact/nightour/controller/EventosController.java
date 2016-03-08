@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.infact.nightour.BancoDeDados;
 import com.infact.nightour.model.Evento;
+import com.infact.nightour.model.Foto;
+import com.infact.nightour.model.Local;
 
 /**
  * Created by Timóteo on 08/11/2015.
@@ -25,30 +27,46 @@ public class EventosController {
         ContentValues valores = new ContentValues();
         valores.put(Evento.BD_NOME, evento.getNome());
         valores.put(Evento.BD_DESCRICAO, evento.getDescricao());
-        valores.put(Evento.BD_IMAGEM_CHAVE, evento.getChaveImagem());
-        valores.put(Evento.BD_LOCAL_CHAVE, evento.getChaveLocal());
+
+        if (evento.getImagem() != null)
+            valores.put(Evento.BD_IMAGEM_CHAVE, evento.getChaveImagem());
+
+        if (evento.getLocal() != null)
+            valores.put(Evento.BD_LOCAL_CHAVE, evento.getChaveLocal());
 
         return valores;
     }
 
     public long insereEvento(Evento evento) {
+        long resultado = -1;
+
+        Foto foto = evento.getImagem();
+
+        if (foto != null) {
+            FotosController fotosController = new FotosController(this.getContext());
+            long fotoResultado = fotosController.insereFoto(foto);
+
+            if (fotoResultado != -1) {
+                foto.setId(fotoResultado);
+            }
+        }
+
+        Local local = evento.getLocal();
+
+        if (local != null) {
+            LocaisController locaisController = new LocaisController(this.getContext());
+            long localResultado = locaisController.insereLocal(local);
+
+            if (localResultado != -1) {
+                local.setId(localResultado);
+            }
+        }
+
         ContentValues valores = makeContentValues(evento);
 
         db = banco.getWritableDatabase();
-        long resultado = db.insert(Evento.NOME_TABELA, null, valores);
+        resultado = db.insert(Evento.NOME_TABELA, null, valores);
         db.close();
-
-        if (resultado != -1) {
-            evento.setId(resultado);
-
-            FotosController fotosController = new FotosController(this.getContext());
-            long fotoResultado = fotosController.insereFoto(evento.getImagem());
-
-            if (fotoResultado != -1) {
-                LocaisController locaisController = new LocaisController(this.getContext());
-                locaisController.insereLocal(evento.getLocal());
-            }
-        }
 
         return resultado;
     }
