@@ -34,7 +34,7 @@ public class Avaliacao {
                 new StringsCampo(BD_ID, BD_ID_TIPO),
                 new StringsCampo(BD_QUANT_ESTRELAS, BD_QUANT_ESTRELAS_TIPO),
                 new StringsCampo(BD_COMENTARIO, BD_COMENTARIO_TIPO),
-                new StringChaveEstrangeira(BD_TIMESTAMP_CHAVE, BD_TIMESTAMP_CHAVE_TIPO, BD_TIMESTAMP_REFERENCIA, BD_TIMESTAMP_CAMPO_REFERENCIADO)
+                //new StringChaveEstrangeira(BD_TIMESTAMP_CHAVE, BD_TIMESTAMP_CHAVE_TIPO, BD_TIMESTAMP_REFERENCIA, BD_TIMESTAMP_CAMPO_REFERENCIADO)
         });
     }
 

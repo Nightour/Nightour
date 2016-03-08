@@ -29,9 +29,9 @@ public class UsuarioTemFotos {
 
     public static String getCreateTableQuery() {
         return MakeCreateTableQuery.makeString(NOME_TABELA, new Object[]{
-                new StringChaveEstrangeira(BD_CHAVE_DONO, BD_CHAVE_DONO_TIPO, BD_DONO_REFERENCIA, BD_DONO_CAMPO_REFERENCIADO),
-                new StringChaveEstrangeira(BD_CHAVE_FOTO, BD_CHAVE_FOTO_TIPO, BD_FOTO_REFERENCIA, BD_FOTO_CAMPO_REFERENCIADO),
-                "PRIMARY KEY(" + BD_CHAVE_DONO + ", " + BD_CHAVE_FOTO + ")"
+                //new StringChaveEstrangeira(BD_CHAVE_DONO, BD_CHAVE_DONO_TIPO, BD_DONO_REFERENCIA, BD_DONO_CAMPO_REFERENCIADO),
+                //new StringChaveEstrangeira(BD_CHAVE_FOTO, BD_CHAVE_FOTO_TIPO, BD_FOTO_REFERENCIA, BD_FOTO_CAMPO_REFERENCIADO),
+                //"PRIMARY KEY(" + BD_CHAVE_DONO + ", " + BD_CHAVE_FOTO + ")"
         });
     }
 
