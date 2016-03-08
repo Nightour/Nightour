@@ -85,6 +85,7 @@ public class Converter {
         UsuarioDTO dto = new UsuarioDTO();
 
         dto.setId(usuario.getId());
+        dto.setNome(usuario.getNome());
         dto.setStatus(usuario.getStatus());
         dto.setInteresse(usuario.getInteresse());
         dto.setAniversario(usuario.getAniversario() + "");
