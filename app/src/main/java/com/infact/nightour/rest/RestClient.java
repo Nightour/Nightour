@@ -48,6 +48,7 @@ public class RestClient {
         HttpURLConnection httpURLConnection = null;
         try {
             URL url = new URL(this.url);
+            Log.d("Tag", url.toString());
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
