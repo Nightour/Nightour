@@ -13,7 +13,7 @@ public class MakeCreateTableQuery {
                 primeiroCampo = false;
             }
             else {
-                query += ",";
+                query += ", ";
             }
 
             query += campo.toString();
