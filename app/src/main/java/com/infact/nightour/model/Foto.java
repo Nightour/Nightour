@@ -44,6 +44,12 @@ public class Foto {
         return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
     }
 
+    public static byte[] blobFromBitmap(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
+        return stream.toByteArray();
+    }
+
     public static Foto fromCursor(Cursor cursor) {
         Foto foto = new Foto();
 
