@@ -1,13 +1,18 @@
 package com.infact.nightour.converter;
 
+import android.util.Log;
+
 import com.infact.nightour.dto.EventoDTO;
 import com.infact.nightour.dto.FotoDTO;
 import com.infact.nightour.dto.LocalDTO;
 import com.infact.nightour.dto.UsuarioDTO;
+import com.infact.nightour.helper.DateUtil;
 import com.infact.nightour.model.Evento;
 import com.infact.nightour.model.Foto;
 import com.infact.nightour.model.Local;
 import com.infact.nightour.model.Usuario;
+
+import java.util.Calendar;
 
 /**
  * Created by Timóteo on 28/02/2016.
@@ -38,11 +43,22 @@ public class Converter {
     public static Usuario DTOtoUsuario(UsuarioDTO dto) {
         Usuario usuario = new Usuario();
 
+        String strAniversario = dto.getAniversario();
+
+        if (strAniversario != null) {
+            Calendar aniversario = DateUtil.getStringAsCalendar(strAniversario);
+            usuario.setAniversario(aniversario.getTime().getTime());
+        }
+
         usuario.setId(dto.getId());
+        usuario.setNome(dto.getNome());
         usuario.setStatus(dto.getStatus());
         usuario.setInteresse(dto.getInteresse());
-        usuario.setAniversario(Long.parseLong(dto.getAniversario(), 10));
-        usuario.setImagemPerfil(DTOtoFoto(dto.getImagemPerfil()));
+
+        FotoDTO imagemPerfil = dto.getImagemPerfil();
+
+        if (imagemPerfil != null)
+            usuario.setImagemPerfil(DTOtoFoto(imagemPerfil));
 
         return usuario;
     }
@@ -53,8 +69,18 @@ public class Converter {
         evento.setId(dto.getId());
         evento.setNome(dto.getNome());
         evento.setDescricao(dto.getDescricao());
-        evento.setLocal(DTOtoLocal(dto.getLocal()));
-        evento.setImagem(DTOtoFoto(dto.getCapa()));
+
+        LocalDTO local = dto.getLocal();
+
+        if (local != null) {
+            evento.setLocal(DTOtoLocal(local));
+        }
+
+        FotoDTO capa = dto.getCapa();
+
+        if (capa != null) {
+            evento.setImagem(DTOtoFoto(capa));
+        }
 
         return evento;
     }
