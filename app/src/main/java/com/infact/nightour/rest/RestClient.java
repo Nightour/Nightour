@@ -1,5 +1,7 @@
 package com.infact.nightour.rest;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -48,8 +50,8 @@ public class RestClient {
             URL url = new URL(this.url);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=utf8");
-            httpURLConnection.setRequestProperty("Accept", "application/json; charset=utf8");
+            httpURLConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            httpURLConnection.setRequestProperty("Accept", "application/json;charset=UTF-8");
 
             OutputStream out = httpURLConnection.getOutputStream();
 
@@ -71,17 +73,20 @@ public class RestClient {
     public String get() {
         HttpURLConnection httpURLConnection = null;
         try {
+            Log.d("Tag", "cheguei aqui");
             URL url = new URL(this.url);
+            Log.d("Tag", (this.url == null)? "É NULO" : url.toString());
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=utf8");
-            httpURLConnection.setRequestProperty("Accept", "application/json; charset=utf8");
+            httpURLConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            httpURLConnection.setRequestProperty("Accept", "application/json;charset=UTF-8");
 
             if(httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK){
                 InputStream inputStream = httpURLConnection.getInputStream();
                 return getStringFromInputStream(inputStream);
 
             }
+            else Log.d("Tag", httpURLConnection.getResponseCode() + "");
         }catch (Exception e){
             e.printStackTrace();
         }
