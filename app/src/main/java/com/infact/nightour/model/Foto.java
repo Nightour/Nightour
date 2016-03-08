@@ -44,10 +44,16 @@ public class Foto {
         return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
     }
 
+    public static byte[] blobFromBitmap(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
+        return stream.toByteArray();
+    }
+
     public static Foto fromCursor(Cursor cursor) {
         Foto foto = new Foto();
 
-        foto.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BD_ID)));
+        foto.setId(cursor.getLong(cursor.getColumnIndexOrThrow(BD_ID)));
         foto.setImagem(bitmapFromBlob(cursor.getBlob(cursor.getColumnIndexOrThrow(BD_IMAGEM))));
         foto.setDescricao(cursor.getString(cursor.getColumnIndexOrThrow(BD_DESCRICAO)));
         foto.setTimestamp(cursor.getLong(cursor.getColumnIndexOrThrow(BD_TIMESTAMP)));

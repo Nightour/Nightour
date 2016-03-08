@@ -2,8 +2,10 @@ package com.infact.nightour.model;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import com.infact.nightour.controller.FotosController;
 import com.infact.nightour.controller.LocaisController;
@@ -62,11 +64,24 @@ public class Evento {
         evento.setNome(cursor.getString(cursor.getColumnIndexOrThrow(BD_NOME)));
         evento.setDescricao(cursor.getString(cursor.getColumnIndexOrThrow(BD_DESCRICAO)));
 
-        Long chaveImagem = cursor.getLong(cursor.getColumnIndexOrThrow(BD_IMAGEM_CHAVE));
-        evento.setImagem(Foto.fromCursor(new FotosController(context).carregaFotoById(chaveImagem)));
+        try {
+            Long chaveLocal = cursor.getLong(cursor.getColumnIndexOrThrow(BD_LOCAL_CHAVE));
+            evento.setLocal(Local.fromCursor(new LocaisController(context).carregaLocalById(chaveLocal)));
+        }
+        catch (CursorIndexOutOfBoundsException e) {
+            Log.d("Exceção", e.toString());
+        }
+        catch (IllegalArgumentException e) {
+            Log.d("Exceção", e.toString());
+        }
 
-        Long chaveLocal = cursor.getLong(cursor.getColumnIndexOrThrow(BD_LOCAL_CHAVE));
-        evento.setLocal(Local.fromCursor(new LocaisController(context).carregaLocalById(chaveLocal)));
+        try {
+            Long chaveImagem = cursor.getLong(cursor.getColumnIndexOrThrow(BD_IMAGEM_CHAVE));
+            evento.setImagem(Foto.fromCursor(new FotosController(context).carregaFotoById(chaveImagem)));
+        }
+        catch (CursorIndexOutOfBoundsException e) {
+            Log.d("Exceção", e.toString());
+        }
 
         return evento;
     }

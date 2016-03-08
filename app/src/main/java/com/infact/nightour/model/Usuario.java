@@ -2,6 +2,8 @@ package com.infact.nightour.model;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
+import android.util.Log;
 
 import com.infact.nightour.controller.FotosController;
 import com.infact.nightour.helper.MakeCreateTableQuery;
@@ -59,8 +61,13 @@ public class Usuario {
         usuario.setInteresse(cursor.getString(cursor.getColumnIndexOrThrow(BD_INTERESSE)));
         usuario.setAniversario(cursor.getLong(cursor.getColumnIndexOrThrow(BD_ANIVERSARIO)));
 
-        Long chaveImagem = cursor.getLong(cursor.getColumnIndexOrThrow(BD_IMAGEM_PERFIL));
-        usuario.setImagemPerfil(Foto.fromCursor(new FotosController(context).carregaFotoById(chaveImagem)));
+        try {
+            Long chaveImagem = cursor.getLong(cursor.getColumnIndexOrThrow(BD_IMAGEM_PERFIL));
+            usuario.setImagemPerfil(Foto.fromCursor(new FotosController(context).carregaFotoById(chaveImagem)));
+        }
+        catch (CursorIndexOutOfBoundsException e) {
+            Log.e("Erro", e.toString());
+        }
 
         return usuario;
     }

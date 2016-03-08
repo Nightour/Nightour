@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.infact.nightour.listener.ResultadoListener;
 import com.infact.nightour.rest.RestClient;
 
 /**
@@ -14,9 +15,11 @@ public class WebTask extends AsyncTask <Object, Object, String>{
 
     private Context context;
     private ProgressDialog dialog;
+    private ResultadoListener listener;
 
-    public WebTask(Context context){
+    public WebTask(Context context, ResultadoListener listener){
         this.context = context;
+        this.listener = listener;
     }
 
     @Override
@@ -41,6 +44,7 @@ public class WebTask extends AsyncTask <Object, Object, String>{
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         dialog.dismiss();
-        Log.d("Foo", s);
+        //Log.d("Foo", (s == null) ? "abubub" : s);
+        listener.getResult(s);
     }
 }

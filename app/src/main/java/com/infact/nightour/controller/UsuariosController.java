@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.infact.nightour.BancoDeDados;
+import com.infact.nightour.model.Foto;
 import com.infact.nightour.model.Usuario;
 
 /**
@@ -26,25 +27,33 @@ public class UsuariosController {
         valores.put(usuario.BD_NOME, usuario.getNome());
         valores.put(usuario.BD_STATUS, usuario.getStatus());
         valores.put(usuario.BD_INTERESSE, usuario.getInteresse());
-        valores.put(usuario.BD_IMAGEM_PERFIL, usuario.getChaveImagemPerfil());
+
+        if (usuario.getImagemPerfil() != null)
+            valores.put(usuario.BD_IMAGEM_PERFIL, usuario.getChaveImagemPerfil());
 
         return valores;
     }
 
 
     public long insereUsuario(Usuario usuario) {
+        long resultado = -1;
+
+        Foto foto = usuario.getImagemPerfil();
+
+        if (foto != null) {
+            FotosController fotosController = new FotosController(this.getContext());
+            long fotoResultado = fotosController.insereFoto(foto);
+
+            if (fotoResultado != -1) {
+                foto.setId(fotoResultado);
+            }
+        }
+
         ContentValues valores = makeContentValues(usuario);
 
         db = banco.getWritableDatabase();
-        long resultado = db.insert(usuario.NOME_TABELA, null, valores);
+        resultado = db.insert(usuario.NOME_TABELA, null, valores);
         db.close();
-
-        if (resultado != -1) {
-            usuario.setId(resultado);
-
-            FotosController fotosController = new FotosController(this.getContext());
-            fotosController.insereFoto(usuario.getImagemPerfil());
-        }
 
         return resultado;
     }
